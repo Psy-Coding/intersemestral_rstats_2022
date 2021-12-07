@@ -1,0 +1,15 @@
+name: "intersemestral_rstats_2022"
+title: "Rstat Intersemestral 2022"
+description: |
+  Curso Intersemestral de R 2022
+  Facultad de Psicología
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Estructura de Datos"
+      href: estructura_de_datos.html
+    - text: "About"
+      href: about.html
+output: distill::distill_article

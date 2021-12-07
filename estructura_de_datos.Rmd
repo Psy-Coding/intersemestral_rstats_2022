@@ -1,0 +1,25 @@
+---
+title: "2.2 Estructura de datos"
+description: |
+  Estructura de datos orientada a objetos o tabulación de datos
+author:
+  - name: Ana Gonzalez
+    affiliation: Psycoding
+  - name: Edgar Morales
+    affiliation: AprendR, Psycoding
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+# Estructura de datos en R
+
+Las estructuras de datos en R pueden entenderse con base en las dimensiónes que soportan y los datos que pueden 
+contener. Es importante conocerlas con el fin de determinar cual de ellas podemos útilizar y como podemos procesar 
+información de ellas.
+
+

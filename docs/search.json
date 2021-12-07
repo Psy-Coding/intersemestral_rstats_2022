@@ -1,0 +1,39 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "Acerca de este sitio",
+      "description": "Psycoding es un a organización...",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2021-12-08T18:34:40-06:00"
+    },
+    {
+      "path": "estructura_de_datos.html",
+      "title": "2.2 Estructura de datos",
+      "description": "Estructura de datos orientada a objetos o tabulación de datos\n",
+      "author": [
+        {
+          "name": "Ana Gonzalez",
+          "url": {}
+        },
+        {
+          "name": "Edgar Morales",
+          "url": {}
+        }
+      ],
+      "date": "`r Sys.Date()`",
+      "contents": "\nEstructura de datos en R\nLas estructuras de datos en R pueden entenderse con base en las dimensiónes que soportan y los datos que pueden contener. Es importante conocerlas con el fin de determinar cual de ellas podemos útilizar y como podemos procesar información de ellas.\n\n\n\n",
+      "last_modified": "2021-12-08T18:34:41-06:00"
+    },
+    {
+      "path": "index.html",
+      "title": "R Intersemestral 2022",
+      "description": "Bienvenido al curso Intersemestral de Rstat 2022\n",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2021-12-08T18:34:42-06:00"
+    }
+  ],
+  "collections": []
+}
