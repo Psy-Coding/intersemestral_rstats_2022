@@ -1,0 +1,10 @@
+---
+title: "Acerca de este sitio"
+description: |
+  Psycoding es un a organización...
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
