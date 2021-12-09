@@ -1,0 +1,122 @@
+---
+title: "Aritmética y operaciones lógicas en R"
+author: 
+  - name: Scarlett Escudero
+    affiliation: Psycoding
+date: "`r Sys.Date()`"
+output:  distill::distill_article
+---
+
+## Objetos
+
+Un objeto es un nombre/una unidad que puede utilizar para recuperar los datos almacenados o tareas almacenadas. 
+Por ejemplo, puede guardar datos en un objeto como a o b. 
+
+Para crear un objeto R, elija un nombre y luego use el símbolo menor que, <, seguido de un signo menos, -, para guardar los datos en él. Esta combinación parece una flecha hacia la izquierda <-
+
+Puede nombrar un objeto en R casi cualquier cosa que desee, pero hay algunas reglas: 
+* No puede comenzar con un número
+* No puede usar algunos símbolos especiales, como ^, !, $, @, +, -, /, *, :
+* No puede llevar espacios
+* De preferencia no usar el nombre de funciones preexistentes en R, como pi
+
+Nota: R sobrescribirá cualquier información previa almacenada en un objeto sin pedirle permiso. Por lo tanto, es una buena idea no usar nombres que ya están en uso, a menos que eso es algo que tú quieras.
+
+```{r}
+a <- 5
+a
+b <- 6
+b
+#Observen cómo se van creando los objetos/variables en el environment
+#texto_1 <- Este es un texto
+texto_1 <- "Este es un texto"
+texto_1 <- 'Este también es un texto'
+
+#cadena_num <- 1,2,3,4,5
+cadena_num <- c(1,2,3,4,5)
+cadena_text <- c("Hola", "Qué tal", 'Todo bien', '     Qué bueno')
+
+a <- 15
+a <- 55
+a
+```
+
+## Aritmética en R
+
+1. + Adición
+
+2. - Sustracción
+
+3. * Multiplicación
+
+4. / División
+
+5. ^ Exponente 
+
+
+```{r}
+1 + 2 - (3 * 4 / 5) ^ 6
+operacion <- (1 + 2) - (3 * 4) / 5  #Igual lo pueden hacer directamente en la consola
+
+a+b
+c <- a + b
+#variable <- texto_1 + a
+#c_text <- "a"+"b"
+numeros <- c("1", "2", "3")
+
+```
+
+Tarea rápida: 
+![](C:/Users/Lenovo/Documents/ejercicio1.png) 
+
+Tarea "larga": 
+![](C:/Users/Lenovo/Documents/ejercicio2.png) 
+
+```{r}
+edad <- c(22, 23, 22, 20, 18, 21, 25, 22, 20, 20, 22, 19)
+estatura <- c(164, 160, 155, 173, 168, 185, 158, 187, 165, 160, 156, 179)
+peso <- c(59, 60, 88, 92, 77, 62, 68, 95, 63, 72, 95, 66)
+estatura <- estatura/100
+IMC <- peso/estatura^2
+```
+
+
+## Operaciones lógicas
+  
+1. != No Igual
+
+2. == Igual
+
+3. < Menor que 
+
+4. > Mayor que
+
+5. <= Menor que o igual 
+
+6. >= Mayor que o igual 
+
+7. & (and)
+
+8. | (or)
+
+9. ! no
+
+```{r}
+x <- 0.5
+0 < x 
+x > 10
+x <= .0005
+
+x <- 1:3
+y <- 1:3
+z <- c(0,1,2)
+z <- c(1,2,5)
+
+x == y
+x == z
+x != z
+
+verdadero <- T
+verdadero == F
+```
+

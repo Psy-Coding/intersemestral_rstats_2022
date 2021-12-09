@@ -1,0 +1,99 @@
+---
+title: "1.2 Comandos básicos"
+description: |
+  Comandos básicos, interfaz de R-studio y ambiente
+author:
+  - name: Emma Botello
+    affiliation: Psycoding
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# ¿Qué es R?
+
+Un lenguaje y un entorno de programación que dispone de:
+
+- Almacenamiento y manipulación de datos.
+- Operadores para cálculo.
+- Herramientas para análisis de datos.
+- Posibilidades gráficas para análisis de datos.
+
+Cabe aclarar que R no está propiamente diseñado como sistema estadístico, sino que es un entorno en el cual se han implementado muchas técnicas estadísticas.
+
+El código de R está disponible como software gratuito y de libre acceso, el cual continuamente es mejorado por personas en todo el mundo que colaboran para su desarrollo.
+
+Para acceder a la consola de R, busca el siguiente símbolo en tu menú de aplicaciones:
+![Imagen de R](https://cran.r-project.org/doc/manuals/r-patched/Rlogo.svg)
+
+Una vez que se ha abierto, ubica el prompt (>). Este símbolo indica que R está a la espera de tus órdenes. Si escribes instrucciones frente al prompt y das enter, R las ejecutará, siempre y cuando uses el lenguaje específico que R requiere. Por ejemplo, escribe:
+
+```{r fecha, echo=TRUE}
+date()
+```
+# ¿Qué es RStudio?
+
+Un entorno amigable diseñado para R que permite realizar los procedimientos de manera más sencilla e intuitiva. 
+
+## Ventajas de RStudio
+
+- Permite:
+  - Resaltar la sintaxis.
+  - Autocompletar el código.
+  - Administrar fácilmente múltiples directorios de trabajo usando proyectos.
+  - Hacer diagnóstico de errores.
+
+Puedes abrirlo ubicando el siguiente símbolo en tu menú de aplicaciones:
+![Imagen de RStudio](https://blog.desdelinux.net/wp-content/uploads/2019/02/rstudio-og.png)
+
+Una vez que has abierto RStudio, puedes personalizar el color de fondo y el color con el que se resalta la sintaxis. Para esto debes ubicar la opción Tools y dar click en Global Options. Se abrirá una ventana con múltiples opciones, entre ellas la opción Appearance. Aquí podrás seleccionar un tema para tu editor, además de cambiar el tipo y tamaño de tu letra.
+
+Para que observes como RStudio autocompleta el código, ubica la consola (busca el prompt >), escribe dat y observa que sucede. 
+
+RStudio te ofrece sugerencias de funciones que inician con las letras que estás escribiendo, como la función data(). Usando las flechas de tu teclado puedes navegar entre las distintas opciones que te ofrece R. Navega entre las opciones hasta encontrar la función date(), una vez que hayas encontrado esta función usa la tecla Tab o tabuladora para autocompletar la función.
+
+Ahora, intenta hacer lo mismo en R directamente. Como podrás notar, R no te ofrece sugerencias al escribir. Puedes forzar a R a hacer esto dando doble click en la tecla Tab, sin embargo tienes la desventaja de que solo te da el nombre de las funciones y tú tienes que completar las letras que te falten, lo cual no es un problema con la función data(), pues falta solo una letra, pero tomaría un poco más de tiempo escribir la función data.frame(). RStudio optimiza nuestro tiempo al autocompletar el código.
+
+RStudio, además, te permite tener proyectos por separado donde estés trabajando con código para distintos propósitos. ¡Vamos a abrir un proyecto para este curso! Ubica la esquina superior derecha de tu RStudio, si das click sobre Project: None  observarás lo siguiente:
+![Proyecto](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToICavj6zWtWzGE6MWK2jJVgVSzUQFNs9B7g&usqp=CAU)
+
+Selecciona New Project, te aparecerá esta ventana:
+![Crear proyecto](https://www.rstudio.com/images/docs/projects_new.png)
+
+Puedes generar una nueva carpeta (o directorio) con "New Directory", esto si no tienes alguna designada en tu computadora para el curso. Si ya habías creado una carpeta con anterioridad, da click en "Existing Directory". 
+
+Al seleccionar "New Directory" te dará varias opciones, vuelve a seleccionar "New Directory". Se abrirá una ventana como la siguiente:
+
+![Nombrar proyecto](https://dq-blog-files.s3.amazonaws.com/rstudio_tutorial/name_project.png)
+
+Deberás darle un nombre a tu carpeta y explorar (browse) los directorios existentes de tu computadora para seleccionar la ubicación donde se guardará la nueva carpeta del proyecto. Cuando programes, procura no nombrar carpetas y archivos usando caracteres especiales (ej. acentos, ñ, +, *, /, @, #...), caracteres gráficos (ej. ♣, ♦, ♥, ♠...) o espacios. Para este curso, sugerimos el nombre de carpeta: inter_RStats_2022. Una vez nombrada la carpeta y seleccionada la ubicación, da click en "Create Project". 
+¡Listo! Ahora RStudio debería ubicarte en automático en ese proyecto.
+
+## Proyectos 
+
+Mantenienen un ambiente de trabajo ordenado pues permiten:
+
+- Concentrar todos los archivos asociados a un proyecto en una sola ubicación.
+- Separar claramente un proyecto de otros en los que se estén trabajando. 
+- Mantener los resultados del código que se ejecutó anteriormente (environment).
+- Conservar un directorio de trabajo estable.
+
+Un directorio de trabajo (Working Directory) es la carpeta en la cual RStudio busca los archivos que se le solicita leer y donde colocará los archivos que se le pida que guarde.  RStudio muestra el WD actual en la parte superior de la consola (ej.~/Documents/inter_RStats_2022/). Puedes conocer tu WD actual usando el comando:
+
+```{r eval=FALSE, include=TRUE}
+getwd()
+```
+
+# Páneles en RStudio
+Como habrás observado desde que abriste R, tiene múltiples páneles además de la consola. Seguramente, por ahora ves solo 3, similar a lo siguiente:
+
+![Paneles sin editor](https://crd230.github.io/rgui.png)
+
+Vamos a hacer que se muestren los 4 páneles principales de RStudio, de la siguiente forma:
+![Imagen de paneles](https://cpgonzal.github.io/cursoIntroR2017/figure/RStudio_panels.png)
+
+Para abrir el editor de código, crearemos un script. Da click en el siguiente ícono:
+![Icono script](https://media.geeksforgeeks.org/wp-content/uploads/20200402193929/create-2.jpg)

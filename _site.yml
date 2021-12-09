@@ -4,10 +4,15 @@ description: |
   Curso Intersemestral de R 2022
   Facultad de Psicología
 output_dir: "docs"
+exclude: ["renv.lock", "LICENSE"]
 navbar:
   right:
     - text: "Home"
       href: index.html
+    - text: "Comandos básicos"
+      href: comandos_basicos.html
+    - text: "Aritmética y operaciones lógicas"
+      href: Aritmetica_y_operaciones.html
     - text: "Estructura de Datos"
       href: estructura_de_datos.html
     - text: "About"
