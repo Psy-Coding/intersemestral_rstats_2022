@@ -34,12 +34,12 @@ jobs:
         
         run: |
           install.packages("renv")
-          renv::install()
+          renv::restore()
         shell: Rscript {0}
 
 
       - name: Render Site
-        run: rmarkdown::render_site(encoding = "UTF-8")
+        run: rmarkdown::render_site(encoding = 'UTF-8')
         shell: Rscript {0}
 
       - name: Commit results
