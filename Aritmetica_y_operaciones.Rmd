@@ -1,13 +1,16 @@
 ---
 title: "Aritmética y operaciones lógicas en R"
-author: "Scarlett Escudero"
-date: "12/9/2021"
-output: html_document
+author: 
+  - name: Scarlett Escudero
+    affiliation: Psycoding
+date: "`r Sys.Date()`"
+output:  distill::distill_article
 ---
 
 ## Objetos
 
-Un objeto es un nombre/una unidad que puede utilizar para recuperar los datos almacenados o tareas almacenadas. Por ejemplo, puede guardar datos en un objeto como a o b. 
+Un objeto es un nombre/una unidad que puede utilizar para recuperar los datos almacenados o tareas almacenadas. 
+Por ejemplo, puede guardar datos en un objeto como a o b. 
 
 Para crear un objeto R, elija un nombre y luego use el símbolo menor que, <, seguido de un signo menos, -, para guardar los datos en él. Esta combinación parece una flecha hacia la izquierda <-
 
@@ -33,10 +36,9 @@ texto_1 <- 'Este también es un texto'
 cadena_num <- c(1,2,3,4,5)
 cadena_text <- c("Hola", "Qué tal", 'Todo bien', '     Qué bueno')
 
-á <- 15
-á <- 55
-á
-
+a <- 15
+a <- 55
+a
 ```
 
 ## Aritmética en R
@@ -116,10 +118,5 @@ x != z
 
 verdadero <- T
 verdadero == F
-
-
 ```
-
-
-
 
