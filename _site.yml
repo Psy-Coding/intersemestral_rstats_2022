@@ -10,6 +10,8 @@ navbar:
       href: index.html
     - text: "Comandos básicos"
       href: comandos_basicos.Rmd
+    - text: "Aritmética y operaciones lógicas"
+      href: Aritmetica_y_operaciones.Rmd
     - text: "Estructura de Datos"
       href: estructura_de_datos.html
     - text: "About"
