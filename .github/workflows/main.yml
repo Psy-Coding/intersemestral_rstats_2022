@@ -12,7 +12,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    if: github.actor != '${{ secrets.USER_DEPLOY }}'
+    if: github.actor != ${{ secrets.USER_DEPLOY }}
     
     steps:
 
