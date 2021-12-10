@@ -4,7 +4,7 @@ description: |
   Curso Intersemestral de R 2022
   Facultad de Psicología
 output_dir: "docs"
-exclude: ["renv.lock", "LICENSE", "CNAME"]
+exclude: ["renv.lock", "LICENSE"]
 navbar:
   right:
     - text: "Home"
