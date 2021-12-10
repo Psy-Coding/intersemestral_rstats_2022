@@ -16,6 +16,9 @@ jobs:
     steps:
 
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.DEPLOYMENT }}
+          persist-credentials: false
 
       - uses: actions/cache@v2
         with:
