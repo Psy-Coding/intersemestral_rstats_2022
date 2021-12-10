@@ -8,6 +8,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
+    - text: "Comandos básicos"
+      href: comandos_basicos.Rmd
     - text: "Estructura de Datos"
       href: estructura_de_datos.html
     - text: "About"
