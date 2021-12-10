@@ -45,8 +45,8 @@ jobs:
 
       - name: Commit results
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.name '${{ secrets.USER_DEPLOY }}'
+          git config user.email ${{ secrets.USER_DEPLOY_MAIL }}
           git add .
           git commit -m "Automatic Render and Deploy"
           git push
