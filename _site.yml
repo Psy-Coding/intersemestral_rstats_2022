@@ -15,6 +15,10 @@ navbar:
       href: Aritmetica_y_operaciones.html
     - text: "Estructura de Datos"
       href: estructura_de_datos.html
+    - text: "Paramétrica vs No-Paramétrica"
+      href: parametrica.html
+    - text: "Comparativa entre poblaciones"
+      href: comparativa_entre_poblaciones.html
     - text: "About"
       href: about.html
 output: distill::distill_article
