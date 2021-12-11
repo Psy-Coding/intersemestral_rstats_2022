@@ -1,0 +1,18 @@
+---
+title: "3.3 Supuestos de estadística paramétrica vs. no-paramétrica"
+description: |
+  Supuestos de la estadística paramétrica y no paramétrica con ejemplos
+author:
+  - name: Azalea Reyes-Aguilar
+    affiliation: Psycoding
+  - name: Azalea Reyes-Aguilar
+    affiliation: AprendR, Psycoding
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
