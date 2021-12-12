@@ -38,6 +38,9 @@ jobs:
       - name: Render Site
         run: rmarkdown::render_site(encoding = 'UTF-8')
         shell: Rscript {0}
+        
+      - name: Copy CNAME to docs
+        run: cp CNAME docs/
 
       - name: Commit results
         run: |
