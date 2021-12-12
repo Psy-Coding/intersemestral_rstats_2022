@@ -116,9 +116,8 @@ Además del botón STOP, también podemos presionar la tecla Esc en nuestro tecl
 ### Editor
 Permite generar documentos en los cuáles se almacenen todos los comandos de código que serán ejecutados posteriormente. Al escribir en ellos R no seguirá automáticamente las instrucciones que estamos dando. Cuenta, además, con resaltado de sintaxis y detección de posibles errores. Por ejemplo, en el script que abriste escribe lo siguiente:
 
-```{r echo=TRUE}
 x y <-10
-```
+
 Como puedes observar, RStudio resalta el número 10 en un color distinto y, además, junto al número de línea marca un tache, indicando que la línea contiene errores.
 
 #### Tipos de documentos comúnmente usados:
@@ -146,9 +145,8 @@ En ambos tipos de documentos, las líneas del documento están numeradas y las i
 
 ### Visor
 Cuando abrimos un conjunto de datos en R, la visualización se lleva a cabo en el mismo panel que se encuentra el editor. Por ejemplo, usando la función View() vamos a abrir el visor usando un conjunto de datos que viene por defecto en R. Ejecuta la siguiente línea de código:
-```{r}
+
 View(mtcars)
-```
 
 ## Espacio de trabajo : Ambiente
 Contiene la ventana de ambiente, donde se irán registrando los objetos que vayamos creando.  Tenemos la opción de cargar y guardar una sesión de trabajo, importar datos y limpiar los objetos de la sesión. 
@@ -259,7 +257,6 @@ Cuando tenemos una libreria adicional instalada y queremos cargar sus funciones 
 
 ## Help
 En este panel podemos obtener ayuda sobre una determinada función o librería. Por ejemplo, si quisieramos saber qué hace la función date() podríamos escribir su nombre en el espacio que se encuentra junto a la lupa o escribir estas líneas en nuestra consola:
-```{r echo=TRUE, eval=FALSE}
+
 help(date)
 ?date
-```
