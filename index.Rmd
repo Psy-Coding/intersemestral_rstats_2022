@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Ponentes
+
 * Dra. Azalea Reyes
 * Psic. Emma Botello
 * Psic. Juan Díaz
@@ -25,20 +26,24 @@ Horas asíncronas: Tiempo dedicado por los participantes para la instalación de
 ## Temario del curso
 
 1. Introducción a la programación y a R
-  + 1.1 Configuración R y R-studio y lógica de programación
-  + 1.2 Comandos básicos, interfaz de R-studio, ambiente
 
+    1.1 Configuración R y R-studio y lógica de programación    
+    1.2 Comandos básicos, interfaz de R-studio, ambiente    
+    
 2. Operadores y estructuras de datos en R
-  + 2.1 Aritmética y operaciones lógicas en R
-  + 2.2 Estructura de datos orientada a objetos o tabulación de datos
+
+    2.1 Aritmética y operaciones lógicas en R   
+    2.2 Estructura de datos orientada a objetos o tabulación de datos   
 
 3. Programación de análisis de datos con R
-  + 3.1 Manejo de variables y visualización de datos
-  + 3.2 Estadística descriptiva en R: moda, media, mediana, desviación estándar, etc.
-  + 3.3 Supuestos de estadística paramétrica vs. no-paramétrica
-  + 3.4 Correlación y regresión lineal
-  + 3.5 Comparativa entre poblaciones
+
+    3.1 Manejo de variables y visualización de datos    
+    3.2 Estadística descriptiva en R: moda, media, mediana, desviación estándar, etc.   
+    3.3 Supuestos de estadística paramétrica vs. no-paramétrica   
+    3.4 Correlación y regresión lineal    
+    3.5 Comparativa entre poblaciones   
 
 4. Proyecto de análisis de datos
-  + 4.1 Planeación y desarrollo del proyecto
-  + 4.2 Presentación de proyectos
+
+    4.1 Planeación y desarrollo del proyecto    
+    4.2 Presentación de proyectos   
