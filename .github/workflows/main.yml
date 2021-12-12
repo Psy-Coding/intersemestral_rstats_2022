@@ -15,8 +15,6 @@ jobs:
     steps:
 
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.DEPLOYMENT }}
 
       - uses: actions/cache@v2
         with:
@@ -45,6 +43,5 @@ jobs:
         run: |
           git config --global user.name ${{ secrets.USER_DEPLOY }}
           git config --global user.email ${{ secrets.USER_DEPLOY_MAIL }}
-          git add .
-          git commit -m "Automatic Render and Deploy"
+          git commit -am "Automatic Render and Deploy"
           git push
