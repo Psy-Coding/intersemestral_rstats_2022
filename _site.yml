@@ -5,6 +5,7 @@ description: |
   Facultad de Psicología
 output_dir: "docs"
 exclude: ["renv.lock", "LICENSE"]
+include: ["CNAME"]
 navbar:
   right:
     - text: "Home"
