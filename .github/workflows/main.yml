@@ -40,7 +40,7 @@ jobs:
         shell: Rscript {0}
         
       - name: Copy CNAME to docs
-        run: cp CNAME docs/
+        run: cp $GITHUB_WORKSPACE/CNAME $GITHUB_WORKSPACE/docs/
 
       - name: Commit results
         run: |
