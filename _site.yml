@@ -7,7 +7,7 @@ output_dir: "docs"
 exclude: ["renv.lock", "LICENSE"]
 include: ["CNAME"]
 navbar:
-  logo: img/psycoding_logo.png
+  logo: img/psycoding_logo.svg
   href: https://www.facebook.com/Psycoding-108380504188578
   right:
     - text: "Home"
