@@ -100,10 +100,12 @@ Para abrir el editor de código, crearemos un script. Da click en el siguiente �
 
 Cada panel cumple funciones distintas, las cuales describiremos a continuación de manera breve.
 
-##Consola de R
+## Consola de R
+
 Permite que se ejecuten las instrucciones que escribimos para R. Al igual que el panel anterior, permite que el código se autocomplete (a diferencia de la consola de R que vimos fuera de RStudio).
 Cuenta con un símbolo de escoba que nos permite limpiar lo que hay en la consola, lo cual también puede hacerse con las teclas Ctrl + L o Cmd + L
 Además, cuando R aún está ejecutando nuestras instrucciones, muestra un símbolo para interrumpir la ejecución. Para observar esto, vamos a ejecutar la siguiente instrucción:
+
 ```{r echo=TRUE,eval=FALSE}
 while(1 < 2) {
   print("Presiona el botón de STOP para detener")
@@ -161,15 +163,21 @@ La imágen muestra (de izquierda a derecha):
 * La **función**, que en este caso permite leer archivos de Excel.
 * Los **argumentos** se indican dentro de los paréntesis. En particular, el primer argumento indica la información a leer (archivo de excel), el segundo argumento indica la hoja del archivo a leer y el tercer argumento indica que columnas se leerán de forma específica (en este caso las primeras 10).
 
+
 Como iremos viendo a lo largo del curso, luego del asignador las funciones son solo un tipo de información que podemos incluir. Podemos, por ejemplo, guardar números en objetos:
+
 ```{r}
 numero <- 10
 ```
+
 Al ejecutar el código anterior, puedes notar que en tu ventana _Environment_ ahora aparece registrado el objeto numero. Para acceder al contenido de los objetos, podemos simplemente escribir su nombre en nuestra consola:
+
 ```{r}
 numero
 ```
+
 Se puede modificar el contenido de un objeto cambiando lo que se encuentre a la derecha del símbolo **<-**
+
 ```{r}
 numero <-5
 ```
@@ -196,21 +204,28 @@ Ejemplos:
 ### Algunas funciones útiles para el ambiente de trabajo
 
 Para ver que objetos están en el _Environment_ podemos usar:
+
 ```{r}
 ls()
 ```
+
+
 ```{r}
 objects()
 ```
+
 Para remover un objeto en específico:
+
+
 ```{r echo=TRUE, eval=FALSE, include=TRUE}
 rm(numero)
 ```
 
 Para eliminar todo el contenido del _Environment_:
-```{r}
+
+
 rm(list = ls())
-```
+
 
 ## Espacio de trabajo : Historial
 El panel _History_ muestra un historial de las líneas de código que se han ejecutado
@@ -232,6 +247,7 @@ plot(mtcars)
 También se pueden visualizar los gráficos usando la función x11() en Windows o quartz() en Linux/MacOS. Se pueden cerrar usando dev.off()
 
 Para windows:
+
 ```{r echo= TRUE, eval=FALSE, include=TRUE}
 x11()
 plot(mtcars)
@@ -239,6 +255,7 @@ dev.off()
 ```
 
 Para Linux/MacOS:
+
 ```{r echo= TRUE, eval=FALSE, include=TRUE}
 quartz()
 plot(mtcars)
@@ -259,4 +276,5 @@ Cuando tenemos una libreria adicional instalada y queremos cargar sus funciones 
 En este panel podemos obtener ayuda sobre una determinada función o librería. Por ejemplo, si quisieramos saber qué hace la función date() podríamos escribir su nombre en el espacio que se encuentra junto a la lupa o escribir estas líneas en nuestra consola:
 
 help(date)
+
 ?date
