@@ -2117,7 +2117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/date.html'>date</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;Mon Dec 13 00:05:06 2021&quot;</code></pre>
+<pre><code>[1] &quot;Mon Dec 13 00:20:35 2021&quot;</code></pre>
 </div>
 <h1 id="qué-es-rstudio">¿Qué es RStudio?</h1>
 <p>Un entorno amigable diseñado para R que permite realizar los procedimientos de manera más sencilla e intuitiva.</p>
@@ -2166,7 +2166,177 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </figure>
 <p>Vamos a hacer que se muestren los 4 páneles principales de RStudio, de la siguiente forma: <img src="https://cpgonzal.github.io/cursoIntroR2017/figure/RStudio_panels.png" alt="Imagen de paneles" /></p>
 <p>Para abrir el editor de código, crearemos un script. Da click en el siguiente ícono: <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200402193929/create-2.jpg" alt="Icono script" /></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Cada panel cumple funciones distintas, las cuales describiremos a continuación de manera breve.</p>
+##Consola de R Permite que se ejecuten las instrucciones que escribimos para R. Al igual que el panel anterior, permite que el código se autocomplete (a diferencia de la consola de R que vimos fuera de RStudio). Cuenta con un símbolo de escoba que nos permite limpiar lo que hay en la consola, lo cual también puede hacerse con las teclas Ctrl + L o Cmd + L Además, cuando R aún está ejecutando nuestras instrucciones, muestra un símbolo para interrumpir la ejecución. Para observar esto, vamos a ejecutar la siguiente instrucción:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>while</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>&lt;</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='st'>"Presiona el botón de STOP para detener"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<p>Además del botón STOP, también podemos presionar la tecla Esc en nuestro teclado para parar la ejecución.</p>
+<h2 id="editor-de-código-fuente-y-visor-de-datos">Editor de código fuente y visor de datos</h2>
+<h3 id="editor">Editor</h3>
+<p>Permite generar documentos en los cuáles se almacenen todos los comandos de código que serán ejecutados posteriormente. Al escribir en ellos R no seguirá automáticamente las instrucciones que estamos dando. Cuenta, además, con resaltado de sintaxis y detección de posibles errores. Por ejemplo, en el script que abriste escribe lo siguiente:</p>
+<p>x y &lt;-10</p>
+<p>Como puedes observar, RStudio resalta el número 10 en un color distinto y, además, junto al número de línea marca un tache, indicando que la línea contiene errores.</p>
+<h4 id="tipos-de-documentos-comúnmente-usados">Tipos de documentos comúnmente usados:</h4>
+<ul>
+<li><strong>R Script.</strong> Documentos de texto plano para almacenar código. Su extensión es .R</li>
+<li><strong>R Markdown.</strong> Documento que permite combinar el código, sus resultados y comentarios en prosa. Además, tiene diferentes formatos de salida (PDF, word, presentaciones, etc.). Su extensión es .Rmd</li>
+</ul>
+<p>Aquí un par de links donde consultar más sobre R Markdown:</p>
+<p><a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Guía de referencia de R Markdown</a></p>
+<p><a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Cheat Sheet de R Markdown</a></p>
+<p>En ambos tipos de documentos, las líneas del documento están numeradas y las instrucciones escritas pueden ejecutarse al ubicar el cursor en una línea particular. La ejecución puede hacerse con las teclas Ctrl + enter (para usuarios de Windows) o Cmd + enter (para usuarios de Linux/macOs), o bien, también usando el botón Run ubicado en la parte superior derecha del panel de edición.</p>
+<h4 id="algunos-atajos-de-teclado-para-edición-de-código">Algunos atajos de teclado para edición de código</h4>
+<ul>
+<li><strong>Ctrl + shift + R</strong> Genera una sección en el script y marca un indice (también se pone con más de 5 guiones).</li>
+<li><strong>Shift + flechas de teclado</strong> permite seleccionar varias líneas.</li>
+<li><strong>Ctrl + enter</strong> Ejecuta la linea en la cual te encuentras posicionado o las líneas seleccionadas.</li>
+<li><strong>Alt + shift + flecha hacia abajo</strong> Genera una copia de la línea actual en el siguiente renglón.</li>
+<li><strong>Alt + flecha arriba/abajo</strong> Mueve la línea de código actual.</li>
+<li><strong>Ctrl + alt + flecha arriba/abajo</strong> Permite duplicar el cursor y editar varias líneas a la vez (para dejar de duplicar se presiona esc).</li>
+<li><strong>Ctrl + shift + C</strong> Comenta varias líneas seleccionadas.</li>
+</ul>
+<h3 id="visor">Visor</h3>
+<p>Cuando abrimos un conjunto de datos en R, la visualización se lleva a cabo en el mismo panel que se encuentra el editor. Por ejemplo, usando la función View() vamos a abrir el visor usando un conjunto de datos que viene por defecto en R. Ejecuta la siguiente línea de código:</p>
+<p>View(mtcars)</p>
+<h2 id="espacio-de-trabajo-ambiente">Espacio de trabajo : Ambiente</h2>
+<p>Contiene la ventana de ambiente, donde se irán registrando los objetos que vayamos creando. Tenemos la opción de cargar y guardar una sesión de trabajo, importar datos y limpiar los objetos de la sesión.</p>
+<h3 id="objetos">Objetos</h3>
+<p>Pueden ser valores numéricos, vectores, funciones, bases de datos, gráficos, etc. Los objetos en R se crean de la siguiente forma: <img src="https://bookdown.org/gboccardo/manual-ED-UCH/04-anexos/sintaxis2.png" alt="Ejemplo de objeto" /> La imágen muestra (de izquierda a derecha):</p>
+<ul>
+<li>Un <strong>objeto</strong> a crear, con un nombre que nosotros definimos arbitrariamente.</li>
+<li>El símbolo <strong>asignador</strong>, que expresa que todo lo que se encuentre a la derecha de la flecha se guardará en el <em>objeto</em> creado. Puede ser <strong>&lt;-</strong> o <strong>=</strong></li>
+<li>La <strong>función</strong>, que en este caso permite leer archivos de Excel.</li>
+<li>Los <strong>argumentos</strong> se indican dentro de los paréntesis. En particular, el primer argumento indica la información a leer (archivo de excel), el segundo argumento indica la hoja del archivo a leer y el tercer argumento indica que columnas se leerán de forma específica (en este caso las primeras 10).</li>
+</ul>
+Como iremos viendo a lo largo del curso, luego del asignador las funciones son solo un tipo de información que podemos incluir. Podemos, por ejemplo, guardar números en objetos:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span> <span class='op'>&lt;-</span> <span class='fl'>10</span>
+</code></pre>
+</div>
+</div>
+Al ejecutar el código anterior, puedes notar que en tu ventana <em>Environment</em> ahora aparece registrado el objeto numero. Para acceder al contenido de los objetos, podemos simplemente escribir su nombre en nuestra consola:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span>
+</code></pre>
+</div>
+<pre><code>[1] 10</code></pre>
+</div>
+Se puede modificar el contenido de un objeto cambiando lo que se encuentre a la derecha del símbolo <strong>&lt;-</strong>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span> <span class='op'>&lt;-</span><span class='fl'>5</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span>
+</code></pre>
+</div>
+<pre><code>[1] 5</code></pre>
+</div>
+<h4 id="algunas-consideraciones-al-generar-objetos">Algunas consideraciones al generar objetos</h4>
+<p>Los nombres de los objetos:</p>
+<ul>
+<li>Deben comenzar con una letra (no número)</li>
+<li>Pueden contener letras, números, guiones bajos y puntos.</li>
+<li>No deben contener espacios ni caracteres especiales (acentos, barras, comillas, guión medio, paréntesis, diagonal etc.).</li>
+<li>Deben ser descriptivos.</li>
+<li>No se tienen que repetir.</li>
+</ul>
+<p>Ejemplos:</p>
+<ul>
+<li><strong>yo_uso_guion_bajo</strong></li>
+<li><strong>OtraGenteUsaMayusculas</strong></li>
+<li><strong>algunas.personas.usan.puntos</strong></li>
+<li><strong>Y_algunasPocas.Personas_RENIEGANdelasconvenciones</strong> ### Algunas funciones útiles para el ambiente de trabajo</li>
+</ul>
+Para ver que objetos están en el <em>Environment</em> podemos usar:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;a&quot;           &quot;b&quot;           &quot;c&quot;           &quot;cadena_num&quot; 
+ [5] &quot;cadena_text&quot; &quot;edad&quot;        &quot;estatura&quot;    &quot;IMC&quot;        
+ [9] &quot;numero&quot;      &quot;numeros&quot;     &quot;operacion&quot;   &quot;peso&quot;       
+[13] &quot;texto_1&quot;     &quot;verdadero&quot;   &quot;x&quot;           &quot;y&quot;          
+[17] &quot;z&quot;          </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/ls.html'>objects</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;a&quot;           &quot;b&quot;           &quot;c&quot;           &quot;cadena_num&quot; 
+ [5] &quot;cadena_text&quot; &quot;edad&quot;        &quot;estatura&quot;    &quot;IMC&quot;        
+ [9] &quot;numero&quot;      &quot;numeros&quot;     &quot;operacion&quot;   &quot;peso&quot;       
+[13] &quot;texto_1&quot;     &quot;verdadero&quot;   &quot;x&quot;           &quot;y&quot;          
+[17] &quot;z&quot;          </code></pre>
+</div>
+Para remover un objeto en específico:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span><span class='va'>numero</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+Para eliminar todo el contenido del <em>Environment</em>:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span>list <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="espacio-de-trabajo-historial">Espacio de trabajo : Historial</h2>
+<p>El panel <em>History</em> muestra un historial de las líneas de código que se han ejecutado en la consola. Al hacer doble click sobre alguna línea el código se copia a la consola para que se pueda volver a ejecutar la operación. También se puede acceder a líneas de código pasadas colocando el cursor en la consola y presionando la tecla con la flecha hacia arriba.</p>
+<h2 id="ficherosfiles">Ficheros/files</h2>
+<p>En este espacio aparecen los archivos que están en el directorio de trabajo. Permite renombrarlos, eliminarlos, copiarlos, moverlos o generar nuevas carpetas y archivos sin necesidad de salir de RStudio.</p>
+<h2 id="plots">Plots</h2>
+<p>En este panel se visualizan los gráficos generados. La función básica para generar gráficos es plot()</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="comandos_basicos_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
+<p>También se pueden visualizar los gráficos usando la función x11() en Windows o quartz() en Linux/MacOS. Se pueden cerrar usando dev.off()</p>
+Para windows:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/grDevices/x11.html'>x11</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.off</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+Para Linux/MacOS:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/grDevices/quartz.html'>quartz</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.off</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="packages">Packages</h2>
+<p>Permite visualizar las librerías que hay actualmente en el disco duro de la máquina, cargarlas para su uso, gestionar la instalación de nuevas librerías o la actualización de las ya descargadas.</p>
+<p>Las librerías desarrolladas en R cubren multitud de campos: desde estadística descriptiva e inferencial, aplicaciones Bayesianas, financieras, métodos gráficos, machine learning, creación de aplicaciones web, etc.</p>
+<p>Para incluir librerias adicionales a las que vienen por default, se usa la función <strong>install.packages(“nombre del paquete”)</strong>. Cabe resaltar que esta función tendremos que usarla sólo una vez.</p>
+<p>Cuando tenemos una libreria adicional instalada y queremos cargar sus funciones a nuestro <em>Environment</em> usamos la función <strong>library(“nombre del paquete”)</strong>. Esta linea debe ejecutarse cada vez que se vaya a usar la función en una sesión nueva.</p>
+<h2 id="help">Help</h2>
+<p>En este panel podemos obtener ayuda sobre una determinada función o librería. Por ejemplo, si quisieramos saber qué hace la función date() podríamos escribir su nombre en el espacio que se encuentra junto a la lupa o escribir estas líneas en nuestra consola:</p>
+<p>help(date) ?date</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
