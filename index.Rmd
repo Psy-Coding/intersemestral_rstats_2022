@@ -9,15 +9,6 @@ site: distill::distill_website
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Ponentes
-
-* Dra. Azalea Reyes
-* Psic. Emma Botello
-* Psic. Juan Díaz
-* Psic. Ana González
-* Psic. Scarlett Escudero
-* Biol. Edgar Morales
-
 ## Dinámica del curso
 Horas síncronas: Se impartirá, del 13 al 17 de diciembre de 2021 en un horario de 16:00 a 20:00 horas. En estas sesiones se revisará el temario del curso.
 

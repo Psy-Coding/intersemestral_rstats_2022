@@ -23,7 +23,7 @@ navbar:
         - text: "Operadores y estructura de Datos"
         - text: "---"
         - text: "Aritmética y operaciones lógicas"
-          href: Aritmetica_y_operaciones.html
+          href: aritmetica_y_operaciones.html
         - text: "Estructura de Datos"
           href: estructura_de_datos.html
         - text: "Analisis de Datos"
