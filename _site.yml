@@ -30,6 +30,8 @@ navbar:
         - text: "---"
         - text: "Paramétrica vs No-Paramétrica"
           href: parametrica.html
+        - text: "Correlación y regresión lineal"
+          href: correlacion_y_regresion.html
         - text: "Comparativa entre poblaciones"
           href: comparativa_entre_poblaciones.html
     - text: "About"
