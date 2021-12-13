@@ -2093,6 +2093,7 @@ Temas
 <span class="nav-dropdown-header">Analisis de Datos</span>
 <hr/>
 <a href="parametrica.html">Paramétrica vs No-Paramétrica</a>
+<a href="correlacion_y_regresion.html">Correlación y regresión lineal</a>
 <a href="comparativa_entre_poblaciones.html">Comparativa entre poblaciones</a>
 </div>
 </div>
@@ -2139,7 +2140,7 @@ Temas
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/date.html'>date</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;Mon Dec 13 20:00:35 2021&quot;</code></pre>
+<pre><code>[1] &quot;Mon Dec 13 21:40:23 2021&quot;</code></pre>
 </div>
 <h1 id="qué-es-rstudio">¿Qué es RStudio?</h1>
 <p>Un entorno amigable diseñado para R que permite realizar los procedimientos de manera más sencilla e intuitiva.</p>
@@ -2189,7 +2190,8 @@ Temas
 <p>Vamos a hacer que se muestren los 4 páneles principales de RStudio, de la siguiente forma: <img src="https://cpgonzal.github.io/cursoIntroR2017/figure/RStudio_panels.png" alt="Imagen de paneles" /></p>
 <p>Para abrir el editor de código, crearemos un script. Da click en el siguiente ícono: <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200402193929/create-2.jpg" alt="Icono script" /></p>
 <p>Cada panel cumple funciones distintas, las cuales describiremos a continuación de manera breve.</p>
-##Consola de R Permite que se ejecuten las instrucciones que escribimos para R. Al igual que el panel anterior, permite que el código se autocomplete (a diferencia de la consola de R que vimos fuera de RStudio). Cuenta con un símbolo de escoba que nos permite limpiar lo que hay en la consola, lo cual también puede hacerse con las teclas Ctrl + L o Cmd + L Además, cuando R aún está ejecutando nuestras instrucciones, muestra un símbolo para interrumpir la ejecución. Para observar esto, vamos a ejecutar la siguiente instrucción:
+<h2 id="consola-de-r">Consola de R</h2>
+<p>Permite que se ejecuten las instrucciones que escribimos para R. Al igual que el panel anterior, permite que el código se autocomplete (a diferencia de la consola de R que vimos fuera de RStudio). Cuenta con un símbolo de escoba que nos permite limpiar lo que hay en la consola, lo cual también puede hacerse con las teclas Ctrl + L o Cmd + L Además, cuando R aún está ejecutando nuestras instrucciones, muestra un símbolo para interrumpir la ejecución. Para observar esto, vamos a ejecutar la siguiente instrucción:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>while</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>&lt;</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>{</span>
@@ -2236,14 +2238,14 @@ Temas
 <li>La <strong>función</strong>, que en este caso permite leer archivos de Excel.</li>
 <li>Los <strong>argumentos</strong> se indican dentro de los paréntesis. En particular, el primer argumento indica la información a leer (archivo de excel), el segundo argumento indica la hoja del archivo a leer y el tercer argumento indica que columnas se leerán de forma específica (en este caso las primeras 10).</li>
 </ul>
-Como iremos viendo a lo largo del curso, luego del asignador las funciones son solo un tipo de información que podemos incluir. Podemos, por ejemplo, guardar números en objetos:
+<p>Como iremos viendo a lo largo del curso, luego del asignador las funciones son solo un tipo de información que podemos incluir. Podemos, por ejemplo, guardar números en objetos:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span> <span class='op'>&lt;-</span> <span class='fl'>10</span>
 </code></pre>
 </div>
 </div>
-Al ejecutar el código anterior, puedes notar que en tu ventana <em>Environment</em> ahora aparece registrado el objeto numero. Para acceder al contenido de los objetos, podemos simplemente escribir su nombre en nuestra consola:
+<p>Al ejecutar el código anterior, puedes notar que en tu ventana <em>Environment</em> ahora aparece registrado el objeto numero. Para acceder al contenido de los objetos, podemos simplemente escribir su nombre en nuestra consola:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span>
@@ -2251,7 +2253,7 @@ Al ejecutar el código anterior, puedes notar que en tu ventana <em>Environment<
 </div>
 <pre><code>[1] 10</code></pre>
 </div>
-Se puede modificar el contenido de un objeto cambiando lo que se encuentre a la derecha del símbolo <strong>&lt;-</strong>
+<p>Se puede modificar el contenido de un objeto cambiando lo que se encuentre a la derecha del símbolo <strong>&lt;-</strong></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span> <span class='op'>&lt;-</span><span class='fl'>5</span>
@@ -2281,7 +2283,7 @@ Se puede modificar el contenido de un objeto cambiando lo que se encuentre a la 
 <li><strong>algunas.personas.usan.puntos</strong></li>
 <li><strong>Y_algunasPocas.Personas_RENIEGANdelasconvenciones</strong> ### Algunas funciones útiles para el ambiente de trabajo</li>
 </ul>
-Para ver que objetos están en el <em>Environment</em> podemos usar:
+<p>Para ver que objetos están en el <em>Environment</em> podemos usar:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span><span class='op'>(</span><span class='op'>)</span>
@@ -2304,20 +2306,15 @@ Para ver que objetos están en el <em>Environment</em> podemos usar:
 [13] &quot;texto_1&quot;     &quot;verdadero&quot;   &quot;x&quot;           &quot;y&quot;          
 [17] &quot;z&quot;          </code></pre>
 </div>
-Para remover un objeto en específico:
+<p>Para remover un objeto en específico:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span><span class='va'>numero</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-Para eliminar todo el contenido del <em>Environment</em>:
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span>list <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
+<p>Para eliminar todo el contenido del <em>Environment</em>:</p>
+<p>rm(list = ls())</p>
 <h2 id="espacio-de-trabajo-historial">Espacio de trabajo : Historial</h2>
 <p>El panel <em>History</em> muestra un historial de las líneas de código que se han ejecutado en la consola. Al hacer doble click sobre alguna línea el código se copia a la consola para que se pueda volver a ejecutar la operación. También se puede acceder a líneas de código pasadas colocando el cursor en la consola y presionando la tecla con la flecha hacia arriba.</p>
 <h2 id="ficherosfiles">Ficheros/files</h2>
@@ -2329,10 +2326,10 @@ Para eliminar todo el contenido del <em>Environment</em>:
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="comandos_basicos_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+<p><img src="comandos_basicos_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
 <p>También se pueden visualizar los gráficos usando la función x11() en Windows o quartz() en Linux/MacOS. Se pueden cerrar usando dev.off()</p>
-Para windows:
+<p>Para windows:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/grDevices/x11.html'>x11</a></span><span class='op'>(</span><span class='op'>)</span>
@@ -2341,7 +2338,7 @@ Para windows:
 </code></pre>
 </div>
 </div>
-Para Linux/MacOS:
+<p>Para Linux/MacOS:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/grDevices/quartz.html'>quartz</a></span><span class='op'>(</span><span class='op'>)</span>
@@ -2357,7 +2354,8 @@ Para Linux/MacOS:
 <p>Cuando tenemos una libreria adicional instalada y queremos cargar sus funciones a nuestro <em>Environment</em> usamos la función <strong>library(“nombre del paquete”)</strong>. Esta linea debe ejecutarse cada vez que se vaya a usar la función en una sesión nueva.</p>
 <h2 id="help">Help</h2>
 <p>En este panel podemos obtener ayuda sobre una determinada función o librería. Por ejemplo, si quisieramos saber qué hace la función date() podríamos escribir su nombre en el espacio que se encuentra junto a la lupa o escribir estas líneas en nuestra consola:</p>
-<p>help(date) ?date</p>
+<p>help(date)</p>
+<p>?date</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

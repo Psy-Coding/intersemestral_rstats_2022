@@ -87,30 +87,33 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Rstat Intersemestral 2022: Aritmética y operaciones lógicas en R</title>
+  <title>Rstat Intersemestral 2022: 3.3 Correlación y regresión lineal</title>
   
+  <meta property="description" itemprop="description" content="Revisión de los principios sobre ambos análisis y código para llevarlos a cabo."/>
   
   
   <!--  https://schema.org/Article -->
   <meta property="article:published" itemprop="datePublished" content="2021-12-13"/>
   <meta property="article:created" itemprop="dateCreated" content="2021-12-13"/>
-  <meta name="article:author" content="Scarlett Escudero"/>
+  <meta name="article:author" content="Emma Botello"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Rstat Intersemestral 2022: Aritmética y operaciones lógicas en R"/>
+  <meta property="og:title" content="Rstat Intersemestral 2022: 3.3 Correlación y regresión lineal"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Revisión de los principios sobre ambos análisis y código para llevarlos a cabo."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Rstat Intersemestral 2022"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Rstat Intersemestral 2022: Aritmética y operaciones lógicas en R"/>
+  <meta property="twitter:title" content="Rstat Intersemestral 2022: 3.3 Correlación y regresión lineal"/>
+  <meta property="twitter:description" content="Revisión de los principios sobre ambos análisis y código para llevarlos a cabo."/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Aritmética y operaciones lógicas en R"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Scarlett Escudero"]},{"type":"character","attributes":{},"value":["Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-13"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["3.3 Correlación y regresión lineal"]},{"type":"character","attributes":{},"value":["Revisión de los principios sobre ambos análisis y código para llevarlos a cabo. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Emma Botello"]},{"type":"character","attributes":{},"value":["Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-13"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2057,7 +2060,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Aritmética y operaciones lógicas en R","authors":[{"author":"Scarlett Escudero","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-13T00:00:00.000+00:00","citationText":"Escudero, 2021"}
+{"title":"3.3 Correlación y regresión lineal","description":"Revisión de los principios sobre ambos análisis y código para llevarlos a cabo.","authors":[{"author":"Emma Botello","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-13T00:00:00.000+00:00","citationText":"Botello, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2107,121 +2110,19 @@ Temas
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Aritmética y operaciones lógicas en R</h1>
+<h1>3.3 Correlación y regresión lineal</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>Revisión de los principios sobre ambos análisis y código para llevarlos a cabo.</p></p>
 </div>
 
 <div class="d-byline">
-  Scarlett Escudero  (Psycoding)
+  Emma Botello  (Psycoding)
   
 <br/>2021-12-13
 </div>
 
 <div class="d-article">
-<h2 id="objetos">Objetos</h2>
-<p>Un objeto es un nombre/una unidad que puede utilizar para recuperar los datos almacenados o tareas almacenadas. Por ejemplo, puede guardar datos en un objeto como a o b.</p>
-<p>Para crear un objeto R, elija un nombre y luego use el símbolo menor que, &lt;, seguido de un signo menos, -, para guardar los datos en él. Esta combinación parece una flecha hacia la izquierda &lt;-</p>
-<p>Puede nombrar un objeto en R casi cualquier cosa que desee, pero hay algunas reglas: * No puede comenzar con un número * No puede usar algunos símbolos especiales, como ^, !, $, @, +, -, /, <em>, : </em> No puede llevar espacios * De preferencia no usar el nombre de funciones preexistentes en R, como pi</p>
-<p>Nota: R sobrescribirá cualquier información previa almacenada en un objeto sin pedirle permiso. Por lo tanto, es una buena idea no usar nombres que ya están en uso, a menos que eso es algo que tú quieras.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fl'>5</span>
-<span class='va'>a</span>
-<span class='va'>b</span> <span class='op'>&lt;-</span> <span class='fl'>6</span>
-<span class='va'>b</span>
-<span class='co'>#Observen cómo se van creando los objetos/variables en el environment</span>
-<span class='co'>#texto_1 &lt;- Este es un texto</span>
-<span class='va'>texto_1</span> <span class='op'>&lt;-</span> <span class='st'>"Este es un texto"</span>
-<span class='va'>texto_1</span> <span class='op'>&lt;-</span> <span class='st'>'Este también es un texto'</span>
-
-<span class='co'>#cadena_num &lt;- 1,2,3,4,5</span>
-<span class='va'>cadena_num</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>,<span class='fl'>5</span><span class='op'>)</span>
-<span class='va'>cadena_text</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Hola"</span>, <span class='st'>"Qué tal"</span>, <span class='st'>'Todo bien'</span>, <span class='st'>'     Qué bueno'</span><span class='op'>)</span>
-
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>15</span>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>55</span>
-<span class='va'>x</span>
-</code></pre>
-</div>
-</div>
-<h2 id="aritmética-en-r">Aritmética en R</h2>
-<ol type="1">
-<li><ul>
-<li>Adición</li>
-</ul></li>
-<li><ul>
-<li>Sustracción</li>
-</ul></li>
-<li><ul>
-<li>Multiplicación</li>
-</ul></li>
-<li><p>/ División</p></li>
-<li><p>^ Exponente</p></li>
-</ol>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1</span> <span class='op'>+</span> <span class='fl'>2</span> <span class='op'>-</span> <span class='op'>(</span><span class='fl'>3</span> <span class='op'>*</span> <span class='fl'>4</span> <span class='op'>/</span> <span class='fl'>5</span><span class='op'>)</span> <span class='op'>^</span> <span class='fl'>6</span>
-<span class='va'>operacion</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>+</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>-</span> <span class='op'>(</span><span class='fl'>3</span> <span class='op'>*</span> <span class='fl'>4</span><span class='op'>)</span> <span class='op'>/</span> <span class='fl'>5</span>  <span class='co'>#Igual lo pueden hacer directamente en la consola</span>
-
-<span class='va'>a</span><span class='op'>+</span><span class='va'>b</span>
-<span class='va'>c</span> <span class='op'>&lt;-</span> <span class='va'>a</span> <span class='op'>+</span> <span class='va'>b</span>
-<span class='co'>#variable &lt;- texto_1 + a</span>
-<span class='co'>#c_text &lt;- "a"+"b"</span>
-<span class='va'>numeros</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<p>Tarea rápida: <img src="img/ejercicio1.png" /></p>
-<p>Tarea “larga”: <img src="img/ejercicio2.png" /></p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>edad</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>22</span>, <span class='fl'>23</span>, <span class='fl'>22</span>, <span class='fl'>20</span>, <span class='fl'>18</span>, <span class='fl'>21</span>, <span class='fl'>25</span>, <span class='fl'>22</span>, <span class='fl'>20</span>, <span class='fl'>20</span>, <span class='fl'>22</span>, <span class='fl'>19</span><span class='op'>)</span>
-<span class='va'>estatura</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>164</span>, <span class='fl'>160</span>, <span class='fl'>155</span>, <span class='fl'>173</span>, <span class='fl'>168</span>, <span class='fl'>185</span>, <span class='fl'>158</span>, <span class='fl'>187</span>, <span class='fl'>165</span>, <span class='fl'>160</span>, <span class='fl'>156</span>, <span class='fl'>179</span><span class='op'>)</span>
-<span class='va'>peso</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>59</span>, <span class='fl'>60</span>, <span class='fl'>88</span>, <span class='fl'>92</span>, <span class='fl'>77</span>, <span class='fl'>62</span>, <span class='fl'>68</span>, <span class='fl'>95</span>, <span class='fl'>63</span>, <span class='fl'>72</span>, <span class='fl'>95</span>, <span class='fl'>66</span><span class='op'>)</span>
-<span class='va'>estatura</span> <span class='op'>&lt;-</span> <span class='va'>estatura</span><span class='op'>/</span><span class='fl'>100</span>
-<span class='va'>IMC</span> <span class='op'>&lt;-</span> <span class='va'>peso</span><span class='op'>/</span><span class='va'>estatura</span><span class='op'>^</span><span class='fl'>2</span>
-</code></pre>
-</div>
-</div>
-<h2 id="operaciones-lógicas">Operaciones lógicas</h2>
-<ol type="1">
-<li><p>!= No Igual</p></li>
-<li><p>== Igual</p></li>
-<li><p>&lt; Menor que</p></li>
-<li><blockquote>
-<p>Mayor que</p>
-</blockquote></li>
-<li><p>&lt;= Menor que o igual</p></li>
-<li><blockquote>
-<p>= Mayor que o igual</p>
-</blockquote></li>
-<li><p>&amp; (and)</p></li>
-<li><div class="line-block">(or)</div></li>
-<li><p>! no</p></li>
-</ol>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>0.5</span>
-<span class='fl'>0</span> <span class='op'>&lt;</span> <span class='va'>x</span> 
-<span class='va'>x</span> <span class='op'>&gt;</span> <span class='fl'>10</span>
-<span class='va'>x</span> <span class='op'>&lt;=</span> <span class='fl'>.0005</span>
-
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>
-<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>
-<span class='va'>z</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>2</span><span class='op'>)</span>
-<span class='va'>z</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>5</span><span class='op'>)</span>
-
-<span class='va'>x</span> <span class='op'>==</span> <span class='va'>y</span>
-<span class='va'>x</span> <span class='op'>==</span> <span class='va'>z</span>
-<span class='va'>x</span> <span class='op'>!=</span> <span class='va'>z</span>
-
-<span class='va'>verdadero</span> <span class='op'>&lt;-</span> <span class='cn'>T</span>
-<span class='va'>verdadero</span> <span class='op'>==</span> <span class='cn'>F</span>
-</code></pre>
-</div>
-</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
