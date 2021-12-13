@@ -10,6 +10,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
+    - text: "Introducción a la Programación"
+      href: introduccion_programacion.html
     - text: "Comandos básicos"
       href: comandos_basicos.html
     - text: "Aritmética y operaciones lógicas"
