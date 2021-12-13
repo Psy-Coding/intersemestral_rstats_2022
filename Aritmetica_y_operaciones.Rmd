@@ -9,8 +9,7 @@ output:  distill::distill_article
 
 ## Objetos
 
-Un objeto es un nombre/una unidad que puede utilizar para recuperar los datos almacenados o tareas almacenadas. 
-Por ejemplo, puede guardar datos en un objeto como a o b. 
+Un objeto es un nombre/una unidad que puede utilizar para recuperar los datos almacenados o tareas almacenadas. Por ejemplo, puede guardar datos en un objeto como a o b. 
 
 Para crear un objeto R, elija un nombre y luego use el símbolo menor que, <, seguido de un signo menos, -, para guardar los datos en él. Esta combinación parece una flecha hacia la izquierda <-
 
@@ -22,7 +21,7 @@ Puede nombrar un objeto en R casi cualquier cosa que desee, pero hay algunas reg
 
 Nota: R sobrescribirá cualquier información previa almacenada en un objeto sin pedirle permiso. Por lo tanto, es una buena idea no usar nombres que ya están en uso, a menos que eso es algo que tú quieras.
 
-```{r}
+```{r, results='hide'}
 a <- 5
 a
 b <- 6
@@ -36,9 +35,10 @@ texto_1 <- 'Este también es un texto'
 cadena_num <- c(1,2,3,4,5)
 cadena_text <- c("Hola", "Qué tal", 'Todo bien', '     Qué bueno')
 
-a <- 15
-a <- 55
-a
+x <- 15
+x <- 55
+x
+
 ```
 
 ## Aritmética en R
@@ -54,7 +54,7 @@ a
 5. ^ Exponente 
 
 
-```{r}
+```{r, results='hide'}
 1 + 2 - (3 * 4 / 5) ^ 6
 operacion <- (1 + 2) - (3 * 4) / 5  #Igual lo pueden hacer directamente en la consola
 
@@ -67,12 +67,12 @@ numeros <- c("1", "2", "3")
 ```
 
 Tarea rápida: 
-![](C:/Users/Lenovo/Documents/ejercicio1.png) 
+![](ejercicio1.png) 
 
 Tarea "larga": 
-![](C:/Users/Lenovo/Documents/ejercicio2.png) 
+![](ejercicio2.png) 
 
-```{r}
+```{r, results='hide'}
 edad <- c(22, 23, 22, 20, 18, 21, 25, 22, 20, 20, 22, 19)
 estatura <- c(164, 160, 155, 173, 168, 185, 158, 187, 165, 160, 156, 179)
 peso <- c(59, 60, 88, 92, 77, 62, 68, 95, 63, 72, 95, 66)
@@ -101,7 +101,7 @@ IMC <- peso/estatura^2
 
 9. ! no
 
-```{r}
+```{r, results='hide'}
 x <- 0.5
 0 < x 
 x > 10
@@ -118,5 +118,10 @@ x != z
 
 verdadero <- T
 verdadero == F
+
+
 ```
+
+
+
 
