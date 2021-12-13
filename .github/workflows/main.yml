@@ -46,5 +46,6 @@ jobs:
         run: |
           git config --global user.name ${{ secrets.USER_DEPLOY }}
           git config --global user.email ${{ secrets.USER_DEPLOY_MAIL }}
-          git commit -am "Automatic Render and Deploy"
+          git add .
+          git commit -m "Automatic Render and Deploy"
           git push
