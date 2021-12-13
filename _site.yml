@@ -7,21 +7,33 @@ output_dir: "docs"
 exclude: ["renv.lock", "LICENSE"]
 include: ["CNAME"]
 navbar:
+  logo: img/psycoding_logo.png
+  href: https://www.facebook.com/Psycoding-108380504188578
   right:
     - text: "Home"
       href: index.html
-    - text: "Introducción a la Programación"
-      href: introduccion_programacion.html
-    - text: "Comandos básicos"
-      href: comandos_basicos.html
-    - text: "Aritmética y operaciones lógicas"
-      href: Aritmetica_y_operaciones.html
-    - text: "Estructura de Datos"
-      href: estructura_de_datos.html
-    - text: "Paramétrica vs No-Paramétrica"
-      href: parametrica.html
-    - text: "Comparativa entre poblaciones"
-      href: comparativa_entre_poblaciones.html
+    - text: "Temas"
+      menu:
+        - text: "Introducción"
+        - text: "---"
+        - text: "Introducción a la Programación"
+          href: introduccion_programacion.html
+        - text: "Comandos básicos"
+          href: comandos_basicos.html
+        - text: "Operadores y estructura de Datos"
+        - text: "---"
+        - text: "Aritmética y operaciones lógicas"
+          href: Aritmetica_y_operaciones.html
+        - text: "Estructura de Datos"
+          href: estructura_de_datos.html
+        - text: "Analisis de Datos"
+        - text: "---"
+        - text: "Paramétrica vs No-Paramétrica"
+          href: parametrica.html
+        - text: "Comparativa entre poblaciones"
+          href: comparativa_entre_poblaciones.html
     - text: "About"
       href: about.html
+    - icon: fab fa-github
+      href: https://github.com/Psy-Coding/intersemestral_rstats_2022
 output: distill::distill_article
