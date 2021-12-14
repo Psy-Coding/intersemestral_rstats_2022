@@ -15,11 +15,84 @@ output: distill::distill_article
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## Estructuras de Datos
 
-# Estructura de datos en R
+Las estructuras de datos se pueden clasificar por sus dimensiones (1, 2 o n) y si contienen el mismo tipo de
+dato (homogéneo) o bien diferente tipos de datos (heterogéneo). 
 
-Las estructuras de datos en R pueden entenderse con base en las dimensiónes que soportan y los datos que pueden 
-contener. Es importante conocerlas con el fin de determinar cual de ellas podemos útilizar y como podemos procesar 
-información de ellas.
+Las estructuras de datos en R-base más cómunes son:
 
+Dimensiones | Homogéneo | Heterogéneo 
+----------- | --------- | -----------  
+1           | vector    | lista
+2           | matriz    | data frame 
+n           | array     |
+
+* En R no existen estructuras de cero dimensiones
+
+### Vector
+
+Objeto más simple, son la base para objetos complejos.
+
+
+
+```{r}
+x <- 53 #numérico
+y <- 'ana' #caracter
+z <- y > 5 #Lógico
+numeros_1.10 <- c(1,2,3,4,5,6,7,8,9,10) #Lista
+numeros_1.100 <- c(1:100)
+lista_variables <- c(x,y,z)
+```
+
+### Matriz 
+
+Conjunto de datos de dos dimensiones (filas y columnas)
+
+
+```{r}
+matriz_1 <- matrix(c('x','y','z','o','b','c'),
+                   nrow = 2,
+                   ncol = 3,
+                   byrow = TRUE)
+matriz_1
+```
+
+* Se puede llegar a condundir con *dataframes*
+
+### Dataframe (tabulación)
+
+Puede contener diferentes calses
+
+```{r}
+df1 <- iris
+View(df1)
+class(df1)
+```
+
+
+
+## Procesamiento de datos: dplyr ()
+
+Una de las ventajas de R es que puede extender sus funcionalidades mediante el uso de paquetes. Es decir si alguna
+función no se incluye con R. Cualquiera puede crear un paquete para suplir esa función. Eso no solo ha generado nuevas
+funciones para R, también a creado metodologías de trabajo diferentes a las que tiene R base.
+
+Parte de esas metodologías tienen la intención de mejorar el desempeño de R y/o facilitar su uso. En ese sentido 
+**tidyverse** intenta hacer el uso de R mas intuitivo, con un enfoque ordenado y con mejoras en el desempeño.
+
+Aunque **R base** tiene la ventaja de no necesitar ningún paquete para su ejecución sin embargo suele ser mucho mas fácil para 
+quienes van empezando con R usar la sintaxis de **dplyr**.
+
+> Por lo tanto en este curso haremos uso del paquete **dplyr()** de _tidyverse_.
+
+
+
+#### Primeros intentos de tabular los datos, quizá rbind/cbind
+
+### Listas
+
+### Tidy data
+
+#### Tidy package con pivot_wide, pivot_longer (podemos hablar de melt/cast en reshape2 )
 
