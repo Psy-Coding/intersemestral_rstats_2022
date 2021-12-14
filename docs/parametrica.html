@@ -96,7 +96,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta property="article:published" itemprop="datePublished" content="2021-12-14"/>
   <meta property="article:created" itemprop="dateCreated" content="2021-12-14"/>
   <meta name="article:author" content="Azalea Reyes-Aguilar"/>
-  <meta name="article:author" content="Azalea Reyes-Aguilar"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Rstat Intersemestral 2022: 3.3 Supuestos de estadística paramétrica vs. no-paramétrica"/>
@@ -114,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["3.3 Supuestos de estadística paramétrica vs. no-paramétrica"]},{"type":"character","attributes":{},"value":["Supuestos de la estadística paramétrica y no paramétrica con ejemplos\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Azalea Reyes-Aguilar"]},{"type":"character","attributes":{},"value":["Psycoding"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Azalea Reyes-Aguilar"]},{"type":"character","attributes":{},"value":["AprendR, Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-14"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["3.3 Supuestos de estadística paramétrica vs. no-paramétrica"]},{"type":"character","attributes":{},"value":["Supuestos de la estadística paramétrica y no paramétrica con ejemplos\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Azalea Reyes-Aguilar"]},{"type":"character","attributes":{},"value":["AprendR, Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-14"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2061,7 +2060,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"3.3 Supuestos de estadística paramétrica vs. no-paramétrica","description":"Supuestos de la estadística paramétrica y no paramétrica con ejemplos","authors":[{"author":"Azalea Reyes-Aguilar","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""},{"author":"Azalea Reyes-Aguilar","authorURL":"#","affiliation":"AprendR, Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-14T00:00:00.000+00:00","citationText":"Reyes-Aguilar & Reyes-Aguilar, 2021"}
+{"title":"3.3 Supuestos de estadística paramétrica vs. no-paramétrica","description":"Supuestos de la estadística paramétrica y no paramétrica con ejemplos","authors":[{"author":"Azalea Reyes-Aguilar","authorURL":"#","affiliation":"AprendR, Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-14T00:00:00.000+00:00","citationText":"Reyes-Aguilar, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2118,15 +2117,234 @@ Temas
 </div>
 
 <div class="d-byline">
-  Azalea Reyes-Aguilar  (Psycoding)
-  
-,   Azalea Reyes-Aguilar  (AprendR, Psycoding)
+  Azalea Reyes-Aguilar  (AprendR, Psycoding)
   
 <br/>2021-12-14
 </div>
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h1 id="estadística-aplicada-de-acuerdo-a-tres-criterios">Estadística aplicada de acuerdo a tres criterios:</h1>
+<h3 id="por-su-alcance-u-objetivos-del-análisis">por su alcance u objetivos del análisis</h3>
+<ul>
+<li>Descriptiva</li>
+<li>Inferencial</li>
+</ul>
+<h3 id="por-su-relación-entre-variables-y-número-de-variables">por su relación entre variables y número de variables</h3>
+<ul>
+<li>Univariada</li>
+<li>Bivariada</li>
+<li>Multivariada</li>
+</ul>
+<h3 id="por-las-características-de-las-variables-datos">por las características de las variables (datos)</h3>
+<ul>
+<li>Paramétrica</li>
+<li>No-Paramétrica</li>
+</ul>
+<h2 id="criterios-para-decidir-las-estrategías-estadísticas">Criterios para decidir las estrategías estadísticas</h2>
+<ol type="1">
+<li><p>Cuál es el objetivo de la investigación?</p></li>
+<li><p>Cuál es el nivel de medición de las variables?</p></li>
+<li><p>Cuál fue la estrategía de muestreo empleada?</p></li>
+</ol>
+<h1 id="premisas-para-usar-estadística-paramétrica">Premisas para usar estadística paramétrica</h1>
+<h2 id="las-observaciones-deben-ser-independiente-muestreo-probabilístico.">1. Las observaciones deben ser independiente | muestreo probabilístico.</h2>
+<h4 id="probabilístico">Probabilístico</h4>
+<figure>
+<img src="img/probabilisty_s.png" class="external" style="width:50.0%" alt="" /><figcaption>Figure from <a href="https://scribber.com" class="uri">https://scribber.com</a></figcaption>
+</figure>
+<h4 id="no-probabilístico">NO-Probabilístico</h4>
+<figure>
+<img src="img/non-probability-sampling.png" class="external" style="width:50.0%" alt="" /><figcaption>Figure from <a href="https://scribber.com" class="uri">https://scribber.com</a></figcaption>
+</figure>
+<h2 id="las-variables-deben-ser-medidas-por-lo-menos-en-escala-de-intervalo-para-las-operaciones-aritméticas.">2. Las variables deben ser medidas por lo menos en escala de intervalo, para las operaciones aritméticas.</h2>
+<h4 id="niveles-de-medición">Niveles de medición</h4>
+<figure>
+<img src="img/medicion.png" class="external" style="width:70.0%" alt="" /><figcaption>Figure from <a href="https://https://www.mymarketresearchmethods.com" class="uri">https://https://www.mymarketresearchmethods.com</a></figcaption>
+</figure>
+<h2 id="las-poblaciones-deben-provenir-de-universos-cuya-distribución-siga-una-curva-normal.">3. Las poblaciones deben provenir de universos cuya distribución siga una <strong>curva normal</strong>.</h2>
+<ul>
+<li><p>Muchos fenómenos que podemos medir tanto en las ciencias exactas como las sociales de asemejan en su frecuencia a esta distribución.</p></li>
+<li><p>La distribución normal tiene ciertas propiedades matemáticas que nos permiten predecir qué proporción de la población (estadística) caerá dentro de cierto rango si la variable tiene distribución normal, <strong>media y desviación estándar</strong></p></li>
+<li><p>Varios tests de significancia de diferencia entre conjuntos/grupos de datos asumen que los datos del tienen una distribución normal.</p></li>
+</ul>
+<h4 id="curva-normal">curva normal</h4>
+<figure>
+<img src="img/normal-curve.png" class="external" style="width:60.0%" alt="" /><figcaption>Figure from <a href="https://bookdown.org/" class="uri">https://bookdown.org/</a></figcaption>
+</figure>
+<h4 id="vamos-a-hacer-una-prueba-en-r-con-los-datos-iris">Vamos a hacer una prueba en R con los datos <em>iris</em></h4>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body-outset">
+<p><img src="parametrica_files/figure-html5/unnamed-chunk-3-1.png" width="576" /></p>
+</div>
+<p>Calcular la cantidad de datos dentro de las dos primeras desviaciones</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span> 
+    <span class='va'>iris</span><span class='op'>$</span><span class='va'>Sepal.Width</span> <span class='op'>&lt;</span>  <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>$</span><span class='va'>Sepal.Width</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>$</span><span class='va'>Sepal.Width</span><span class='op'>)</span> 
+    <span class='op'>&amp;</span>
+    <span class='va'>iris</span><span class='op'>$</span><span class='va'>Sepal.Width</span> <span class='op'>&gt;</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>$</span><span class='va'>Sepal.Width</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>$</span><span class='va'>Sepal.Width</span><span class='op'>)</span> 
+<span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.6733333</code></pre>
+</div>
+<h5 id="o-bien-podemos-usar-pruebas-estadísticas-para-averiguar-si-los-datos-siguen-una-distribución-de-la-curva-normal">… o bien, podemos usar pruebas estadísticas para averiguar si los datos siguen una distribución de la curva normal</h5>
+<p>Prueba de Hipótesis: H0 = no diferencias con la curva normal Ha = diferencias con la curva normal</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  iris$Petal.Length
+W = 0.87627, p-value = 7.412e-10</code></pre>
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  iris$Petal.Width
+W = 0.90183, p-value = 1.68e-08</code></pre>
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  iris$Sepal.Length
+W = 0.97609, p-value = 0.01018</code></pre>
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  iris$Sepal.Width
+W = 0.98492, p-value = 0.1012</code></pre>
+</div>
+<h5 id="otras-opciones">… otras opciones</h5>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    Jarque Bera Test
+
+data:  iris$Sepal.Width
+X-squared = 2.6974, df = 2, p-value = 0.2596</code></pre>
+<pre><code>
+    Jarque Bera Test
+
+data:  iris$Sepal.Length
+X-squared = 4.4859, df = 2, p-value = 0.1061</code></pre>
+<pre><code>
+    Jarque Bera Test
+
+data:  iris$Petal.Width
+X-squared = 11.416, df = 2, p-value = 0.003318</code></pre>
+<pre><code>
+    Jarque Bera Test
+
+data:  iris$Petal.Length
+X-squared = 14.023, df = 2, p-value = 0.0009013</code></pre>
+</div>
+<h5 id="otras-las-de-la-libraría-nortest">… otras, las de la libraría <code>nortest</code></h5>
+<p>nortest::ad.test(data)</p>
+<p>nortest::cvm.test(data)</p>
+<p>nortest::lillie.test(data)</p>
+<p>nortest::pearson.test(data)</p>
+<p>nortest::sf.test(data)</p>
+<h2 id="las-poblaciones-deben-tener-la-misma-varianza-aunque-es-suficiente-con-saber-la-tasa-de-sus-varianzas.">4. Las poblaciones deben tener la misma varianza, aunque es suficiente con saber la tasa de sus varianzas.</h2>
+<p>La varianza es una medida de dispersión que representa la variabilidad de una serie de datos respecto a su media. Formalmente se calcula como la suma de los residuos al cuadrado divididos entre el total [-1] de observaciones.</p>
+<p><span class="math display">\[
+\sigma^2 = \frac{\sum(x_i -\mu)^2}{n - 1} 
+\]</span></p>
+<p>El cumplimiento del supuesto de varianza constante se conoce como <em>homocedasticidad</em> y el incumplimiento como <em>heterocedasticidad</em>.</p>
+<figure>
+<img src="img/varianzas.png" class="external" style="width:60.0%" alt="" /><figcaption>Figure from <a href="https://www.researchgate.net/" class="uri">https://www.researchgate.net/</a></figcaption>
+</figure>
+<p>Prueba de Hipótesis: H0 = no diferencias en las varianzas | <em>homocedasticidad</em> Ha = diferencias en las varianzas | <em>heterocedasticidad</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>Petal.Length</span> <span class='op'>~</span> <span class='va'>Species</span>, data <span class='op'>=</span> <span class='va'>iris</span>, FUN <span class='op'>=</span> <span class='va'>var</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Species Petal.Length
+1     setosa   0.03015918
+2 versicolor   0.22081633
+3  virginica   0.30458776</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="parametrica_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>Petal.Length</span> <span class='op'>~</span> <span class='va'>Species</span>, data <span class='op'>=</span> <span class='va'>iris_v</span>, FUN <span class='op'>=</span> <span class='va'>var</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     Species Petal.Length
+1 versicolor    0.2208163
+2  virginica    0.3045878</code></pre>
+</div>
+<h3 id="f-test-razón-de-varianzas">F-test (razón de varianzas)</h3>
+<p>Para distribuciones <em>normales</em>, dos poblaciones</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    F test to compare two variances
+
+data:  iris[iris$Species == &quot;versicolor&quot;, &quot;Petal.Length&quot;] and iris[iris$Species == &quot;virginica&quot;, &quot;Petal.Length&quot;]
+F = 0.72497, num df = 49, denom df = 49, p-value = 0.2637
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.411402 1.277530
+sample estimates:
+ratio of variances 
+         0.7249678 </code></pre>
+</div>
+<h3 id="levene">Levene</h3>
+<p>Se caracteriza, además de por poder comparar 2 o más poblaciones, por permitir elegir entre diferentes estadísticos de centralidad :mediana (por defecto), media, media truncada. Esto es importante a la hora de contrastar la homocedasticidad dependiendo de si los grupos se distribuyen de forma normal o no.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Levene&#39;s Test for Homogeneity of Variance (center = &quot;median&quot;)
+       Df F value    Pr(&gt;F)    
+group   2   19.48 3.129e-08 ***
+      147                      
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<h3 id="bartlett">Bartlett</h3>
+<p>Permite contrastar la igualdad de varianza en 2 o más poblaciones sin necesidad de que el tamaño de los grupos sea el mismo, pero es mejor para distribuciones <em>normales</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  list(a, b)
+Bartlett&#39;s K-squared = 1.249, df = 1, p-value = 0.2637</code></pre>
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  iris$Sepal.Length by iris$Species
+Bartlett&#39;s K-squared = 16.006, df = 2, p-value = 0.0003345</code></pre>
+</div>
+<h3 id="test-de-brown-forsyth">Test de Brown-Forsyth</h3>
+<p>Es equivalente al test de Levene cuando se emplea la mediana como medida de centralidad.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    hov: Brown-Forsyth
+
+data:  iris$Sepal.Length
+F = 6.3527, df:iris$Species = 2, df:Residuals = 147, p-value =
+0.002259
+alternative hypothesis: variances are not identical</code></pre>
+</div>
+<h3 id="test-de-fligner-killeen">Test de Fligner-Killeen</h3>
+<p>Se trata de un test no paramétrico que compara las varianzas basándose en la mediana. Es también una alternativa cuando no se cumple la condición de normalidad en las muestras.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    Fligner-Killeen test of homogeneity of variances
+
+data:  list(a, b)
+Fligner-Killeen:med chi-squared = 1.2624, df = 1, p-value =
+0.2612</code></pre>
+</div>
+<h2 id="extra">EXTRA</h2>
+<h5 id="calculo-de-los-residuales-con-lm-y-probar-la-prueba-breush-pagano-durbin-watson">Calculo de los residuales con lm y probar la prueba <code>Breush-Pagan</code>o <code>Durbin-Watson</code></h5>
+<p>library(lmtest)</p>
+<p><code>bptest(LM)</code></p>
+<h5 id="métodos-de-corrección-de-la-varianza-no-constante">Métodos de corrección de la varianza no constante</h5>
+<p>Corregir la no linealidad Corregir las observaciones influyentes Mínimos cuadrados ponderados</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2134,6 +2352,15 @@ Temas
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

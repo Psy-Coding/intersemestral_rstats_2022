@@ -2225,7 +2225,7 @@ Temas
 </ul>
 <h3 id="vector">Vector</h3>
 <p>El objeto más simple-básico en R, también llamado atómico, porque contiene elementos de la misma clase (e.g. <code>numeric</code>). Son la base para objetos complejos. Se crea con la función c(), que significa ‘concatenar’ o ‘combinar’. Cómo saber si una estructura de datos es vector: <code>is.vector(data)</code></p>
-Vectores numéricos
+<p>Vectores numéricos</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>Show code</summary>
@@ -2246,7 +2246,7 @@ Vectores numéricos
 </div>
 </details>
 </div>
-Esto qué es?
+<p>Esto qué es?</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>Show code</summary>
@@ -2325,25 +2325,18 @@ Esto qué es?
 <details>
 <summary>Show code</summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>vecror_2</span>, <span class='va'>vector_1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>vecror_2</span>, <span class='va'>vector_1</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>      vecror_2 vector_1
- [1,]       11        1
- [2,]       12        2
- [3,]       13        3
- [4,]       14        4
- [5,]       15        5
- [6,]       16        6
- [7,]       17        7
- [8,]       18        8
- [9,]       19        9
-[10,]       20       10</code></pre>
+<pre><code>         [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+vecror_2   11   12   13   14   15   16   17   18   19    20
+vector_1    1    2    3    4    5    6    7    8    9    10</code></pre>
 </div>
 <ul>
-<li>NO condundir con <em>dataframes</em> La estructura de datos lo puedes averiguar con el comando <code>str()</code></li>
+<li>NO condundir con <em>dataframes</em></li>
 </ul>
+<p>La estructura de datos lo puedes averiguar con el comando <code>str()</code></p>
 <p>¿Cuál es la diferencia entre <code>class()</code> y <code>str()</code></p>
 <h3 id="dataframe-tabulación">Dataframe (tabulación)</h3>
 <p>Es una estructura de datos de dos dimensiones (filas y columnas). Por convención, en las filas se asignan las observaciones y en la columnas, las variables o factores. Cada columna o variable puede contener diferente clase de datos respecto a otras variables. Todas las variables deben tener la misma longitud.</p>
@@ -2372,7 +2365,8 @@ Esto qué es?
 </details>
 <pre><code>[1] &quot;data.frame&quot;</code></pre>
 </div>
-<p>Para acceder a los datos de las columnas se utiliza el caracter ‘<span class="math inline">\(&#39; después del nombre del dataframe. `df_1\)</span>Species` para acceder a las columnas de las especies de flores en el data-set.</p>
+<p>Para acceder a los datos de las columnas se utiliza el caracter <strong>$</strong> después del nombre del dataframe.</p>
+<p><code>df_1$Species</code> para acceder a las columnas de las especies de flores en el data-set.</p>
 <p><code>names(df_1)</code> para conocer los nombres de las columnas = variables del dataframe</p>
 <h2 id="valores-no-disponibles">Valores no disponibles</h2>
 <p>Casi siempre hay valores faltantes en las bases de datos, lo cual en sí mismos son ya un dato y hay que analizarlos, sin embargo, requieren un tratamiento espacial.</p>
