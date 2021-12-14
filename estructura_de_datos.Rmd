@@ -309,9 +309,183 @@ InsectSprays %>%
   de seis sprays's insecticidas.
 </aside>
 
-#### Primeros intentos de tabular los datos, quizá rbind/cbind
 
-### Tidy data
+## Cambios de forma
 
-#### Tidy package con pivot_wide, pivot_longer (podemos hablar de melt/cast en reshape2 )
+Una vez entendido la estructura de los **data.frames** una de las tareas habituales que podemos tener es la de cambiar 
+su forma ya sea por unión con otros data.frames o por un rearreglo.
+
+### Unión de data.frame similares
+
+Podemos unir dos dataframes con el mismo número de columnas con el comando `cbind()`
+
+#### Por columnas
+
+Por ejemplo, podemos unir:
+
+```{r}
+dataframe_1 <- data.frame(col_a = 1:5, col_b = seq(10, 50, by = 10), col_c = c('a', 'b', 'c', 'd', 'e'))
+dataframe_1
+```
+
+```{r}
+dataframe_2 <- data.frame(
+  col_d = 11:20, 
+  col_e = seq(50, 140, by = 10)
+)
+dataframe_2
+```
+
+Podemos obtener entonces:
+
+```{r}
+cbind(dataframe_1, dataframe_2)
+```
+
+#### Por renglones
+
+Podemos unir un dataframe por los rengloes usando `rbind()`
+
+```{r}
+dataframe_a <- data.frame(col_a = 6:10, col_b = seq(60, 100, by = 10), col_c = c('v', 'g', 'j', 'd', 'e'))
+dataframe_a
+```
+
+```{r}
+dataframe_b <- data.frame(col_a = 2, col_b = 90, col_c = 'p')
+dataframe_b
+```
+
+```{r}
+rbind(dataframe_a, dataframe_b)
+```
+
+### Tambien se puede usar dplyr
+
+También podemos usar las funciones símiles en **dplyr**
+
+- bind_rows 
+- bind_cols
+
+La ventaja de estos comandos es que permiten unir mas de dos **data.frames** en un solo comando. por ejemplo si tuvieramos
+un tercer dataframe:
+```{r}
+dataframe_c <- data.frame(col_a = 4, col_b = 190, col_c = 'y')
+dataframe_c
+```
+
+Y podemos unir los 3 dataframes en una sola instrucción:
+
+```{r}
+bind_rows(dataframe_a, dataframe_b, dataframe_c)
+```
+
+
+### Unión de data.frame con un indice en común
+
+A veces queremos unir dos **data.frames** y queremos hacerlo mediante un indice o una llave que los relacione.
+Por ejemplo si tuvieramos un **data.frame** con los nombres de usuarios y otro con sus calificaciones, podríamos unirlos
+por su identificador.
+
+```{r}
+alumnos <- data.frame(id = 1:4, nombres = c('Andrea', 'Miguel', 'Francisco', 'Jazmin'))
+alumnos
+```
+
+```{r}
+calificaciones <- data.frame(id = c(2,1,4,3), calificacion = c(10,8,9,7))
+calificaciones
+```
+
+Podemos hacer un **inner_join** con dplyr:
+
+```{r}
+inner_join(alumnos, calificaciones, by='id')
+```
+
+
+Existen variantes de este tipo de uniones:
+
+![](img/imagen_joins.png)
+
+Estas permiten unir los dataframes dependiendo del tipo de unión:
+
+- inner_join: Solo los valores que coinciden en ambos
+- left_join: Se trae todo los valores del dataframe de la izquierda y si no coincide alguno se coloca NA
+- right_join: Se trae todo los valores del dataframe de la derecha y si no coincide alguno se coloca NA
+- full_join: Trae todos los valores aunque no coincidan y coloca NA en los campos que falten
+
+# Tidy data
+
+Al programar los mismos datos se pueden representar de varias maneras:
+
+
+```{r echo = T}
+data.frame(
+  Materias = c("Mat1", "Mat1", "Mat2", "Mat2", "Mat3", "Mat3"),
+  sem = c(1, 2, 1, 2, 1, 2),
+  aprov = c(20, 10, 5),
+  reprov = c(10, 20, 25)
+)
+data.frame(
+  Materias = c("Mat1", "Mat1", "Mat1", "Mat1", "Mat2", "Mat2", "Mat2", "Mat2", "Mat3", "Mat3","Mat3", "Mat3"),
+  sem = c(1, 1, 2, 2, 1, 1, 2, 2, 1, 1, 2, 2),
+  eval = c("aprov", "reprov", "aprov", "reprov", "aprov", "reprov", "aprov", "reprov", "aprov", "reprov", "aprov", "reprov"), 
+  calif = c(20, 10, 10, 20, 5, 25, 20, 10, 10, 20, 5, 25)
+)
+```
+
+.
+Todas estas son representaciones de los mismos datos, sin embargo, no fáciles de usar. Un conjunto de datos ordenado
+permite un trabajo mucho más eficiente.
+
+Hay tres reglas interrelacionadas que hacen que un conjunto de datos sea ordenado:
+
+* Cada variable debe tener su propia columna.
+* Cada observación debe tener su propia fila.
+* Cada valor debe tener su propia celda.
+
+## Ventajas 
+
+1.- Si tiene una estructura de datos coherente, es más fácil aprender las herramientas que funcionan con ella porque
+tienen una uniformidad subyacente.
+
+2.- Hay una ventaja específica en colocar variables en columnas porque permite que brille la naturaleza vectorizada de R.
+
+3.- Algunas paqueterias (**dplyr**, **ggplot2**) están diseñadas para trabajar con este ordenamiento.
+
+# Long vs. Wide format.
+
+En general existen dos formas de desglosar los datos, a traves del formato **Long** y el formato **Wide**, diversas
+paqueterias funcionan de mejor manera con cada uno.
+
+## Wide
+
+```{r}
+data.frame(Participante = c("P1", "P2"), ev1 = c(1, 2), ev2 = c(2, 2), ev3 = c(2, 1))
+```
+
+## Long
+
+```{r}
+data.frame(Participante = c("P1", "P1", "P1", "P2", "P2", "P2"), eval123 = c(1, 2, 2, 2, 2, 1))
+```
+
+
+### Tidyr: pivot_longer y pivot_wider
+
+Podemos convertir de un formato a otro a partir de los comando `pivot_longer` para convertir al formato **long** y
+`pivot_wider` para convertir a formato wide.
+
+```{r}
+wide <- data.frame(participante = c("P1","P2"), ev1 = c(1,2), ev2 = c(2,2), ev3 = c(2,1))
+wide
+```
+
+```{r}
+library(tidyr)
+long <- wide %>%
+  pivot_longer(-participante)
+long
+```
 
