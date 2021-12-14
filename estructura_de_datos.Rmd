@@ -57,6 +57,7 @@ El objeto más simple-básico en R, también llamado atómico, porque contiene e
 Cómo saber si una estructura de datos es vector: `is.vector(data)`
 
 Vectores numéricos
+
 ```{r}
 numeros_1.10 <- c(1,2,3,4,5,6,7,8,9,10) 
 numeros_1.100 <- c(1:100)
@@ -69,6 +70,7 @@ vector_m <- c(1:10, "esto", "tambien", "es", "vector")
 ```
 
 Esto qué es?
+
 ```{r}
 seq(5, 10, length=20)
 ```
@@ -113,10 +115,12 @@ vector_1 <- c(1:10)
 vecror_2 <- c(11:20)
 
 cbind(vecror_2, vector_1)
-cbind(vecror_2, vector_1)
+rbind(vecror_2, vector_1)
 ```
 
 * NO condundir con *dataframes*
+
+
 La estructura de datos lo puedes averiguar con el comando `str()`
 
 ¿Cuál es la diferencia entre `class()` y `str()` 
@@ -134,7 +138,8 @@ paged_table(df_1)
 class(df_1)
 ```
 
-Para acceder a los datos de las columnas se utiliza el caracter ‘$' después del nombre del dataframe.
+Para acceder a los datos de las columnas se utiliza el caracter **$** después del nombre del dataframe.
+
 `df_1$Species` para acceder a las columnas de las especies de flores en el data-set.
 
 `names(df_1)` para conocer los nombres de las columnas = variables del dataframe
