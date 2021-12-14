@@ -20,10 +20,26 @@ library(rmarkdown)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## ¿Qué es una base de datos? 
+Es un conjunto organizado de información estructurada (data). 
+
+### Tipo de *dato* en R
+
+Dato        | Descripcíon                      | Definición  
+----------- | -------------------------------- | -----------  
+Numeric     | Números decimales                | numero <- 1.0
+Integer     | Números enteros                  | int <- 1
+Character   | Cadenas de texto                 | str <- "un texto"
+Complex     | Números complejos                | comp <- 3+2i
+Logical     | Verdadero (TRUE) o falso (FALSE) | a <- 1; b <- 2; a < b
+
+**Nota: Factor
+
+El tipo o clase de datos lo puedes averiguar con el comando `class()`
+
 ## Estructuras de Datos
 
-Las estructuras de datos se pueden clasificar por sus dimensiones (1, 2 o n) y si contienen el mismo tipo de
-dato (homogéneo) o bien diferente tipos de datos (heterogéneo). 
+Las estructuras de datos se pueden clasificar por sus dimensiones (1, 2 o n) y si contienen el mismo tipo de dato (homogéneo) o bien diferente tipos de datos (heterogéneo). 
 
 Las estructuras de datos en R-base más cómunes son:
 
@@ -37,22 +53,43 @@ n           | array     |
 
 ### Vector
 
-Objeto más simple, son la base para objetos complejos.
+El objeto más simple-básico en R, también llamado atómico, porque contiene elementos de la misma clase (e.g. `numeric`). Son la base para objetos complejos. Se crea con la función c(), que significa ‘concatenar’ o ‘combinar’. 
+Cómo saber si una estructura de datos es vector: `is.vector(data)`
 
+Vectores numéricos
+```{r}
+numeros_1.10 <- c(1,2,3,4,5,6,7,8,9,10) 
+numeros_1.100 <- c(1:100)
+```
 
 
 ```{r}
-x <- 53 #numérico
-y <- 'ana' #caracter
-z <- y > 5 #Lógico
-numeros_1.10 <- c(1,2,3,4,5,6,7,8,9,10) #Lista
-numeros_1.100 <- c(1:100)
-lista_variables <- c(x,y,z)
+vector_s <- c("Esto", "también", "es", "un", "vector")
+vector_m <- c(1:10, "esto", "tambien", "es", "vector") 
 ```
+
+Esto qué es?
+```{r}
+seq(5, 10, length=20)
+```
+
+
+### Listas
+
+Las listas son objetos que pueden no solo contener diferentes tipos de clases `class` en cada **item**, ademas estos **items** no necesitan tener las mismas dimensiones entre cada uno de ellos a diferencia de los **data.frames**.
+
+Estas estructuras son muy adaptables.
+
+```{r}
+lista_1 <- list(id= c(123, 145) , c("placas", "matricula", "marca", "color"),  c(FALSE, FALSE, TRUE))
+```
+
 
 ### Matriz 
 
-Conjunto de datos de dos dimensiones (filas y columnas)
+Conjunto de datos de la misma clase (homogéneo), pero estructurado en dos dimensiones 
+1. las filas son las horizontales 
+2. las columnas, las verticales
 
 
 ```{r}
@@ -63,28 +100,59 @@ matriz_1 <- matrix(c('x','y','z','o','b','c'),
 matriz_1
 ```
 
-* Se puede llegar a condundir con *dataframes*
+
+```{r}
+matriz_2 <- matrix(1:20, 4, 5)
+```
+
+¿Cómo hacer una lista de varios vectores?
+`cbind` o `rbind`
+
+```{r}
+vector_1 <- c(1:10)
+vecror_2 <- c(11:20)
+
+cbind(vecror_2, vector_1)
+cbind(vecror_2, vector_1)
+```
+
+* NO condundir con *dataframes*
+La estructura de datos lo puedes averiguar con el comando `str()`
+
+¿Cuál es la diferencia entre `class()` y `str()` 
+
 
 ### Dataframe (tabulación)
-
-Puede contener diferentes clases
+Es una estructura de datos de dos dimensiones (filas y columnas). Por convención, en las filas se asignan las observaciones y en la columnas, las variables o factores. Cada columna o variable puede contener diferente clase de datos respecto a otras variables. Todas las variables deben tener la misma longitud. 
 
 ```{r}
-df1 <- iris
-paged_table(df1)
+df_1 <- iris
+paged_table(df_1)
 ```
 
 ```{r}
-class(df1)
+class(df_1)
 ```
 
+Para acceder a los datos de las columnas se utiliza el caracter ‘$' después del nombre del dataframe.
+`df_1$Species` para acceder a las columnas de las especies de flores en el data-set.
 
-### Listas
+`names(df_1)` para conocer los nombres de las columnas = variables del dataframe
 
-Las listas son objetos que pueden no solo contener diferentes tipos de valores en cada **item**, ademas estos **items**
-no necesitan tener las mismas dimensiones entre cada uno de ellos a diferencia de los **data.frames**.
 
-Estas estructuras son muy adaptables
+## Valores no disponibles
+Casi siempre hay valores faltantes en las bases de datos, lo cual en sí mismos son ya un dato y hay que analizarlos, sin embargo, requieren un tratamiento espacial. 
+
+NA se usa para representar cualquier valor que “no está disponible (Not Available)” o “falte” (en el sentido estadístico).
+
+Un segundo tipo de valor no disponible: NaN, que significa “no es un número (Not a Number)”.
+
+Algunos comandos para trabajar con valores faltantes son:
+`is.na()`
+`na.omit()`
+`na.rm = `
+
+
 
 ## Procesamiento de datos: dplyr ()
 
