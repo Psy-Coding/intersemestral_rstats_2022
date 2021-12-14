@@ -10,9 +10,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Ponentes
 
-* Dra. Azalea Reyes
-* Psic. Emma Botello
-* Psic. Juan Díaz
-* Psic. Ana González
-* Psic. Scarlett Escudero
+* Dra. Azalea Reyes 
+* Psic. Emma Botello [emma.botello@psycoding.org](mailto:emma.botello@psycoding.org)
+* Psic. Juan Díaz [juan.diaz@psycoding.org](mailto:juan.diaz@psycoding.org)
+* Psic. Ana González [ana.gonzalez@psycoding.org](mailto:ana.gonzalez@psycoding.org)
+* Psic. Scarlett Escudero [scarlett.escudero@psycoding.org](mailto:scarlett.escudero@psycoding.org)
 * Biol. Edgar Morales
