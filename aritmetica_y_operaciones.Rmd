@@ -43,11 +43,11 @@ x
 
 ## Aritmética en R
 
-1. + Adición
+1. \+ Adición
 
-2. - Sustracción
+2. \- Sustracción
 
-3. * Multiplicación
+3. \* Multiplicación
 
 4. / División
 
@@ -89,11 +89,11 @@ IMC <- peso/estatura^2
 
 3. < Menor que 
 
-4. > Mayor que
+4. \> Mayor que
 
 5. <= Menor que o igual 
 
-6. >= Mayor que o igual 
+6. \>= Mayor que o igual 
 
 7. & (and)
 
