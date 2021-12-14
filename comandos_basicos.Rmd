@@ -97,3 +97,184 @@ Vamos a hacer que se muestren los 4 páneles principales de RStudio, de la sigui
 
 Para abrir el editor de código, crearemos un script. Da click en el siguiente ícono:
 ![Icono script](https://media.geeksforgeeks.org/wp-content/uploads/20200402193929/create-2.jpg)
+
+Cada panel cumple funciones distintas, las cuales describiremos a continuación de manera breve.
+
+## Consola de R
+
+Permite que se ejecuten las instrucciones que escribimos para R. Al igual que el panel anterior, permite que el código se autocomplete (a diferencia de la consola de R que vimos fuera de RStudio).
+Cuenta con un símbolo de escoba que nos permite limpiar lo que hay en la consola, lo cual también puede hacerse con las teclas Ctrl + L o Cmd + L
+Además, cuando R aún está ejecutando nuestras instrucciones, muestra un símbolo para interrumpir la ejecución. Para observar esto, vamos a ejecutar la siguiente instrucción:
+
+```{r echo=TRUE,eval=FALSE}
+while(1 < 2) {
+  print("Presiona el botón de STOP para detener")
+}
+```
+Además del botón STOP, también podemos presionar la tecla Esc en nuestro teclado para parar la ejecución. 
+
+## Editor de código fuente y visor de datos
+
+### Editor
+Permite generar documentos en los cuáles se almacenen todos los comandos de código que serán ejecutados posteriormente. Al escribir en ellos R no seguirá automáticamente las instrucciones que estamos dando. Cuenta, además, con resaltado de sintaxis y detección de posibles errores. Por ejemplo, en el script que abriste escribe lo siguiente:
+
+x y <-10
+
+Como puedes observar, RStudio resalta el número 10 en un color distinto y, además, junto al número de línea marca un tache, indicando que la línea contiene errores.
+
+#### Tipos de documentos comúnmente usados:
+* **R Script.** Documentos de texto plano para almacenar código. Su extensión es .R
+* **R Markdown.** Documento que permite combinar el código, sus resultados y comentarios en prosa. Además, tiene diferentes formatos de salida (PDF, word, presentaciones, etc.). Su extensión es .Rmd
+
+Aquí un par de links donde consultar más sobre R Markdown:
+
+[Guía de referencia de R Markdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+
+[Cheat Sheet de R Markdown](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+En ambos tipos de documentos, las líneas del documento están numeradas y las instrucciones escritas pueden ejecutarse al ubicar el cursor en una línea particular. La ejecución puede hacerse con las teclas Ctrl + enter (para usuarios de Windows) o Cmd + enter (para usuarios de Linux/macOs), o bien, también usando el botón Run ubicado en la parte superior derecha del panel de edición. 
+
+#### Algunos atajos de teclado para edición de código
+
+* **Ctrl + shift + R** Genera una sección en el script y marca un indice (también se pone con más de 5 guiones).
+* **Shift + flechas de teclado** permite seleccionar varias líneas.
+* **Ctrl + enter** Ejecuta la linea en la cual te encuentras posicionado o las líneas seleccionadas.
+* **Alt + shift + flecha hacia abajo** Genera una copia de la línea actual en el siguiente renglón.
+* **Alt + flecha arriba/abajo** Mueve la línea de código actual.
+* **Ctrl + alt + flecha arriba/abajo** Permite duplicar el cursor y editar varias líneas a la vez (para dejar de duplicar se presiona esc).
+* **Ctrl + shift + C** Comenta varias líneas seleccionadas.
+
+
+### Visor
+Cuando abrimos un conjunto de datos en R, la visualización se lleva a cabo en el mismo panel que se encuentra el editor. Por ejemplo, usando la función View() vamos a abrir el visor usando un conjunto de datos que viene por defecto en R. Ejecuta la siguiente línea de código:
+
+View(mtcars)
+
+## Espacio de trabajo : Ambiente
+Contiene la ventana de ambiente, donde se irán registrando los objetos que vayamos creando.  Tenemos la opción de cargar y guardar una sesión de trabajo, importar datos y limpiar los objetos de la sesión. 
+
+### Objetos
+Pueden ser valores numéricos, vectores, funciones, bases de datos, gráficos, etc. Los objetos en R se crean de la siguiente forma: 
+![Ejemplo de objeto](https://bookdown.org/gboccardo/manual-ED-UCH/04-anexos/sintaxis2.png)
+La imágen muestra (de izquierda a derecha):
+
+* Un **objeto** a crear, con un nombre que nosotros definimos arbitrariamente.
+* El símbolo **asignador**, que expresa que todo lo que se encuentre a la derecha de la   flecha se guardará en el *objeto* creado. Puede ser **<-** o **=**
+* La **función**, que en este caso permite leer archivos de Excel.
+* Los **argumentos** se indican dentro de los paréntesis. En particular, el primer argumento indica la información a leer (archivo de excel), el segundo argumento indica la hoja del archivo a leer y el tercer argumento indica que columnas se leerán de forma específica (en este caso las primeras 10).
+
+
+Como iremos viendo a lo largo del curso, luego del asignador las funciones son solo un tipo de información que podemos incluir. Podemos, por ejemplo, guardar números en objetos:
+
+```{r}
+numero <- 10
+```
+
+Al ejecutar el código anterior, puedes notar que en tu ventana _Environment_ ahora aparece registrado el objeto numero. Para acceder al contenido de los objetos, podemos simplemente escribir su nombre en nuestra consola:
+
+```{r}
+numero
+```
+
+Se puede modificar el contenido de un objeto cambiando lo que se encuentre a la derecha del símbolo **<-**
+
+```{r}
+numero <-5
+```
+```{r}
+numero
+```
+
+#### Algunas consideraciones al generar objetos
+
+Los nombres de los objetos:
+
+* Deben comenzar con una letra (no número)
+* Pueden contener letras, números, guiones bajos y puntos.
+* No deben contener espacios ni caracteres especiales (acentos, barras, comillas, guión medio, paréntesis, diagonal etc.).
+* Deben ser descriptivos.
+* No se tienen que repetir.
+
+Ejemplos:
+
+* **yo_uso_guion_bajo**
+* **OtraGenteUsaMayusculas**
+* **algunas.personas.usan.puntos**
+* **Y_algunasPocas.Personas_RENIEGANdelasconvenciones**
+### Algunas funciones útiles para el ambiente de trabajo
+
+Para ver que objetos están en el _Environment_ podemos usar:
+
+```{r}
+ls()
+```
+
+
+```{r}
+objects()
+```
+
+Para remover un objeto en específico:
+
+
+```{r echo=TRUE, eval=FALSE, include=TRUE}
+rm(numero)
+```
+
+Para eliminar todo el contenido del _Environment_:
+
+
+rm(list = ls())
+
+
+## Espacio de trabajo : Historial
+El panel _History_ muestra un historial de las líneas de código que se han ejecutado
+en la consola. Al hacer doble click sobre alguna línea el código se copia a la consola para que
+se pueda volver a ejecutar la operación. También se puede acceder a líneas de código pasadas colocando el cursor en la consola y presionando la tecla con la flecha hacia arriba.
+
+
+## Ficheros/files
+En este espacio aparecen los archivos que están en el directorio de trabajo.
+Permite renombrarlos, eliminarlos, copiarlos, moverlos o generar nuevas carpetas y archivos sin necesidad de salir de RStudio.
+
+## Plots 
+En este panel se visualizan los gráficos generados. La función básica para generar gráficos es plot()
+
+```{r echo=TRUE}
+plot(mtcars)
+```
+
+También se pueden visualizar los gráficos usando la función x11() en Windows o quartz() en Linux/MacOS. Se pueden cerrar usando dev.off()
+
+Para windows:
+
+```{r echo= TRUE, eval=FALSE, include=TRUE}
+x11()
+plot(mtcars)
+dev.off()
+```
+
+Para Linux/MacOS:
+
+```{r echo= TRUE, eval=FALSE, include=TRUE}
+quartz()
+plot(mtcars)
+dev.off()
+```
+
+## Packages
+
+Permite visualizar las librerías que hay actualmente en el disco duro de la máquina, cargarlas para su uso, gestionar la instalación de nuevas librerías o la actualización de las ya descargadas.
+
+Las librerías desarrolladas en R cubren multitud de campos: desde estadística descriptiva e inferencial, aplicaciones Bayesianas, financieras, métodos gráficos, machine learning, creación de aplicaciones web, etc.
+
+Para incluir librerias adicionales a las que vienen por default, se usa la función **install.packages("nombre del paquete")**. Cabe resaltar que esta función tendremos que usarla sólo una vez.
+
+Cuando tenemos una libreria adicional instalada y queremos cargar sus funciones a nuestro _Environment_ usamos la función **library("nombre del paquete")**. Esta linea debe ejecutarse cada vez que se vaya a usar la función en una sesión nueva.
+
+## Help
+En este panel podemos obtener ayuda sobre una determinada función o librería. Por ejemplo, si quisieramos saber qué hace la función date() podríamos escribir su nombre en el espacio que se encuentra junto a la lupa o escribir estas líneas en nuestra consola:
+
+help(date)
+
+?date

@@ -87,33 +87,34 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Rstat Intersemestral 2022: 1.2 Comandos básicos</title>
+  <title>Rstat Intersemestral 2022: 3.5 Comparativa entre poblaciones</title>
   
-  <meta property="description" itemprop="description" content="Comandos básicos, interfaz de R-studio y ambiente"/>
+  <meta property="description" itemprop="description" content="Principales pruebas estadísticas para la comparativa entre poblaciones"/>
   
   
   <!--  https://schema.org/Article -->
   <meta property="article:published" itemprop="datePublished" content="2021-12-14"/>
   <meta property="article:created" itemprop="dateCreated" content="2021-12-14"/>
-  <meta name="article:author" content="Emma Botello"/>
+  <meta name="article:author" content="Azalea Reyes-Aguilar"/>
+  <meta name="article:author" content="Azalea Reyes-Aguilar"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Rstat Intersemestral 2022: 1.2 Comandos básicos"/>
+  <meta property="og:title" content="Rstat Intersemestral 2022: 3.5 Comparativa entre poblaciones"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Comandos básicos, interfaz de R-studio y ambiente"/>
+  <meta property="og:description" content="Principales pruebas estadísticas para la comparativa entre poblaciones"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Rstat Intersemestral 2022"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Rstat Intersemestral 2022: 1.2 Comandos básicos"/>
-  <meta property="twitter:description" content="Comandos básicos, interfaz de R-studio y ambiente"/>
+  <meta property="twitter:title" content="Rstat Intersemestral 2022: 3.5 Comparativa entre poblaciones"/>
+  <meta property="twitter:description" content="Principales pruebas estadísticas para la comparativa entre poblaciones"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["1.2 Comandos básicos"]},{"type":"character","attributes":{},"value":["Comandos básicos, interfaz de R-studio y ambiente\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Emma Botello"]},{"type":"character","attributes":{},"value":["Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-14"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["3.5 Comparativa entre poblaciones"]},{"type":"character","attributes":{},"value":["Principales pruebas estadísticas para la comparativa entre poblaciones\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Azalea Reyes-Aguilar"]},{"type":"character","attributes":{},"value":["Psycoding"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Azalea Reyes-Aguilar"]},{"type":"character","attributes":{},"value":["AprendR, Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-14"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2060,7 +2061,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"1.2 Comandos básicos","description":"Comandos básicos, interfaz de R-studio y ambiente","authors":[{"author":"Emma Botello","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-14T00:00:00.000+00:00","citationText":"Botello, 2021"}
+{"title":"3.5 Comparativa entre poblaciones","description":"Principales pruebas estadísticas para la comparativa entre poblaciones","authors":[{"author":"Azalea Reyes-Aguilar","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""},{"author":"Azalea Reyes-Aguilar","authorURL":"#","affiliation":"AprendR, Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-14T00:00:00.000+00:00","citationText":"Reyes-Aguilar & Reyes-Aguilar, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2110,253 +2111,22 @@ Temas
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>1.2 Comandos básicos</h1>
+<h1>3.5 Comparativa entre poblaciones</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Comandos básicos, interfaz de R-studio y ambiente</p></p>
+<p><p>Principales pruebas estadísticas para la comparativa entre poblaciones</p></p>
 </div>
 
 <div class="d-byline">
-  Emma Botello  (Psycoding)
+  Azalea Reyes-Aguilar  (Psycoding)
+  
+,   Azalea Reyes-Aguilar  (AprendR, Psycoding)
   
 <br/>2021-12-14
 </div>
 
 <div class="d-article">
-<h1 id="qué-es-r">¿Qué es R?</h1>
-<p>Un lenguaje y un entorno de programación que dispone de:</p>
-<ul>
-<li>Almacenamiento y manipulación de datos.</li>
-<li>Operadores para cálculo.</li>
-<li>Herramientas para análisis de datos.</li>
-<li>Posibilidades gráficas para análisis de datos.</li>
-</ul>
-<p>Cabe aclarar que R no está propiamente diseñado como sistema estadístico, sino que es un entorno en el cual se han implementado muchas técnicas estadísticas.</p>
-<p>El código de R está disponible como software gratuito y de libre acceso, el cual continuamente es mejorado por personas en todo el mundo que colaboran para su desarrollo.</p>
-<p>Para acceder a la consola de R, busca el siguiente símbolo en tu menú de aplicaciones: <img src="https://cran.r-project.org/doc/manuals/r-patched/Rlogo.svg" alt="Imagen de R" /></p>
-<p>Una vez que se ha abierto, ubica el prompt (&gt;). Este símbolo indica que R está a la espera de tus órdenes. Si escribes instrucciones frente al prompt y das enter, R las ejecutará, siempre y cuando uses el lenguaje específico que R requiere. Por ejemplo, escribe:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/date.html'>date</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>[1] &quot;Tue Dec 14 16:18:09 2021&quot;</code></pre>
-</div>
-<h1 id="qué-es-rstudio">¿Qué es RStudio?</h1>
-<p>Un entorno amigable diseñado para R que permite realizar los procedimientos de manera más sencilla e intuitiva.</p>
-<h2 id="ventajas-de-rstudio">Ventajas de RStudio</h2>
-<ul>
-<li>Permite:
-<ul>
-<li>Resaltar la sintaxis.</li>
-<li>Autocompletar el código.</li>
-<li>Administrar fácilmente múltiples directorios de trabajo usando proyectos.</li>
-<li>Hacer diagnóstico de errores.</li>
-</ul></li>
-</ul>
-<p>Puedes abrirlo ubicando el siguiente símbolo en tu menú de aplicaciones: <img src="https://blog.desdelinux.net/wp-content/uploads/2019/02/rstudio-og.png" alt="Imagen de RStudio" /></p>
-<p>Una vez que has abierto RStudio, puedes personalizar el color de fondo y el color con el que se resalta la sintaxis. Para esto debes ubicar la opción Tools y dar click en Global Options. Se abrirá una ventana con múltiples opciones, entre ellas la opción Appearance. Aquí podrás seleccionar un tema para tu editor, además de cambiar el tipo y tamaño de tu letra.</p>
-<p>Para que observes como RStudio autocompleta el código, ubica la consola (busca el prompt &gt;), escribe dat y observa que sucede.</p>
-<p>RStudio te ofrece sugerencias de funciones que inician con las letras que estás escribiendo, como la función data(). Usando las flechas de tu teclado puedes navegar entre las distintas opciones que te ofrece R. Navega entre las opciones hasta encontrar la función date(), una vez que hayas encontrado esta función usa la tecla Tab o tabuladora para autocompletar la función.</p>
-<p>Ahora, intenta hacer lo mismo en R directamente. Como podrás notar, R no te ofrece sugerencias al escribir. Puedes forzar a R a hacer esto dando doble click en la tecla Tab, sin embargo tienes la desventaja de que solo te da el nombre de las funciones y tú tienes que completar las letras que te falten, lo cual no es un problema con la función data(), pues falta solo una letra, pero tomaría un poco más de tiempo escribir la función data.frame(). RStudio optimiza nuestro tiempo al autocompletar el código.</p>
-<p>RStudio, además, te permite tener proyectos por separado donde estés trabajando con código para distintos propósitos. ¡Vamos a abrir un proyecto para este curso! Ubica la esquina superior derecha de tu RStudio, si das click sobre Project: None observarás lo siguiente: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToICavj6zWtWzGE6MWK2jJVgVSzUQFNs9B7g&amp;usqp=CAU" alt="Proyecto" /></p>
-<p>Selecciona New Project, te aparecerá esta ventana: <img src="https://www.rstudio.com/images/docs/projects_new.png" alt="Crear proyecto" /></p>
-<p>Puedes generar una nueva carpeta (o directorio) con “New Directory”, esto si no tienes alguna designada en tu computadora para el curso. Si ya habías creado una carpeta con anterioridad, da click en “Existing Directory”.</p>
-<p>Al seleccionar “New Directory” te dará varias opciones, vuelve a seleccionar “New Directory”. Se abrirá una ventana como la siguiente:</p>
-<figure>
-<img src="https://dq-blog-files.s3.amazonaws.com/rstudio_tutorial/name_project.png" alt="" /><figcaption>Nombrar proyecto</figcaption>
-</figure>
-<p>Deberás darle un nombre a tu carpeta y explorar (browse) los directorios existentes de tu computadora para seleccionar la ubicación donde se guardará la nueva carpeta del proyecto. Cuando programes, procura no nombrar carpetas y archivos usando caracteres especiales (ej. acentos, ñ, +, *, /, @, #…), caracteres gráficos (ej. ♣, ♦, ♥, ♠…) o espacios. Para este curso, sugerimos el nombre de carpeta: inter_RStats_2022. Una vez nombrada la carpeta y seleccionada la ubicación, da click en “Create Project”. ¡Listo! Ahora RStudio debería ubicarte en automático en ese proyecto.</p>
-<h2 id="proyectos">Proyectos</h2>
-<p>Mantenienen un ambiente de trabajo ordenado pues permiten:</p>
-<ul>
-<li>Concentrar todos los archivos asociados a un proyecto en una sola ubicación.</li>
-<li>Separar claramente un proyecto de otros en los que se estén trabajando.</li>
-<li>Mantener los resultados del código que se ejecutó anteriormente (environment).</li>
-<li>Conservar un directorio de trabajo estable.</li>
-</ul>
-<p>Un directorio de trabajo (Working Directory) es la carpeta en la cual RStudio busca los archivos que se le solicita leer y donde colocará los archivos que se le pida que guarde. RStudio muestra el WD actual en la parte superior de la consola (ej.~/Documents/inter_RStats_2022/). Puedes conocer tu WD actual usando el comando:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<h1 id="páneles-en-rstudio">Páneles en RStudio</h1>
-<p>Como habrás observado desde que abriste R, tiene múltiples páneles además de la consola. Seguramente, por ahora ves solo 3, similar a lo siguiente:</p>
-<figure>
-<img src="https://crd230.github.io/rgui.png" alt="" /><figcaption>Paneles sin editor</figcaption>
-</figure>
-<p>Vamos a hacer que se muestren los 4 páneles principales de RStudio, de la siguiente forma: <img src="https://cpgonzal.github.io/cursoIntroR2017/figure/RStudio_panels.png" alt="Imagen de paneles" /></p>
-<p>Para abrir el editor de código, crearemos un script. Da click en el siguiente ícono: <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200402193929/create-2.jpg" alt="Icono script" /></p>
-<p>Cada panel cumple funciones distintas, las cuales describiremos a continuación de manera breve.</p>
-<h2 id="consola-de-r">Consola de R</h2>
-<p>Permite que se ejecuten las instrucciones que escribimos para R. Al igual que el panel anterior, permite que el código se autocomplete (a diferencia de la consola de R que vimos fuera de RStudio). Cuenta con un símbolo de escoba que nos permite limpiar lo que hay en la consola, lo cual también puede hacerse con las teclas Ctrl + L o Cmd + L Además, cuando R aún está ejecutando nuestras instrucciones, muestra un símbolo para interrumpir la ejecución. Para observar esto, vamos a ejecutar la siguiente instrucción:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>while</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>&lt;</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='st'>"Presiona el botón de STOP para detener"</span><span class='op'>)</span>
-<span class='op'>}</span>
-</code></pre>
-</div>
-</div>
-<p>Además del botón STOP, también podemos presionar la tecla Esc en nuestro teclado para parar la ejecución.</p>
-<h2 id="editor-de-código-fuente-y-visor-de-datos">Editor de código fuente y visor de datos</h2>
-<h3 id="editor">Editor</h3>
-<p>Permite generar documentos en los cuáles se almacenen todos los comandos de código que serán ejecutados posteriormente. Al escribir en ellos R no seguirá automáticamente las instrucciones que estamos dando. Cuenta, además, con resaltado de sintaxis y detección de posibles errores. Por ejemplo, en el script que abriste escribe lo siguiente:</p>
-<p>x y &lt;-10</p>
-<p>Como puedes observar, RStudio resalta el número 10 en un color distinto y, además, junto al número de línea marca un tache, indicando que la línea contiene errores.</p>
-<h4 id="tipos-de-documentos-comúnmente-usados">Tipos de documentos comúnmente usados:</h4>
-<ul>
-<li><strong>R Script.</strong> Documentos de texto plano para almacenar código. Su extensión es .R</li>
-<li><strong>R Markdown.</strong> Documento que permite combinar el código, sus resultados y comentarios en prosa. Además, tiene diferentes formatos de salida (PDF, word, presentaciones, etc.). Su extensión es .Rmd</li>
-</ul>
-<p>Aquí un par de links donde consultar más sobre R Markdown:</p>
-<p><a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Guía de referencia de R Markdown</a></p>
-<p><a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Cheat Sheet de R Markdown</a></p>
-<p>En ambos tipos de documentos, las líneas del documento están numeradas y las instrucciones escritas pueden ejecutarse al ubicar el cursor en una línea particular. La ejecución puede hacerse con las teclas Ctrl + enter (para usuarios de Windows) o Cmd + enter (para usuarios de Linux/macOs), o bien, también usando el botón Run ubicado en la parte superior derecha del panel de edición.</p>
-<h4 id="algunos-atajos-de-teclado-para-edición-de-código">Algunos atajos de teclado para edición de código</h4>
-<ul>
-<li><strong>Ctrl + shift + R</strong> Genera una sección en el script y marca un indice (también se pone con más de 5 guiones).</li>
-<li><strong>Shift + flechas de teclado</strong> permite seleccionar varias líneas.</li>
-<li><strong>Ctrl + enter</strong> Ejecuta la linea en la cual te encuentras posicionado o las líneas seleccionadas.</li>
-<li><strong>Alt + shift + flecha hacia abajo</strong> Genera una copia de la línea actual en el siguiente renglón.</li>
-<li><strong>Alt + flecha arriba/abajo</strong> Mueve la línea de código actual.</li>
-<li><strong>Ctrl + alt + flecha arriba/abajo</strong> Permite duplicar el cursor y editar varias líneas a la vez (para dejar de duplicar se presiona esc).</li>
-<li><strong>Ctrl + shift + C</strong> Comenta varias líneas seleccionadas.</li>
-</ul>
-<h3 id="visor">Visor</h3>
-<p>Cuando abrimos un conjunto de datos en R, la visualización se lleva a cabo en el mismo panel que se encuentra el editor. Por ejemplo, usando la función View() vamos a abrir el visor usando un conjunto de datos que viene por defecto en R. Ejecuta la siguiente línea de código:</p>
-<p>View(mtcars)</p>
-<h2 id="espacio-de-trabajo-ambiente">Espacio de trabajo : Ambiente</h2>
-<p>Contiene la ventana de ambiente, donde se irán registrando los objetos que vayamos creando. Tenemos la opción de cargar y guardar una sesión de trabajo, importar datos y limpiar los objetos de la sesión.</p>
-<h3 id="objetos">Objetos</h3>
-<p>Pueden ser valores numéricos, vectores, funciones, bases de datos, gráficos, etc. Los objetos en R se crean de la siguiente forma: <img src="https://bookdown.org/gboccardo/manual-ED-UCH/04-anexos/sintaxis2.png" alt="Ejemplo de objeto" /> La imágen muestra (de izquierda a derecha):</p>
-<ul>
-<li>Un <strong>objeto</strong> a crear, con un nombre que nosotros definimos arbitrariamente.</li>
-<li>El símbolo <strong>asignador</strong>, que expresa que todo lo que se encuentre a la derecha de la flecha se guardará en el <em>objeto</em> creado. Puede ser <strong>&lt;-</strong> o <strong>=</strong></li>
-<li>La <strong>función</strong>, que en este caso permite leer archivos de Excel.</li>
-<li>Los <strong>argumentos</strong> se indican dentro de los paréntesis. En particular, el primer argumento indica la información a leer (archivo de excel), el segundo argumento indica la hoja del archivo a leer y el tercer argumento indica que columnas se leerán de forma específica (en este caso las primeras 10).</li>
-</ul>
-<p>Como iremos viendo a lo largo del curso, luego del asignador las funciones son solo un tipo de información que podemos incluir. Podemos, por ejemplo, guardar números en objetos:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span> <span class='op'>&lt;-</span> <span class='fl'>10</span>
-</code></pre>
-</div>
-</div>
-<p>Al ejecutar el código anterior, puedes notar que en tu ventana <em>Environment</em> ahora aparece registrado el objeto numero. Para acceder al contenido de los objetos, podemos simplemente escribir su nombre en nuestra consola:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span>
-</code></pre>
-</div>
-<pre><code>[1] 10</code></pre>
-</div>
-<p>Se puede modificar el contenido de un objeto cambiando lo que se encuentre a la derecha del símbolo <strong>&lt;-</strong></p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span> <span class='op'>&lt;-</span><span class='fl'>5</span>
-</code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numero</span>
-</code></pre>
-</div>
-<pre><code>[1] 5</code></pre>
-</div>
-<h4 id="algunas-consideraciones-al-generar-objetos">Algunas consideraciones al generar objetos</h4>
-<p>Los nombres de los objetos:</p>
-<ul>
-<li>Deben comenzar con una letra (no número)</li>
-<li>Pueden contener letras, números, guiones bajos y puntos.</li>
-<li>No deben contener espacios ni caracteres especiales (acentos, barras, comillas, guión medio, paréntesis, diagonal etc.).</li>
-<li>Deben ser descriptivos.</li>
-<li>No se tienen que repetir.</li>
-</ul>
-<p>Ejemplos:</p>
-<ul>
-<li><strong>yo_uso_guion_bajo</strong></li>
-<li><strong>OtraGenteUsaMayusculas</strong></li>
-<li><strong>algunas.personas.usan.puntos</strong></li>
-<li><strong>Y_algunasPocas.Personas_RENIEGANdelasconvenciones</strong> ### Algunas funciones útiles para el ambiente de trabajo</li>
-</ul>
-<p>Para ver que objetos están en el <em>Environment</em> podemos usar:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code> [1] &quot;a&quot;           &quot;b&quot;           &quot;c&quot;           &quot;cadena_num&quot; 
- [5] &quot;cadena_text&quot; &quot;edad&quot;        &quot;estatura&quot;    &quot;IMC&quot;        
- [9] &quot;numero&quot;      &quot;numeros&quot;     &quot;operacion&quot;   &quot;peso&quot;       
-[13] &quot;texto_1&quot;     &quot;verdadero&quot;   &quot;x&quot;           &quot;y&quot;          
-[17] &quot;z&quot;          </code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/ls.html'>objects</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code> [1] &quot;a&quot;           &quot;b&quot;           &quot;c&quot;           &quot;cadena_num&quot; 
- [5] &quot;cadena_text&quot; &quot;edad&quot;        &quot;estatura&quot;    &quot;IMC&quot;        
- [9] &quot;numero&quot;      &quot;numeros&quot;     &quot;operacion&quot;   &quot;peso&quot;       
-[13] &quot;texto_1&quot;     &quot;verdadero&quot;   &quot;x&quot;           &quot;y&quot;          
-[17] &quot;z&quot;          </code></pre>
-</div>
-<p>Para remover un objeto en específico:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span><span class='va'>numero</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<p>Para eliminar todo el contenido del <em>Environment</em>:</p>
-<p>rm(list = ls())</p>
-<h2 id="espacio-de-trabajo-historial">Espacio de trabajo : Historial</h2>
-<p>El panel <em>History</em> muestra un historial de las líneas de código que se han ejecutado en la consola. Al hacer doble click sobre alguna línea el código se copia a la consola para que se pueda volver a ejecutar la operación. También se puede acceder a líneas de código pasadas colocando el cursor en la consola y presionando la tecla con la flecha hacia arriba.</p>
-<h2 id="ficherosfiles">Ficheros/files</h2>
-<p>En este espacio aparecen los archivos que están en el directorio de trabajo. Permite renombrarlos, eliminarlos, copiarlos, moverlos o generar nuevas carpetas y archivos sin necesidad de salir de RStudio.</p>
-<h2 id="plots">Plots</h2>
-<p>En este panel se visualizan los gráficos generados. La función básica para generar gráficos es plot()</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
-</code></pre>
-</div>
-<p><img src="comandos_basicos_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
-</div>
-<p>También se pueden visualizar los gráficos usando la función x11() en Windows o quartz() en Linux/MacOS. Se pueden cerrar usando dev.off()</p>
-<p>Para windows:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/grDevices/x11.html'>x11</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.off</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<p>Para Linux/MacOS:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/grDevices/quartz.html'>quartz</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.off</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<h2 id="packages">Packages</h2>
-<p>Permite visualizar las librerías que hay actualmente en el disco duro de la máquina, cargarlas para su uso, gestionar la instalación de nuevas librerías o la actualización de las ya descargadas.</p>
-<p>Las librerías desarrolladas en R cubren multitud de campos: desde estadística descriptiva e inferencial, aplicaciones Bayesianas, financieras, métodos gráficos, machine learning, creación de aplicaciones web, etc.</p>
-<p>Para incluir librerias adicionales a las que vienen por default, se usa la función <strong>install.packages(“nombre del paquete”)</strong>. Cabe resaltar que esta función tendremos que usarla sólo una vez.</p>
-<p>Cuando tenemos una libreria adicional instalada y queremos cargar sus funciones a nuestro <em>Environment</em> usamos la función <strong>library(“nombre del paquete”)</strong>. Esta linea debe ejecutarse cada vez que se vaya a usar la función en una sesión nueva.</p>
-<h2 id="help">Help</h2>
-<p>En este panel podemos obtener ayuda sobre una determinada función o librería. Por ejemplo, si quisieramos saber qué hace la función date() podríamos escribir su nombre en el espacio que se encuentra junto a la lupa o escribir estas líneas en nuestra consola:</p>
-<p>help(date)</p>
-<p>?date</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

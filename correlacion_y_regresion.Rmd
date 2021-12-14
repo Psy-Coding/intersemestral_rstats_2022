@@ -1,0 +1,15 @@
+---
+title: "3.3 Correlación y regresión lineal"
+description: |
+  Revisión de los principios sobre ambos análisis y código para llevarlos a cabo. 
+author:
+  - name: Emma Botello
+    affiliation: Psycoding
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+

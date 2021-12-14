@@ -8,3 +8,11 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## Ponentes
+
+* Dra. Azalea Reyes
+* Psic. Emma Botello
+* Psic. Juan Díaz
+* Psic. Ana González
+* Psic. Scarlett Escudero
+* Biol. Edgar Morales

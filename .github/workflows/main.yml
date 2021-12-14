@@ -41,11 +41,14 @@ jobs:
       - name: Render Site
         run: rmarkdown::render_site(encoding = 'UTF-8')
         shell: Rscript {0}
+        
+      - name: Copy CNAME to docs
+        run: cp $GITHUB_WORKSPACE/CNAME $GITHUB_WORKSPACE/docs/
 
       - name: Commit results
         run: |
-          git config --global user.name '${{ secrets.USER_DEPLOY }}'
-          git config --global user.email '${{ secrets.USER_DEPLOY_MAIL }}'
+          git config --global user.name ${{ secrets.USER_DEPLOY }}
+          git config --global user.email ${{ secrets.USER_DEPLOY_MAIL }}
           git add .
           git commit -m "Automatic Render and Deploy"
           git push
