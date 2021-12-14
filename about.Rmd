@@ -1,7 +1,7 @@
 ---
 title: "Acerca de este sitio"
 description: |
-  Este curso fue organizado por Psycoding, una organización conformada por estudiantes de pregrado, egresados, académicos y otros interesados en la programación. Operamos en la Facultad de Psicología de la UNAM, campus Ciudad Universitaria. Buscamos fomentar la educación tecnológica y la inclusión de la programación en la Psicología y la ciencia en general. Nuestros miembros manejan principalmente los siguientes lenguajes de programación: Python, R y Arduino. Las actividades de nuestra comunidad se centran en el desarrollo y aprendizaje de los principios de estos lenguajes, sin embargo, nos consideramos un grupo inclusivo que admite en su comunidad a quienes manejan otros lenguajes. Lo que nos une es nuestro gusto e interés por el bello mundo de la programación.
+  Este curso fue organizado por Psycoding, una organización conformada por estudiantes de pregrado, egresadas/os, académicas/os y otras personas interesadas en la programación. Operamos en la Facultad de Psicología de la UNAM, campus Ciudad Universitaria. Buscamos fomentar la educación tecnológica y la inclusión de la programación en la Psicología y la ciencia en general. Las y los miembros de Psycoding manejan principalmente los siguientes lenguajes de programación: Python, R y Arduino. Las actividades de nuestra comunidad se centran en el desarrollo y aprendizaje de los principios de estos lenguajes, sin embargo, nos consideramos un grupo inclusivo que admite en su comunidad a quienes manejan otros lenguajes. Lo que nos une es nuestro gusto e interés por el bello mundo de la programación.
 ---
 
 ```{r setup, include=FALSE}
