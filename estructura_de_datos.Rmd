@@ -1,17 +1,22 @@
 ---
 title: "2.2 Estructura de datos"
 description: |
-  Estructura de datos orientada a objetos o tabulación de datos
+  Estructura de datos orientada a objetos, procesamiento y tabulación de datos
 author:
   - name: Ana Gonzalez
     affiliation: Psycoding
   - name: Edgar Morales
     affiliation: AprendR, Psycoding
 date: "`r Sys.Date()`"
-output: distill::distill_article
+output:
+  distill::distill_article:
+    code_folding: true
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
+library(rmarkdown)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -62,15 +67,24 @@ matriz_1
 
 ### Dataframe (tabulación)
 
-Puede contener diferentes calses
+Puede contener diferentes clases
 
 ```{r}
 df1 <- iris
-View(df1)
+paged_table(df1)
+```
+
+```{r}
 class(df1)
 ```
 
 
+### Listas
+
+Las listas son objetos que pueden no solo contener diferentes tipos de valores en cada **item**, ademas estos **items**
+no necesitan tener las mismas dimensiones entre cada uno de ellos a diferencia de los **data.frames**.
+
+Estas estructuras son muy adaptables
 
 ## Procesamiento de datos: dplyr ()
 
@@ -86,11 +100,143 @@ quienes van empezando con R usar la sintaxis de **dplyr**.
 
 > Por lo tanto en este curso haremos uso del paquete **dplyr()** de _tidyverse_.
 
+Podemos diferenciar la sintaxis de **dplyr** como una especie de **comandos encadenados** uno tras otro de la sintaxis R-base
+donde los comandos pueden ser consecutivos pero no se encadenan. 
 
+<aside>
+  Cabe señalar que **dplyr** también funciona por comandos en secuencia sin necesidad de encadenar los comandos con el 
+  operador pipe.
+</aside>
+
+De hecho estos comandos se consideran **verbos**, siendo estos intuitivos y bastante descriptivos de su función.
+Incluso la sintaxis tiende a leerse como si fuera lenguaje natural.
+
+El encadenamiento de los comandos se lleva a cabo mediante un **operador** especial también conocido como **pipe**
+`%>%`. Este operador pipe se puede considerar como un redireccionador de un comando hacia el otro.
+
+<aside>
+  El operador `%>%` no pertenece a **dplyr** pertenece en realidad al paquete **magrittr** 
+  
+  ![](img/maggritr-icon.png)
+</aside>
+
+### R-base vs dplyr
+
+Para comparar calculemos la media de los anchos de los pétalos por especie en el dataset `iris`. Este conjunto de datos
+contiene los datos de ancho y largo para los pétalos y sépalos de tres diferentes especies de flores.
+
+<aside>
+  Iris es un **dataset** clásico incluido con R. Escribe `?iris` para mas información.
+</aside>
+
+
+#### R-base
+
+El cálculo por especie se puede lograr con un comando simple:
+
+```{r}
+aggregate(iris$Petal.Width, list(iris$Species), FUN = mean)
+```
+
+Sin embargo este comando tiene algunos inconvenientes, requiere conocer el funcionamiento de la función `aggregate()`,
+necesita que usemos una referencia al _dataset_ para seleccionar cada variable, ademas los nombres de las columnas no son
+adecuados y requeriran otro comando para cambiarse por lo tanto es poco intuitivo no solo al generarlo, también al leerlo.
+
+#### dplyr
+
+```{r}
+library(dplyr)
+iris %>% 
+  group_by(Species) %>% 
+  summarise(media_ancho_petalo = mean(Petal.Width))
+```
+
+En este caso los comandos de `dplyr()` son bastante descriptivos, es decir el verbo `group_by` agrupa el calculo por la
+variable que se le proporciona, mientras que `summarise` define el nombre de la columna así como la operación que se 
+realiza sobre la variable a tratar (en este caso _Petal.Width_). Adenas las variables se usan directamente por su nombre.
+Y como previamente lo señalamos se puede leer casí directamente 
+
+1. Toma el **dataset** iris
+2. Agrupalos por _Species_
+3. Resumelo mediante la media de _Petal.Width_
+
+En otro ejemplo podemos agregar una columna en donde clasifiquemos aquellos valores de _Petal.Width_ inferiores a 1 
+y filtrar solo aquellos registros de la especie _setosa_ con valores menores a 1.
+
+```{r}
+alt_iris <- iris
+alt_iris$size_petalo <- ifelse(iris$Petal.Width < 1, 'pequeño', 'grande')
+alt_iris <- alt_iris[alt_iris$size_petal == 'pequeño' & alt_iris$Species == 'setosa',]
+paged_table(alt_iris)
+```
+
+Primero como tenemos un dataset incluido en R es necesario copiarlo a otro objeto, luego agregamos la información del
+tamaño y por ultimo tenemos que filtrar usando varias veces el nombre del dataset para ello. Sigue sin ser muy intuitivo
+y es proclive a errores ya que la **coma** en la última instrucción si la olvidamos, no podremos obtener resultados.
+
+```{r}
+iris %>% 
+  mutate(size_petal = ifelse(Petal.Width < 1, 'pequeño', 'grande')) %>% 
+  filter(size_petal == 'pequeño', Species == 'setosa') %>% 
+  paged_table()
+```
+
+Podemos ver que a parte de leerse naturalmente, no necesitamos copiar el dataset original ya que dplyr permite ejecutar
+estos comandos sin modificar los datos originales. Y en caso de quererlo guardar podemos simplemente:
+
+```{r}
+alt_iris <- iris %>% 
+  mutate(size_petal = ifelse(Petal.Width < 1, 'pequeño', 'grande')) %>% 
+  filter(size_petal == 'pequeño', Species == 'setosa')
+paged_table(alt_iris)
+```
+
+### Mas ejemplos
+
+Usando el dataset **sleep** podemos calcular el número de observaciones por medicamento soporífero, la media de horas
+de incremento en el sueño, la desviación estándar y mediana.
+
+<aside>
+  El dataset **sleep** viene includo con R y contiene información del efecto de dos medicamentos soporíferos y su efecto
+  en el aumento de horas de sueño.
+</aside>
+
+```{r}
+sleep %>% 
+  group_by(group) %>% 
+  summarise(observaciones = n(), media_horas = mean(extra), desviacion = sd(extra), mediana_horas = median(extra))
+```
+
+Calculemos la variable estandarizada para cada spray con la formula:
+
+$$
+\frac{X - \mu}{\sigma}
+$$
+Por lo tanto:
+
+- Calcularemos una columna con la media de todos los insectos muertos por sprays
+- Calcularemos la desviación estándar 
+- Restaremos la medía a cada valor registrado y divideremos entre la desviación estándar.
+- Calcularemos la media de la variable estandarizada por grupo.
+
+```{r}
+InsectSprays %>% 
+  mutate(
+    all_sprays_mean = mean(count),
+    all_sprays_sd = sd(count),
+    var_std = (count - all_sprays_mean) / all_sprays_sd
+  ) %>% 
+  group_by(spray) %>% 
+  summarise(var_std_mean = mean(var_std))
+
+```
+
+<aside>
+  El dataset **InsectSprays** viene con los datos incluidos en R y tiene información de los insectos que mueren por efecto
+  de seis sprays's insecticidas.
+</aside>
 
 #### Primeros intentos de tabular los datos, quizá rbind/cbind
-
-### Listas
 
 ### Tidy data
 
