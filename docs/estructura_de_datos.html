@@ -2132,12 +2132,16 @@ Temas
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
+<li><a href="#qué-es-una-base-de-datos">¿Qué es una base de datos?</a><ul>
+<li><a href="#tipo-de-dato-en-r">Tipo de <em>dato</em> en R</a></li>
+</ul></li>
 <li><a href="#estructuras-de-datos">Estructuras de Datos</a><ul>
 <li><a href="#vector">Vector</a></li>
+<li><a href="#listas">Listas</a></li>
 <li><a href="#matriz">Matriz</a></li>
 <li><a href="#dataframe-tabulación">Dataframe (tabulación)</a></li>
-<li><a href="#listas">Listas</a></li>
 </ul></li>
+<li><a href="#valores-no-disponibles">Valores no disponibles</a></li>
 <li><a href="#procesamiento-de-datos-dplyr">Procesamiento de datos: dplyr ()</a><ul>
 <li><a href="#r-base-vs-dplyr">R-base vs dplyr</a></li>
 <li><a href="#mas-ejemplos">Mas ejemplos</a></li>
@@ -2146,6 +2150,47 @@ Temas
 </ul>
 </nav>
 </div>
+<h2 id="qué-es-una-base-de-datos">¿Qué es una base de datos?</h2>
+<p>Es un conjunto organizado de información estructurada (data).</p>
+<h3 id="tipo-de-dato-en-r">Tipo de <em>dato</em> en R</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Dato</th>
+<th>Descripcíon</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Numeric</td>
+<td>Números decimales</td>
+<td>numero &lt;- 1.0</td>
+</tr>
+<tr class="even">
+<td>Integer</td>
+<td>Números enteros</td>
+<td>int &lt;- 1</td>
+</tr>
+<tr class="odd">
+<td>Character</td>
+<td>Cadenas de texto</td>
+<td>str &lt;- “un texto”</td>
+</tr>
+<tr class="even">
+<td>Complex</td>
+<td>Números complejos</td>
+<td>comp &lt;- 3+2i</td>
+</tr>
+<tr class="odd">
+<td>Logical</td>
+<td>Verdadero (TRUE) o falso (FALSE)</td>
+<td>a &lt;- 1; b &lt;- 2; a &lt; b</td>
+</tr>
+</tbody>
+</table>
+<p>**Nota: Factor</p>
+<p>El tipo o clase de datos lo puedes averiguar con el comando <code>class()</code></p>
 <h2 id="estructuras-de-datos">Estructuras de Datos</h2>
 <p>Las estructuras de datos se pueden clasificar por sus dimensiones (1, 2 o n) y si contienen el mismo tipo de dato (homogéneo) o bien diferente tipos de datos (heterogéneo).</p>
 <p>Las estructuras de datos en R-base más cómunes son:</p>
@@ -2179,23 +2224,56 @@ Temas
 <li>En R no existen estructuras de cero dimensiones</li>
 </ul>
 <h3 id="vector">Vector</h3>
-<p>Objeto más simple, son la base para objetos complejos.</p>
+<p>El objeto más simple-básico en R, también llamado atómico, porque contiene elementos de la misma clase (e.g. <code>numeric</code>). Son la base para objetos complejos. Se crea con la función c(), que significa ‘concatenar’ o ‘combinar’. Cómo saber si una estructura de datos es vector: <code>is.vector(data)</code></p>
+Vectores numéricos
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>Show code</summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>53</span> <span class='co'>#numérico</span>
-<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='st'>'ana'</span> <span class='co'>#caracter</span>
-<span class='va'>z</span> <span class='op'>&lt;-</span> <span class='va'>y</span> <span class='op'>&gt;</span> <span class='fl'>5</span> <span class='co'>#Lógico</span>
-<span class='va'>numeros_1.10</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>,<span class='fl'>5</span>,<span class='fl'>6</span>,<span class='fl'>7</span>,<span class='fl'>8</span>,<span class='fl'>9</span>,<span class='fl'>10</span><span class='op'>)</span> <span class='co'>#Lista</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>numeros_1.10</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>,<span class='fl'>5</span>,<span class='fl'>6</span>,<span class='fl'>7</span>,<span class='fl'>8</span>,<span class='fl'>9</span>,<span class='fl'>10</span><span class='op'>)</span> 
 <span class='va'>numeros_1.100</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span><span class='op'>)</span>
-<span class='va'>lista_variables</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>y</span>,<span class='va'>z</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>vector_s</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Esto"</span>, <span class='st'>"también"</span>, <span class='st'>"es"</span>, <span class='st'>"un"</span>, <span class='st'>"vector"</span><span class='op'>)</span>
+<span class='va'>vector_m</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='st'>"esto"</span>, <span class='st'>"tambien"</span>, <span class='st'>"es"</span>, <span class='st'>"vector"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+</details>
+</div>
+Esto qué es?
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>10</span>, length<span class='op'>=</span><span class='fl'>20</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code> [1]  5.000000  5.263158  5.526316  5.789474  6.052632  6.315789
+ [7]  6.578947  6.842105  7.105263  7.368421  7.631579  7.894737
+[13]  8.157895  8.421053  8.684211  8.947368  9.210526  9.473684
+[19]  9.736842 10.000000</code></pre>
+</div>
+<h3 id="listas">Listas</h3>
+<p>Las listas son objetos que pueden no solo contener diferentes tipos de clases <code>class</code> en cada <strong>item</strong>, ademas estos <strong>items</strong> no necesitan tener las mismas dimensiones entre cada uno de ellos a diferencia de los <strong>data.frames</strong>.</p>
+<p>Estas estructuras son muy adaptables.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lista_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>id<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>123</span>, <span class='fl'>145</span><span class='op'>)</span> , <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"placas"</span>, <span class='st'>"matricula"</span>, <span class='st'>"marca"</span>, <span class='st'>"color"</span><span class='op'>)</span>,  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>FALSE</span>, <span class='cn'>FALSE</span>, <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
 </div>
 <h3 id="matriz">Matriz</h3>
-<p>Conjunto de datos de dos dimensiones (filas y columnas)</p>
+<p>Conjunto de datos de la misma clase (homogéneo), pero estructurado en dos dimensiones 1. las filas son las horizontales 2. las columnas, las verticales</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>Show code</summary>
@@ -2212,17 +2290,69 @@ Temas
 [1,] &quot;x&quot;  &quot;y&quot;  &quot;z&quot; 
 [2,] &quot;o&quot;  &quot;b&quot;  &quot;c&quot; </code></pre>
 </div>
-<ul>
-<li>Se puede llegar a condundir con <em>dataframes</em></li>
-</ul>
-<h3 id="dataframe-tabulación">Dataframe (tabulación)</h3>
-<p>Puede contener diferentes clases</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>Show code</summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df1</span> <span class='op'>&lt;-</span> <span class='va'>iris</span>
-<span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='va'>df1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>matriz_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>20</span>, <span class='fl'>4</span>, <span class='fl'>5</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<p>¿Cómo hacer una lista de varios vectores? <code>cbind</code> o <code>rbind</code></p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>vector_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
+<span class='va'>vecror_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>11</span><span class='op'>:</span><span class='fl'>20</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>vecror_2</span>, <span class='va'>vector_1</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>      vecror_2 vector_1
+ [1,]       11        1
+ [2,]       12        2
+ [3,]       13        3
+ [4,]       14        4
+ [5,]       15        5
+ [6,]       16        6
+ [7,]       17        7
+ [8,]       18        8
+ [9,]       19        9
+[10,]       20       10</code></pre>
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>vecror_2</span>, <span class='va'>vector_1</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>      vecror_2 vector_1
+ [1,]       11        1
+ [2,]       12        2
+ [3,]       13        3
+ [4,]       14        4
+ [5,]       15        5
+ [6,]       16        6
+ [7,]       17        7
+ [8,]       18        8
+ [9,]       19        9
+[10,]       20       10</code></pre>
+</div>
+<ul>
+<li>NO condundir con <em>dataframes</em> La estructura de datos lo puedes averiguar con el comando <code>str()</code></li>
+</ul>
+<p>¿Cuál es la diferencia entre <code>class()</code> y <code>str()</code></p>
+<h3 id="dataframe-tabulación">Dataframe (tabulación)</h3>
+<p>Es una estructura de datos de dos dimensiones (filas y columnas). Por convención, en las filas se asignan las observaciones y en la columnas, las variables o factores. Cada columna o variable puede contener diferente clase de datos respecto a otras variables. Todas las variables deben tener la misma longitud.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df_1</span> <span class='op'>&lt;-</span> <span class='va'>iris</span>
+<span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='va'>df_1</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
@@ -2236,15 +2366,19 @@ Temas
 <details>
 <summary>Show code</summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>df1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>df_1</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
 <pre><code>[1] &quot;data.frame&quot;</code></pre>
 </div>
-<h3 id="listas">Listas</h3>
-<p>Las listas son objetos que pueden no solo contener diferentes tipos de valores en cada <strong>item</strong>, ademas estos <strong>items</strong> no necesitan tener las mismas dimensiones entre cada uno de ellos a diferencia de los <strong>data.frames</strong>.</p>
-<p>Estas estructuras son muy adaptables</p>
+<p>Para acceder a los datos de las columnas se utiliza el caracter ‘<span class="math inline">\(&#39; después del nombre del dataframe. `df_1\)</span>Species` para acceder a las columnas de las especies de flores en el data-set.</p>
+<p><code>names(df_1)</code> para conocer los nombres de las columnas = variables del dataframe</p>
+<h2 id="valores-no-disponibles">Valores no disponibles</h2>
+<p>Casi siempre hay valores faltantes en las bases de datos, lo cual en sí mismos son ya un dato y hay que analizarlos, sin embargo, requieren un tratamiento espacial.</p>
+<p>NA se usa para representar cualquier valor que “no está disponible (Not Available)” o “falte” (en el sentido estadístico).</p>
+<p>Un segundo tipo de valor no disponible: NaN, que significa “no es un número (Not a Number)”.</p>
+<p>Algunos comandos para trabajar con valores faltantes son: <code>is.na()</code> <code>na.omit()</code> <code>na.rm =</code></p>
 <h2 id="procesamiento-de-datos-dplyr">Procesamiento de datos: dplyr ()</h2>
 <p>Una de las ventajas de R es que puede extender sus funcionalidades mediante el uso de paquetes. Es decir si alguna función no se incluye con R. Cualquiera puede crear un paquete para suplir esa función. Eso no solo ha generado nuevas funciones para R, también a creado metodologías de trabajo diferentes a las que tiene R base.</p>
 <p>Parte de esas metodologías tienen la intención de mejorar el desempeño de R y/o facilitar su uso. En ese sentido <strong>tidyverse</strong> intenta hacer el uso de R mas intuitivo, con un enfoque ordenado y con mejoras en el desempeño.</p>
@@ -2424,7 +2558,7 @@ El dataset <strong>InsectSprays</strong> viene con los datos incluidos en R y ti
 <h4 id="primeros-intentos-de-tabular-los-datos-quizá-rbindcbind">Primeros intentos de tabular los datos, quizá rbind/cbind</h4>
 <h3 id="tidy-data">Tidy data</h3>
 <h4 id="tidy-package-con-pivot_wide-pivot_longer-podemos-hablar-de-meltcast-en-reshape2">Tidy package con pivot_wide, pivot_longer (podemos hablar de melt/cast en reshape2 )</h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
