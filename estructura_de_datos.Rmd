@@ -369,6 +369,7 @@ También podemos usar las funciones símiles en **dplyr**
 
 La ventaja de estos comandos es que permiten unir mas de dos **data.frames** en un solo comando. por ejemplo si tuvieramos
 un tercer dataframe:
+
 ```{r}
 dataframe_c <- data.frame(col_a = 4, col_b = 190, col_c = 'y')
 dataframe_c
