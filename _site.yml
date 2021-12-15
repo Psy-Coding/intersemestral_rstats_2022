@@ -30,10 +30,12 @@ navbar:
         - text: "---"
         - text: "Manejo de Variables"
           href: manejo_de_variables.html
+        - text: "Manejo de variables y visualización de datos"
+          href: Dplyr.html 
         - text: "Visualización de Datos"
           href: visualizacion_de_datos.html
         - text: "Estadística Descriptiva"
-          href: estadistica_descriptiva.html
+          href: Est_desc.html
         - text: "Paramétrica vs No-Paramétrica"
           href: parametrica.html
         - text: "Correlación y regresión lineal"
