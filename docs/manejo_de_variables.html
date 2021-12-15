@@ -87,34 +87,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Rstat Intersemestral 2022: 3.5 Comparativa entre poblaciones</title>
+  <title>Rstat Intersemestral 2022: Manejo de variables</title>
   
-  <meta property="description" itemprop="description" content="Principales pruebas estadísticas para la comparativa entre poblaciones"/>
   
   
   <!--  https://schema.org/Article -->
   <meta property="article:published" itemprop="datePublished" content="2021-12-15"/>
   <meta property="article:created" itemprop="dateCreated" content="2021-12-15"/>
-  <meta name="article:author" content="Azalea Reyes-Aguilar"/>
-  <meta name="article:author" content="Azalea Reyes-Aguilar"/>
+  <meta name="article:author" content="Juan Díaz"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Rstat Intersemestral 2022: 3.5 Comparativa entre poblaciones"/>
+  <meta property="og:title" content="Rstat Intersemestral 2022: Manejo de variables"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Principales pruebas estadísticas para la comparativa entre poblaciones"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Rstat Intersemestral 2022"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Rstat Intersemestral 2022: 3.5 Comparativa entre poblaciones"/>
-  <meta property="twitter:description" content="Principales pruebas estadísticas para la comparativa entre poblaciones"/>
+  <meta property="twitter:title" content="Rstat Intersemestral 2022: Manejo de variables"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["3.5 Comparativa entre poblaciones"]},{"type":"character","attributes":{},"value":["Principales pruebas estadísticas para la comparativa entre poblaciones\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Azalea Reyes-Aguilar"]},{"type":"character","attributes":{},"value":["Psycoding"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Azalea Reyes-Aguilar"]},{"type":"character","attributes":{},"value":["AprendR, Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-15"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Manejo de variables"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Juan Díaz"]},{"type":"character","attributes":{},"value":["Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-15"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2061,7 +2057,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"3.5 Comparativa entre poblaciones","description":"Principales pruebas estadísticas para la comparativa entre poblaciones","authors":[{"author":"Azalea Reyes-Aguilar","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""},{"author":"Azalea Reyes-Aguilar","authorURL":"#","affiliation":"AprendR, Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-15T00:00:00.000+00:00","citationText":"Reyes-Aguilar & Reyes-Aguilar, 2021"}
+{"title":"Manejo de variables","authors":[{"author":"Juan Díaz","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-15T00:00:00.000+00:00","citationText":"Díaz, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2114,21 +2110,232 @@ Temas
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>3.5 Comparativa entre poblaciones</h1>
+<h1>Manejo de variables</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Principales pruebas estadísticas para la comparativa entre poblaciones</p></p>
+
 </div>
 
 <div class="d-byline">
-  Azalea Reyes-Aguilar  (Psycoding)
-  
-,   Azalea Reyes-Aguilar  (AprendR, Psycoding)
+  Juan Díaz  (Psycoding)
   
 <br/>2021-12-15
 </div>
 
 <div class="d-article">
+<h2 id="manejo-de-variables">Manejo de variables</h2>
+<p>En algunas ocasiones será necesario que manipulemos y manejemos nuestras variables, ya sea para ejecutar algún análisis estadístico, aplicar alguna función, generar algún plot, etc. Este tipo de modificaciones se puede realizar a través de r-base, sin embargo una alternativa es utilizar dplyr.</p>
+<h3 id="dplyr">Dplyr</h3>
+<p>Una importante contribución del paquete dplyr es que proporciona una “gramática” (particularmente verbos) para la manipulación y operaciones con data frames. Con esta gramática podemos comunicar mediante nuestro código que es lo que estamos haciendo en los data frames a otras personas (asumiendo que conozcan la gramática). Esto es muy útil, ya que proporciona una abstracción que anteriormente no existía. Por último, cabe destacar que las funciones del paquete dplyr son muy rápidas, puesto que están implementadas con el lenguaje C++.</p>
+<p>Las funciones de dplyr funcionan con datos ordenados en los que cada variable es una columna y cada caso es una fila. A continuación trabajaremos con algunas de sus funciones principales y como hacer su simil en r base</p>
+<h3 id="select">Select</h3>
+<p>Con la función select podemos seleccionar columnas de un data frame:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='va'>Data</span> <span class='op'>&lt;-</span> <span class='va'>iris</span>
+<span class='va'>Data_recortada_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>Data</span>, <span class='va'>Petal.Length</span>, <span class='va'>Petal.Width</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h4 id="ejercicio-1">Ejercicio 1</h4>
+<p>Cómo harías lo anterior con r base? sube tu respuesta al slack</p>
+<h4 id="respuesta">Respuesta</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Data_recortada_2</span> <span class='op'>&lt;-</span> <span class='va'>Data</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span>
+</code></pre>
+</div>
+</div>
+<h3 id="filter">Filter</h3>
+<p>La función filter nos permite filtrar filas según una condición</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Data_filtrada_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Data_recortada_1</span>, <span class='va'>Petal.Length</span> <span class='op'>&gt;</span> <span class='fl'>1.4</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h4 id="ejercicio-2">Ejercicio 2</h4>
+<p>Cómo harías lo anterior con r base? sube tu respuesta al slack</p>
+<h4 id="respuesta-1">Respuesta</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Data_filtrada_2</span> <span class='op'>&lt;-</span> <span class='va'>Data_recortada_2</span><span class='op'>[</span><span class='va'>Data_recortada_2</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>&gt;</span><span class='fl'>1.4</span>,<span class='op'>]</span>
+</code></pre>
+</div>
+</div>
+<h3 id="arrange">Arrange</h3>
+<p>La función arrange() se utiliza para ordenar las filas de un data frame de acuerdo a una o varias columnas/variables.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Data_ordenada_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>Data_filtrada_1</span>, <span class='va'>Petal.Length</span><span class='op'>)</span>
+<span class='va'>Data_ordenada_2</span> <span class='op'>&lt;-</span> <span class='va'>Data_filtrada_2</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/order.html'>order</a></span><span class='op'>(</span><span class='va'>Data_filtrada_2</span><span class='op'>$</span><span class='va'>Petal.Length</span><span class='op'>)</span>,<span class='op'>]</span>
+</code></pre>
+</div>
+</div>
+<h3 id="rename">Rename</h3>
+<p>Renombra variables</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Data_renombrada_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span><span class='va'>Data_ordenada_1</span>, 
+                            Petalo_longitud <span class='op'>=</span> <span class='va'>Petal.Length</span>,
+                            Petalo_ancho <span class='op'>=</span> <span class='va'>Petal.Width</span><span class='op'>)</span>
+<span class='va'>Data_renombrada_2</span> <span class='op'>&lt;-</span> <span class='va'>Data_ordenada_2</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>Data_renombrada_2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+  <span class='st'>"Petalo_longitud"</span>, <span class='st'>"Petalo_ancho"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="mutate">Mutate</h3>
+<p>A menudo, tendremos la necesidad de crear nuevas variables que se calculan a partir de variables existentes,mutate() nos proporciona una interface clara para realizar este tipo de operaciones.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Data_agregada_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span><span class='va'>Data_renombrada_1</span>, 
+                            Area <span class='op'>=</span> <span class='va'>Petalo_longitud</span> <span class='op'>*</span> <span class='va'>Petalo_ancho</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h4 id="ejercicio-3">Ejercicio 3</h4>
+<p>Cómo harías lo anterior con r base? sube tu respuesta al slack</p>
+<h4 id="respuesta-2">Respuesta</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Area</span> <span class='op'>&lt;-</span> <span class='va'>Data_renombrada_2</span><span class='op'>$</span><span class='va'>Petalo_longitud</span> <span class='op'>*</span> <span class='va'>Data_renombrada_2</span><span class='op'>$</span><span class='va'>Petalo_ancho</span>
+<span class='va'>Data_agregada_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>Data_renombrada_2</span>, <span class='va'>Area</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="summarise">Summarise</h3>
+<p>La función summarise() funciona de forma análoga a la función mutate, excepto que en lugar de añadir nuevas columnas crea un nuevo data frame.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Data_resumida_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span><span class='va'>Data_renombrada_1</span>, 
+                           media_longidud <span class='op'>=</span>     
+                             <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Petalo_longitud</span><span class='op'>)</span>,
+                           media_ancho <span class='op'>=</span>
+                             <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Petalo_ancho</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="group-by">Group by</h3>
+<p>La función group_by() agrupa un conjunto de filas de acuerdo con los valores de una o más columnas o expresiones.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Data_agrupada</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Data</span>, <span class='va'>Species</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Esta funcion resulta muy util al combinarse con otras, por ejemplo la función summarise, pero antes de eso debemos saber que es un pipe</p>
+<h3 id="pipe">Pipe</h3>
+<p>El operador pipeline %&gt;% es útil para concatenar múltiples dplyr operaciones.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Data_agrupada</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Data</span>, <span class='va'>Species</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>mean_lenght <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>Sepal.Length</span>, <span class='va'>Petal.Length</span><span class='op'>)</span><span class='op'>)</span>,
+            mean_width <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>Sepal.Width</span>, <span class='va'>Petal.Width</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="visualización-de-datos">visualización de datos</h2>
+<h3 id="graficos-en-r-base">Graficos en R base</h3>
+<p>R nos proporciona varias funciones que permiten generar gráficos de diferentes tipos, la siguiente tabla muestra algunas de estas funciones y el gráfico que generan cada una:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Función</th>
+<th>Tipo de grafico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>boxplot()</td>
+<td>Gráfico de barras</td>
+</tr>
+<tr class="even">
+<td>stripchart()</td>
+<td>Gráfico de bandas</td>
+</tr>
+<tr class="odd">
+<td>barplot()</td>
+<td>Gráfico de barras</td>
+</tr>
+<tr class="even">
+<td>plot()</td>
+<td>Gráfico de lineas</td>
+</tr>
+<tr class="odd">
+<td>pie()</td>
+<td>Gráfico de pastel</td>
+</tr>
+<tr class="even">
+<td>qqplot()</td>
+<td>Gráfico de quantile-quantile</td>
+</tr>
+<tr class="odd">
+<td>hist()</td>
+<td>Histogramas</td>
+</tr>
+</tbody>
+</table>
+<p>Todos estos graficos pueden ser modificados a través de diferentes parametros, a continuación mostraremos algunos:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Plot_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqplot</a></span><span class='op'>(</span><span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Length</span>, <span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Width</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="manejo_de_variables_files/figure-html5/unnamed-chunk-12-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Plot_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqplot</a></span><span class='op'>(</span><span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Length</span>, <span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Width</span>,
+                 main<span class='op'>=</span><span class='st'>"Main title"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="manejo_de_variables_files/figure-html5/unnamed-chunk-12-2.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Plot_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqplot</a></span><span class='op'>(</span><span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Length</span>, <span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Width</span>,
+                 main<span class='op'>=</span><span class='st'>"Main title"</span>,
+               xlab<span class='op'>=</span><span class='st'>"X axis title"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="manejo_de_variables_files/figure-html5/unnamed-chunk-12-3.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Plot_3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqplot</a></span><span class='op'>(</span><span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Length</span>, <span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Width</span>,
+                 main<span class='op'>=</span><span class='st'>"Main title"</span>, 
+               xlab<span class='op'>=</span><span class='st'>"X axis title"</span>, 
+               ylab<span class='op'>=</span><span class='st'>"Y axis title"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="manejo_de_variables_files/figure-html5/unnamed-chunk-12-4.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>PLot_4</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqplot</a></span><span class='op'>(</span><span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Length</span>, <span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Width</span>,
+                 main<span class='op'>=</span><span class='st'>"Main title"</span>,
+               xlab<span class='op'>=</span><span class='st'>"X axis title"</span>,
+               ylab<span class='op'>=</span><span class='st'>"Y axis title"</span>,
+               sub<span class='op'>=</span><span class='st'>"Sub-title"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="manejo_de_variables_files/figure-html5/unnamed-chunk-12-5.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Plot_5</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqplot</a></span><span class='op'>(</span><span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Length</span>, <span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Width</span>,
+                 main<span class='op'>=</span><span class='st'>"Main title"</span>,
+               xlab<span class='op'>=</span><span class='st'>"X axis title"</span>,
+               ylab<span class='op'>=</span><span class='st'>"Y axis title"</span>,
+               sub<span class='op'>=</span><span class='st'>"Sub-title"</span>,
+               col.main<span class='op'>=</span><span class='st'>"red"</span>, col.lab<span class='op'>=</span><span class='st'>"blue"</span>, col.sub<span class='op'>=</span><span class='st'>"black"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="manejo_de_variables_files/figure-html5/unnamed-chunk-12-6.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Plot_6</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqplot</a></span><span class='op'>(</span><span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Length</span>, <span class='va'>Data</span><span class='op'>$</span><span class='va'>Sepal.Width</span>, 
+                 main<span class='op'>=</span><span class='st'>"Main title"</span>,
+               xlab<span class='op'>=</span><span class='st'>"X axis title"</span>,
+               ylab<span class='op'>=</span><span class='st'>"Y axis title"</span>,
+               sub<span class='op'>=</span><span class='st'>"Sub-title"</span>,
+               col.main<span class='op'>=</span><span class='st'>"red"</span>, col.lab<span class='op'>=</span><span class='st'>"blue"</span>, col.sub<span class='op'>=</span><span class='st'>"black"</span>,
+               cex.main<span class='op'>=</span><span class='fl'>2</span>, cex.lab<span class='op'>=</span><span class='fl'>1.7</span>, cex.sub<span class='op'>=</span><span class='fl'>1.2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="manejo_de_variables_files/figure-html5/unnamed-chunk-12-7.png" width="624" /></p>
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

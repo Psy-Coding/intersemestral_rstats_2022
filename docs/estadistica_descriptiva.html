@@ -87,34 +87,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Rstat Intersemestral 2022: 3.5 Comparativa entre poblaciones</title>
+  <title>Rstat Intersemestral 2022: Estadistica descriptiva</title>
   
-  <meta property="description" itemprop="description" content="Principales pruebas estadísticas para la comparativa entre poblaciones"/>
   
   
   <!--  https://schema.org/Article -->
   <meta property="article:published" itemprop="datePublished" content="2021-12-15"/>
   <meta property="article:created" itemprop="dateCreated" content="2021-12-15"/>
-  <meta name="article:author" content="Azalea Reyes-Aguilar"/>
-  <meta name="article:author" content="Azalea Reyes-Aguilar"/>
+  <meta name="article:author" content="Juan Díaz"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Rstat Intersemestral 2022: 3.5 Comparativa entre poblaciones"/>
+  <meta property="og:title" content="Rstat Intersemestral 2022: Estadistica descriptiva"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Principales pruebas estadísticas para la comparativa entre poblaciones"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Rstat Intersemestral 2022"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Rstat Intersemestral 2022: 3.5 Comparativa entre poblaciones"/>
-  <meta property="twitter:description" content="Principales pruebas estadísticas para la comparativa entre poblaciones"/>
+  <meta property="twitter:title" content="Rstat Intersemestral 2022: Estadistica descriptiva"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["3.5 Comparativa entre poblaciones"]},{"type":"character","attributes":{},"value":["Principales pruebas estadísticas para la comparativa entre poblaciones\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Azalea Reyes-Aguilar"]},{"type":"character","attributes":{},"value":["Psycoding"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Azalea Reyes-Aguilar"]},{"type":"character","attributes":{},"value":["AprendR, Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-15"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Estadistica descriptiva"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Juan Díaz"]},{"type":"character","attributes":{},"value":["Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-15"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2061,7 +2057,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"3.5 Comparativa entre poblaciones","description":"Principales pruebas estadísticas para la comparativa entre poblaciones","authors":[{"author":"Azalea Reyes-Aguilar","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""},{"author":"Azalea Reyes-Aguilar","authorURL":"#","affiliation":"AprendR, Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-15T00:00:00.000+00:00","citationText":"Reyes-Aguilar & Reyes-Aguilar, 2021"}
+{"title":"Estadistica descriptiva","authors":[{"author":"Juan Díaz","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-15T00:00:00.000+00:00","citationText":"Díaz, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2114,21 +2110,89 @@ Temas
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>3.5 Comparativa entre poblaciones</h1>
+<h1>Estadistica descriptiva</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Principales pruebas estadísticas para la comparativa entre poblaciones</p></p>
+
 </div>
 
 <div class="d-byline">
-  Azalea Reyes-Aguilar  (Psycoding)
-  
-,   Azalea Reyes-Aguilar  (AprendR, Psycoding)
+  Juan Díaz  (Psycoding)
   
 <br/>2021-12-15
 </div>
 
 <div class="d-article">
+<h2 id="estadística-descriptiva">Estadística descriptiva</h2>
+<p>La estadística descriptiva se ocupa de métricas, herramientas y estrategias que se pueden utilizar para resumir un conjunto de datos. Estas métricas se extraen de los datos y brindan información sobre la ubicación, dispersión, indicadores de forma, etc.</p>
+<h3 id="ubicación">Ubicación</h3>
+<p>En estadística descriptiva, es útil representar un conjunto de datos completo con un solo valor que describe su ubicación o posición, esto se puede interpretar como el centro de la variable en la recta numérica . Este valor único se define como la tendencia central. La media, la mediana y la moda entran en esta categoría.</p>
+<h4 id="ejercicio-1">Ejercicio 1</h4>
+<p>Considerando el siguiente data.frame:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Datos</span> <span class='op'>&lt;-</span> <span class='va'>iris</span>
+</code></pre>
+</div>
+</div>
+<p>¿Cómo calcularías la media de la variable Sepal.Length?</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Datos</span><span class='op'>$</span><span class='va'>Sepal.Length</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>Datos</span><span class='op'>$</span><span class='va'>Sepal.Length</span><span class='op'>)</span>
+<span class='va'>mode</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>value</span> <span class='op'>&lt;-</span> <span class='va'>x</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/which.min.html'>which.max</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/tabulate.html'>tabulate</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>]</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>value</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='fu'><a href='https://rdrr.io/r/base/mode.html'>mode</a></span><span class='op'>(</span><span class='va'>Datos</span><span class='op'>$</span><span class='va'>Sepal.Length</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="dispersión">Dispersión</h3>
+<p>Después de establecer el centro de los valores de una variable, la siguiente pregunta es qué tan cerca están los datos de este centro. El patrón de los valores alrededor del centro se llama extensión, dispersión o variabilidad. Existen numerosas medidas de variabilidad: rango, varianza, desviación estándar, rango intercuartil</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>Datos</span><span class='op'>$</span><span class='va'>Sepal.Length</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>Datos</span><span class='op'>$</span><span class='va'>Sepal.Length</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>Datos</span><span class='op'>$</span><span class='va'>Sepal.Length</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/IQR.html'>IQR</a></span><span class='op'>(</span><span class='va'>Datos</span><span class='op'>$</span><span class='va'>Sepal.Length</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="indicadores-de-forma">Indicadores de forma</h3>
+<p>La asimetría es una medida de simetría, o más precisamente, la falta de simetría. Una distribución, o conjunto de datos, es simétrico si se ve igual a la izquierda y a la derecha del punto central.</p>
+<p>La curtosis es una medida de si los datos son de cola pesada o de cola ligera en relación con una distribución normal. Es decir, los conjuntos de datos con alta curtosis tienden a tener colas pesadas o valores atípicos. Los conjuntos de datos con baja curtosis tienden a tener colas claras o falta de valores atípicos.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://www.r-project.org'>moments</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/moments/man/skewness.html'>skewness</a></span><span class='op'>(</span><span class='va'>Datos</span><span class='op'>$</span><span class='va'>Sepal.Length</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/moments/man/kurtosis.html'>kurtosis</a></span><span class='op'>(</span><span class='va'>Datos</span><span class='op'>$</span><span class='va'>Sepal.Length</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h4 id="ejercicio-2">Ejercicio 2:</h4>
+<p>Guarda en un objetos llamado “Descriptivos” todos los análisis que acabamos de hacer para una sola variable, de tal forma que por cada columna haya un descriptivo diferente, ejemplo:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Descriptivos</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span>desc1 <span class='op'>=</span> <span class='fl'>1</span>, desc2 <span class='op'>=</span> <span class='fl'>2</span>, desc3 <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>Descriptivos</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="funciones-utiles">Funciones utiles</h3>
+<p>Existen algunas funciones bastante útiles que facilitan en gran medida el cálculo de este tipo de estadísticos, las dos principales son:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>Datos</span><span class='op'>)</span>
+<span class='co'>#library(psych)</span>
+<span class='co'>#describe(Datos)</span>
+</code></pre>
+</div>
+</div>
+<h4 id="ejercicio-2-1">Ejercicio 2:</h4>
+<p>Considerando los datos de la base Iris calcula la media, la mediana, la desviación estándar y la curtosis para cada planta (fila) y agrega una columna por cada estadístico. Sube tu código al slack cuando hayas terminado.</p>
+<h3 id="conclusión">Conclusión</h3>
+<p>Este tipo de estadística tiene diversos usos, por ejemplo identificar los valores atípicos de nuestros datos o su distribución, además de ser necesarios para realizar otro tipo de estadística.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
