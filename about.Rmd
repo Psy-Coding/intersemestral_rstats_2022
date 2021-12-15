@@ -15,4 +15,4 @@ knitr::opts_chunk$set(echo = FALSE)
 * Psic. Juan Díaz [juan.diaz@psycoding.org](mailto:juan.diaz@psycoding.org)
 * Psic. Ana González [ana.gonzalez@psycoding.org](mailto:ana.gonzalez@psycoding.org)
 * Psic. Scarlett Escudero [scarlett.escudero@psycoding.org](mailto:scarlett.escudero@psycoding.org)
-* Biol. Edgar Morales
+* Biol. Edgar Morales [edgar.morales@psycoding.org](mailto:edgar.morales@psycoding.org)
