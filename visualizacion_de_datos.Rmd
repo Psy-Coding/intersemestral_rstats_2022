@@ -282,10 +282,11 @@ representar la segunda espera que la métrica este calculada:
 #### geom_bar()
 
 ```{r}
-ggplot(InsectSprays, aes(x = spray, y = count, fill = spray)) +
+insects_plot <- ggplot(InsectSprays, aes(x = spray, y = count, fill = spray)) +
   geom_bar(stat='summary', fun='mean') +
   scale_fill_brewer(palette = 'RdYlBu') +
   theme_classic()
+insects_plot
 ```
 
 #### geom_col()
@@ -309,27 +310,52 @@ InsectSprays %>%
 Permite ver la distribución de las poblaciones
 
 ```{r}
-ggplot(txhousing, aes(sales)) +
-  geom_histogram() +
+txhousing_plot <- ggplot(txhousing, aes(sales)) +
+  geom_histogram(bins = 30) +
   theme_minimal()
+txhousing_plot
 ```
 
 
 ### Gráficos de línea
 
 ```{r}
-ggplot(Orange, aes(x = age, y = circumference , color = Tree)) +
+orange_plot_line <- ggplot(Orange, aes(x = age, y = circumference , color = Tree)) +
   geom_point() +
   geom_line() +
   theme_minimal()
+orange_plot_line
 ```
 
 
 ### Gráficos de dispersión
 
 ```{r}
-ggplot(trees, aes(x = Volume, y = Height, size = Girth)) +
+trees_plot <- ggplot(trees, aes(x = Volume, y = Height, size = Girth)) +
   geom_point(alpha =0.5)
-
+trees_plot
 ```
+
+
+### Extra tip
+
+Existen funciones que permite unir las gráficas para su presentación una de ellas y probablemente la mas sencilla de usar
+sería **patchwork**
+
+```{r}
+library(patchwork)
+
+orange_plot_line + trees_plot
+```
+
+<aside>
+  Existen otras librerías como **cowplot** o **ExtraGrid** pero **patchwork** es quiza la mas sencilla de ellas
+  para mas información puedes revisar [patchwork](https://patchwork.data-imaginist.com/index.html)
+</aside>
+
+```{r}
+orange_plot_line + trees_plot / txhousing_plot
+```
+
+
 
