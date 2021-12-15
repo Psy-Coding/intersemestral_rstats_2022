@@ -22,6 +22,9 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@master
       
+      - name: Install extra system Dependencies
+        run: sudo apt install -y libmpfr-dev libcurl4-openssl-dev
+      
       - name: Install Dependencies
         run: |
           install.packages("renv")
