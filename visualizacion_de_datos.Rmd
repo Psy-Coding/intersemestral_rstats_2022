@@ -174,17 +174,162 @@ Como mencionaba, no hay mucho sentido en este usar otra variable en esta gráfic
 ## Flexibilidad
 
 La creación de una gráfica puede tener diferentes configuraciones pero obtener el mismo resultado. En particular podemos
-tener variaciones en el lugar donde se definen los datos y/o las variables que se mapean a las propiedades del grafico,
+tener variaciones en el lugar donde se definen los datos y/o las variables que se _mapean_ a las propiedades del gráfico,
 por ejemplo:
 
-```{r}
 
+```{r}
+ggplot(InsectSprays, aes(x = spray, y = count, fill = spray)) +
+  geom_bar(stat='summary', fun='mean') +
+  scale_fill_brewer(palette = 'RdYlBu') +
+  theme_classic()
 ```
 
+<aside>
+  Otra forma de determinar los colores es mediante las paletas de **colorbrewer** que se puede utilizar con las funciones
+  **scale_fill_brewer()** y **scale_color_brewer()**. Para ver las paletas disponibles podemos visitar
+  [colorbrewer2.org](https://colorbrewer2.org/)
+</aside>
+
+Este gráfico utiliza la sintaxis mas común donde los datos y las variables se definen en la primera función
+`ggplot()`. Esto permite **heredar** la información de ggplot al resto de las geometrías o funciones.
+En la geometría en ocasiones no se agrega nada y en otras parámetros necesarios para **esa** geometría.
+En esta caso `stat="summary"` permite mostrar en la geometría `geom_bar` un resumen usando la función **mean** definida
+en el parámetro `fun="mean"`.
+
+> `theme_classic` es otro tema que estamos aplicando muy parecido a `theme_minimal`.
+
+Otra forma de generar este mismo gráfico es:
+
+```{r}
+ggplot(InsectSprays) +
+  geom_bar( aes(x = spray, y = count, fill = spray), stat='summary', fun='mean') +
+  scale_fill_brewer(palette = 'RdYlBu') +
+  theme_classic()
+```
+En este caso podemos ver que se genera el mismo comando, sin embargo ahora las **variables se mapean en la geometría**
+ y sin embargo no cambia el gráfico. Esta forma es menos usada pero permite una mayor flexibilidad al momento de mapear 
+ variables en las geometrías, es decir al proceder de esta forma podríamos mapear diferentes variables en diferentes
+ geometrías.
+ 
+ La última variación permite definir una fuente de datos a nivel geometría
+ 
+```{r}
+ggplot() +
+  geom_bar(data = InsectSprays, aes(x = spray, y = count, fill = spray), stat='summary', fun='mean') +
+  scale_fill_brewer(palette = 'RdYlBu') +
+  theme_classic()
+```
+ 
+ En este caso es necesario poner el nombre del parámetro para definir la fuente de datos. Los datos pueden ser usados
+ en funciones posteriores y puede cambiar en cada una de ellas.
 
 ## Gráficos en Objetos
 
+Con **ggplot2** se pueden guardar los gráficos en objetos y después estos objetos pueden ser modificados
 
+Por ejemplo en esta instrucción generamos el gráfico
+
+```{r}
+plot_orange <- ggplot(Orange, aes(x = age, y = circumference , color = Tree)) +
+  geom_point()
+```
+
+Y lo mostramos acá 
+
+```{r}
+plot_orange
+```
+
+Sin embargo podemos modificarlo posteriormente a su creación:
+
+```{r}
+plot_orange +
+  theme_minimal()
+  
+```
+
+Incluso podríamos agregar nuevas geometrías
+
+
+```{r}
+plot_orange +
+  geom_line() +
+  theme_minimal()
+```
 
 ## Gráficos impresindibles
+
+### Boxplot
+
+Es un gráfico que muestra diferentes poblaciones y la dispersión de cada una de ellas
+
+```{r}
+sleep_boxplot <- ggplot(sleep, aes(x = group, y = extra, color=group)) +
+  geom_boxplot() +
+  scale_color_viridis_d(option='cvidis') +
+  theme_minimal()
+
+sleep_boxplot
+```
+
+
+### Graficos de Barras
+
+Los gráficos de barras tienen dos variantes, **geom_bar** y **geom_col**. La primera puede calcular la métrica a 
+representar la segunda espera que la métrica este calculada:
+
+#### geom_bar()
+
+```{r}
+ggplot(InsectSprays, aes(x = spray, y = count, fill = spray)) +
+  geom_bar(stat='summary', fun='mean') +
+  scale_fill_brewer(palette = 'RdYlBu') +
+  theme_classic()
+```
+
+#### geom_col()
+
+En este caso se calcula por fuera y ya que es compatible con **dplyr** podemos usarlo. Ademas podemos calcular otras 
+métricas como la desviación estándar para luego calcular las barras de error.
+
+```{r}
+InsectSprays %>% 
+  group_by(spray) %>% 
+  summarise(spray_mean = mean(count), spray_sd = mean(count)) %>% 
+  ggplot(aes(x=spray, y=spray_mean, fill = spray)) +
+    geom_col() +
+    geom_errorbar(aes(ymin=spray_mean - spray_sd, ymax = spray_mean + spray_sd)) +
+    scale_fill_brewer(palette = 'RdYlBu') +
+    theme_classic()
+```
+
+### Histograma
+
+Permite ver la distribución de las poblaciones
+
+```{r}
+ggplot(txhousing, aes(sales)) +
+  geom_histogram() +
+  theme_minimal()
+```
+
+
+### Gráficos de línea
+
+```{r}
+ggplot(Orange, aes(x = age, y = circumference , color = Tree)) +
+  geom_point() +
+  geom_line() +
+  theme_minimal()
+```
+
+
+### Gráficos de dispersión
+
+```{r}
+ggplot(trees, aes(x = Volume, y = Height, size = Girth)) +
+  geom_point(alpha =0.5)
+
+```
 
