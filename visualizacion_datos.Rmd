@@ -1,0 +1,173 @@
+---
+title: "Visualización de Datos"
+description: |
+  Visualización de datos con ggplot2
+author:
+  - name: Juan Díaz
+    affiliation: Psycoding
+  - name: Edgar Morales
+    affiliation: AprendR, Psycoding
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    code_folding: true
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Representar los datos que analizamos es un paso crucial para entenderlos y tomar decisión al respecto de lo que veamos.
+
+En ocasiones una buena representación puede ahorrarnos muchos dolores de cabeza al realizar nuestro análisis.
+
+R cuenta con una batería de instrucciones para generar gráficos de forma rápida y funcional. Sin embargo para lograr 
+gráficos con mayor control y que nos permitan representar los datos de forma fácil y con mas control la librería 
+**ggplot2** es una gran opción.
+
+<aside>
+Recuerda que puedes instalar esta librería con `install.packages('ggplot2')`. Esta también viene incluida dentro del paquete
+**tidyverse**
+
+![](img/ggplot2_icon.png)
+</aside>
+
+El paquete **ggplot2** creado por Hadley Wickham está inspirado en el concepto de la gramática de gráficos.
+Esta teoría propuesta por Leland Wilkinson en el libro The Lenguage of Graphics, propone separa los componentes gráficos
+de los componentes estéticos.
+
+Facilitando entonces una sintaxis replicable y modular que se puede expandir con facilidad.
+
+Esta gramática de datos es un conjunto de instrucciones que permite la combinación de comandos (como si fueran sustantivos
+o verbos) permitiendo generar un gráfico.
+
+El fin último de estas reglas es poder **mapear** nuestors datos en atributos estéticos y/o representaciónes geométricas
+de los mismos.
+
+## Elementos de ggplot2
+
+El paquete **ggplot2** tiene elementos basados en la gramática de datos.
+
+- **Data**: Datos que queremos representar con el gráfico
+
+- **Aesthetic mapping**: Características estéticas que representarán los valores de los datos
+
+- **Geom**: Objetos geométricos (puntos, líneas, polígonos, áreas…) que formarán el gráfico.
+
+- **Stat**: Transformaciones estadísticas que podemos aplicar a los datos que representaremos
+
+- **Scale**: Escalas y características asociadas a los datos.
+
+- **Coord**: El sistema de coordenadas donde se representan las figuras geométricas
+
+- **Faceting**: Se refiere a elementos que están formados de varios planos
+
+
+Todos estos elementos estarán representados por elementos del paquete.
+
+## Sintaxis 
+
+Crearemos un boxplot a partir de los datos del dataset iris
+
+```{r}
+library(ggplot2)
+
+
+ggplot(data = iris, mapping = aes(x  = Species, y = Petal.Width)) +
+  geom_boxplot()
+```
+<aside>
+  Un **boxplot** nos da información de la población ya que permite ver la dispersión de los datos por los quantiles 
+  representados por las cajas, la mediana definida por la línea a mitad de la caja, y hasta los outliers visibles 
+  mediante puntos mas allá de los _bigotes_
+</aside>
+
+De momento no es un gráfico muy bonito, pero lo importante en esta ocasión son las partes que utilizamos
+
+- El parámetro **data** recibe justamente los datos a representar
+- **mapping** es un parámetro que permite _mapear_ variables del dataset iris a los componentes del gráfico. En este caso
+  el eje de las X
+- El símbolo `+` funciona como un _pipe_ de forma similar a el pipe de **maggrit** y encadena cada instrucción de 
+ggplot
+- Por último tenemos la instrucción `geom_boxplot()` que determina la geometría que tendra este gráfico.
+
+> Es muy importante considerar que solo dentro de **aes()** se puede llamar a las variables que se encuentran dentro
+del dataset para que sean **mapeadas** a un color, una figura o un texto dentro del plot.
+
+Con esto procesado subamos la complejidad.
+
+## Estética
+
+Podemos agregar entonces elementos estéticos que mejoren la representación de estos datos
+
+```{r}
+ggplot(data = iris, mapping = aes(x  = Species, y = Petal.Width, color = Species, fill = Species)) +
+  geom_boxplot() +
+  scale_fill_viridis_d(alpha = 0.3) +
+  scale_color_viridis_d() +
+  labs(
+    title = "Comparación del ancho del petalo entre las especies",
+    subtitle = "Setosa - Versicolor - Virginica", 
+    x = "Especies",
+    y = "Ancho del Petalo (cm)"
+  ) +
+  theme_minimal()
+```
+Puntos relevantes:
+
+- Nuevas características mapeadas **color** y **fill**. Como su nombre lo indica fill se refiere al relleno de las cajas
+y color se refiere al color de los trazos.
+- **scale_fill_viridis_d** y **scale_color_viridis_d** modifican los colores y el rellenado. Por default **ggplot** 
+usa un conjunto de colores, sin embargo se pueden cambiar con comandos como estos que usan el set de colores **Viridis**.
+También se pueden definir colores de forma manual con **scale_color_manual** y **scale_fill_manual** y existen otras 
+paletas de colores.
+- **Labs** permite escribir los diferentes letreros correspondientes al gráfico
+- **theme_minimal()** aplica un tema que puede tener diferentes diseños, en este caso específico es un tema que remueve
+muchos de los elementos de la gráfica justo como el fondo o algunas marcas.
+
+<aside>
+  Viridis es una paleta de colores que permite representar valores discretos y continuos, ademas tiene varios conjuntos
+  de colores como **magma**, **inferno**, **cividis** y mas puedes usar **?viridis** para mas información
+</aside>
+
+## Multiples geometrías
+
+```{r}
+ggplot(data = iris, mapping = aes(x  = Species, y = Petal.Width, color = Species)) +
+  geom_boxplot() +
+  geom_jitter(alpha=0.2) +
+  scale_color_viridis_d() +
+  labs(
+    title = "Comparación del ancho del petalo entre las especies",
+    subtitle = "Setosa - Versicolor - Virginica", 
+    x = "Especies",
+    y = "Ancho del Petalo (cm)"
+  ) +
+  theme_minimal()
+```
+Puntos relevantes:
+
+- Se incluye la geometría **geom_jitter** que dibuja un puntos para cada valor de **Petal.Width** pero dispersandolos
+un poco en el eje de las x
+
+> Podríamos mapear en esta nueva geometría otro de los valore del dataset. Aunque en escencia puede que no nos aporte
+nada pero lo haremos como prueba de concepto.
+
+```{r}
+ggplot(data = iris, mapping = aes(x  = Species, y = Petal.Width, color = Species)) +
+  geom_boxplot() +
+  geom_jitter(aes(x = Species, y = Petal.Length), alpha=0.2) +
+  scale_color_viridis_d() +
+  labs(
+    title = "Comparación del ancho del petalo entre las especies",
+    subtitle = "Setosa - Versicolor - Virginica", 
+    x = "Especies",
+    y = "Ancho del Petalo (cm)"
+  ) +
+  theme_minimal()
+```
+
+Como mencionaba, no hay mucho sentido en este usar otra variable en esta gráfica pero es una buena prueba de concepto.
+
