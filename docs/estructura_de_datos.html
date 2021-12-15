@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   
   
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-12-14"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-12-14"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-12-15"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-15"/>
   <meta name="article:author" content="Ana Gonzalez"/>
   <meta name="article:author" content="Edgar Morales"/>
   
@@ -114,7 +114,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["2.2 Estructura de datos"]},{"type":"character","attributes":{},"value":["Estructura de datos orientada a objetos, procesamiento y tabulación de datos\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Ana Gonzalez"]},{"type":"character","attributes":{},"value":["Psycoding"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Edgar Morales"]},{"type":"character","attributes":{},"value":["AprendR, Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-14"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["2.2 Estructura de datos"]},{"type":"character","attributes":{},"value":["Estructura de datos orientada a objetos, procesamiento y tabulación de datos\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Ana Gonzalez"]},{"type":"character","attributes":{},"value":["Psycoding"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Edgar Morales"]},{"type":"character","attributes":{},"value":["AprendR, Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2063,7 +2063,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"2.2 Estructura de datos","description":"Estructura de datos orientada a objetos, procesamiento y tabulación de datos","authors":[{"author":"Ana Gonzalez","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""},{"author":"Edgar Morales","authorURL":"#","affiliation":"AprendR, Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-14T00:00:00.000+00:00","citationText":"Gonzalez & Morales, 2021"}
+{"title":"2.2 Estructura de datos","description":"Estructura de datos orientada a objetos, procesamiento y tabulación de datos","authors":[{"author":"Ana Gonzalez","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""},{"author":"Edgar Morales","authorURL":"#","affiliation":"AprendR, Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-15T00:00:00.000+00:00","citationText":"Gonzalez & Morales, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2124,7 +2124,7 @@ Temas
   
 ,   Edgar Morales  (AprendR, Psycoding)
   
-<br/>2021-12-14
+<br/>2021-12-15
 </div>
 
 <div class="d-article">
@@ -2145,7 +2145,20 @@ Temas
 <li><a href="#procesamiento-de-datos-dplyr">Procesamiento de datos: dplyr ()</a><ul>
 <li><a href="#r-base-vs-dplyr">R-base vs dplyr</a></li>
 <li><a href="#mas-ejemplos">Mas ejemplos</a></li>
-<li><a href="#tidy-data">Tidy data</a></li>
+</ul></li>
+<li><a href="#cambios-de-forma">Cambios de forma</a><ul>
+<li><a href="#unión-de-data.frame-similares">Unión de data.frame similares</a></li>
+<li><a href="#tambien-se-puede-usar-dplyr">Tambien se puede usar dplyr</a></li>
+<li><a href="#unión-de-data.frame-con-un-indice-en-común">Unión de data.frame con un indice en común</a></li>
+</ul></li>
+<li><a href="#tidy-data">Tidy data</a><ul>
+<li><a href="#ventajas">Ventajas</a></li>
+</ul></li>
+<li><a href="#long-vs.-wide-format.">Long vs. Wide format.</a><ul>
+<li><a href="#wide">Wide</a></li>
+<li><a href="#long">Long</a><ul>
+<li><a href="#tidyr-pivot_longer-y-pivot_wider">Tidyr: pivot_longer y pivot_wider</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -2549,10 +2562,340 @@ El dataset <strong>sleep</strong> viene includo con R y contiene información de
 <aside>
 El dataset <strong>InsectSprays</strong> viene con los datos incluidos en R y tiene información de los insectos que mueren por efecto de seis sprays’s insecticidas.
 </aside>
-<h4 id="primeros-intentos-de-tabular-los-datos-quizá-rbindcbind">Primeros intentos de tabular los datos, quizá rbind/cbind</h4>
-<h3 id="tidy-data">Tidy data</h3>
-<h4 id="tidy-package-con-pivot_wide-pivot_longer-podemos-hablar-de-meltcast-en-reshape2">Tidy package con pivot_wide, pivot_longer (podemos hablar de melt/cast en reshape2 )</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="cambios-de-forma">Cambios de forma</h2>
+<p>Una vez entendido la estructura de los <strong>data.frames</strong> una de las tareas habituales que podemos tener es la de cambiar su forma ya sea por unión con otros data.frames o por un rearreglo.</p>
+<h3 id="unión-de-data.frame-similares">Unión de data.frame similares</h3>
+<p>Podemos unir dos dataframes con el mismo número de columnas con el comando <code>cbind()</code></p>
+<h4 id="por-columnas">Por columnas</h4>
+<p>Por ejemplo, podemos unir:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dataframe_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>col_a <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, col_b <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>50</span>, by <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>, col_c <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'a'</span>, <span class='st'>'b'</span>, <span class='st'>'c'</span>, <span class='st'>'d'</span>, <span class='st'>'e'</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>dataframe_1</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  col_a col_b col_c
+1     1    10     a
+2     2    20     b
+3     3    30     c
+4     4    40     d
+5     5    50     e</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dataframe_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  col_d <span class='op'>=</span> <span class='fl'>11</span><span class='op'>:</span><span class='fl'>20</span>, 
+  col_e <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>50</span>, <span class='fl'>140</span>, by <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+<span class='op'>)</span>
+<span class='va'>dataframe_2</span>
+</code></pre>
+</div>
+</details>
+<pre><code>   col_d col_e
+1     11    50
+2     12    60
+3     13    70
+4     14    80
+5     15    90
+6     16   100
+7     17   110
+8     18   120
+9     19   130
+10    20   140</code></pre>
+</div>
+<p>Podemos obtener entonces:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>dataframe_1</span>, <span class='va'>dataframe_2</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>   col_a col_b col_c col_d col_e
+1      1    10     a    11    50
+2      2    20     b    12    60
+3      3    30     c    13    70
+4      4    40     d    14    80
+5      5    50     e    15    90
+6      1    10     a    16   100
+7      2    20     b    17   110
+8      3    30     c    18   120
+9      4    40     d    19   130
+10     5    50     e    20   140</code></pre>
+</div>
+<h4 id="por-renglones">Por renglones</h4>
+<p>Podemos unir un dataframe por los rengloes usando <code>rbind()</code></p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dataframe_a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>col_a <span class='op'>=</span> <span class='fl'>6</span><span class='op'>:</span><span class='fl'>10</span>, col_b <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>60</span>, <span class='fl'>100</span>, by <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>, col_c <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'v'</span>, <span class='st'>'g'</span>, <span class='st'>'j'</span>, <span class='st'>'d'</span>, <span class='st'>'e'</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>dataframe_a</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  col_a col_b col_c
+1     6    60     v
+2     7    70     g
+3     8    80     j
+4     9    90     d
+5    10   100     e</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dataframe_b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>col_a <span class='op'>=</span> <span class='fl'>2</span>, col_b <span class='op'>=</span> <span class='fl'>90</span>, col_c <span class='op'>=</span> <span class='st'>'p'</span><span class='op'>)</span>
+<span class='va'>dataframe_b</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  col_a col_b col_c
+1     2    90     p</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>dataframe_a</span>, <span class='va'>dataframe_b</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  col_a col_b col_c
+1     6    60     v
+2     7    70     g
+3     8    80     j
+4     9    90     d
+5    10   100     e
+6     2    90     p</code></pre>
+</div>
+<h3 id="tambien-se-puede-usar-dplyr">Tambien se puede usar dplyr</h3>
+<p>También podemos usar las funciones símiles en <strong>dplyr</strong></p>
+<ul>
+<li>bind_rows</li>
+<li>bind_cols</li>
+</ul>
+La ventaja de estos comandos es que permiten unir mas de dos <strong>data.frames</strong> en un solo comando. por ejemplo si tuvieramos un tercer dataframe:
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dataframe_c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>col_a <span class='op'>=</span> <span class='fl'>4</span>, col_b <span class='op'>=</span> <span class='fl'>190</span>, col_c <span class='op'>=</span> <span class='st'>'y'</span><span class='op'>)</span>
+<span class='va'>dataframe_c</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  col_a col_b col_c
+1     4   190     y</code></pre>
+</div>
+<p>Y podemos unir los 3 dataframes en una sola instrucción:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://dplyr.tidyverse.org/reference/bind.html'>bind_rows</a></span><span class='op'>(</span><span class='va'>dataframe_a</span>, <span class='va'>dataframe_b</span>, <span class='va'>dataframe_c</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  col_a col_b col_c
+1     6    60     v
+2     7    70     g
+3     8    80     j
+4     9    90     d
+5    10   100     e
+6     2    90     p
+7     4   190     y</code></pre>
+</div>
+<h3 id="unión-de-data.frame-con-un-indice-en-común">Unión de data.frame con un indice en común</h3>
+<p>A veces queremos unir dos <strong>data.frames</strong> y queremos hacerlo mediante un indice o una llave que los relacione. Por ejemplo si tuvieramos un <strong>data.frame</strong> con los nombres de usuarios y otro con sus calificaciones, podríamos unirlos por su identificador.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>alumnos</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>id <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, nombres <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'Andrea'</span>, <span class='st'>'Miguel'</span>, <span class='st'>'Francisco'</span>, <span class='st'>'Jazmin'</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>alumnos</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  id   nombres
+1  1    Andrea
+2  2    Miguel
+3  3 Francisco
+4  4    Jazmin</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>calificaciones</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>id <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>3</span><span class='op'>)</span>, calificacion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>,<span class='fl'>8</span>,<span class='fl'>9</span>,<span class='fl'>7</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>calificaciones</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  id calificacion
+1  2           10
+2  1            8
+3  4            9
+4  3            7</code></pre>
+</div>
+<p>Podemos hacer un <strong>inner_join</strong> con dplyr:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>inner_join</a></span><span class='op'>(</span><span class='va'>alumnos</span>, <span class='va'>calificaciones</span>, by<span class='op'>=</span><span class='st'>'id'</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  id   nombres calificacion
+1  1    Andrea            8
+2  2    Miguel           10
+3  3 Francisco            7
+4  4    Jazmin            9</code></pre>
+</div>
+<p>Existen variantes de este tipo de uniones:</p>
+<p><img src="img/imagen_joins.png" /></p>
+<p>Estas permiten unir los dataframes dependiendo del tipo de unión:</p>
+<ul>
+<li>inner_join: Solo los valores que coinciden en ambos</li>
+<li>left_join: Se trae todo los valores del dataframe de la izquierda y si no coincide alguno se coloca NA</li>
+<li>right_join: Se trae todo los valores del dataframe de la derecha y si no coincide alguno se coloca NA</li>
+<li>full_join: Trae todos los valores aunque no coincidan y coloca NA en los campos que falten</li>
+</ul>
+<h1 id="tidy-data">Tidy data</h1>
+<p>Al programar los mismos datos se pueden representar de varias maneras:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  Materias <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Mat1"</span>, <span class='st'>"Mat1"</span>, <span class='st'>"Mat2"</span>, <span class='st'>"Mat2"</span>, <span class='st'>"Mat3"</span>, <span class='st'>"Mat3"</span><span class='op'>)</span>,
+  sem <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,
+  aprov <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>20</span>, <span class='fl'>10</span>, <span class='fl'>5</span><span class='op'>)</span>,
+  reprov <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>25</span><span class='op'>)</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  Materias sem aprov reprov
+1     Mat1   1    20     10
+2     Mat1   2    10     20
+3     Mat2   1     5     25
+4     Mat2   2    20     10
+5     Mat3   1    10     20
+6     Mat3   2     5     25</code></pre>
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  Materias <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Mat1"</span>, <span class='st'>"Mat1"</span>, <span class='st'>"Mat1"</span>, <span class='st'>"Mat1"</span>, <span class='st'>"Mat2"</span>, <span class='st'>"Mat2"</span>, <span class='st'>"Mat2"</span>, <span class='st'>"Mat2"</span>, <span class='st'>"Mat3"</span>, <span class='st'>"Mat3"</span>,<span class='st'>"Mat3"</span>, <span class='st'>"Mat3"</span><span class='op'>)</span>,
+  sem <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>,
+  eval <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"aprov"</span>, <span class='st'>"reprov"</span>, <span class='st'>"aprov"</span>, <span class='st'>"reprov"</span>, <span class='st'>"aprov"</span>, <span class='st'>"reprov"</span>, <span class='st'>"aprov"</span>, <span class='st'>"reprov"</span>, <span class='st'>"aprov"</span>, <span class='st'>"reprov"</span>, <span class='st'>"aprov"</span>, <span class='st'>"reprov"</span><span class='op'>)</span>, 
+  calif <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>20</span>, <span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>5</span>, <span class='fl'>25</span>, <span class='fl'>20</span>, <span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>5</span>, <span class='fl'>25</span><span class='op'>)</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>   Materias sem   eval calif
+1      Mat1   1  aprov    20
+2      Mat1   1 reprov    10
+3      Mat1   2  aprov    10
+4      Mat1   2 reprov    20
+5      Mat2   1  aprov     5
+6      Mat2   1 reprov    25
+7      Mat2   2  aprov    20
+8      Mat2   2 reprov    10
+9      Mat3   1  aprov    10
+10     Mat3   1 reprov    20
+11     Mat3   2  aprov     5
+12     Mat3   2 reprov    25</code></pre>
+</div>
+<p>. Todas estas son representaciones de los mismos datos, sin embargo, no fáciles de usar. Un conjunto de datos ordenado permite un trabajo mucho más eficiente.</p>
+<p>Hay tres reglas interrelacionadas que hacen que un conjunto de datos sea ordenado:</p>
+<ul>
+<li>Cada variable debe tener su propia columna.</li>
+<li>Cada observación debe tener su propia fila.</li>
+<li>Cada valor debe tener su propia celda.</li>
+</ul>
+<h2 id="ventajas">Ventajas</h2>
+<p>1.- Si tiene una estructura de datos coherente, es más fácil aprender las herramientas que funcionan con ella porque tienen una uniformidad subyacente.</p>
+<p>2.- Hay una ventaja específica en colocar variables en columnas porque permite que brille la naturaleza vectorizada de R.</p>
+<p>3.- Algunas paqueterias (<strong>dplyr</strong>, <strong>ggplot2</strong>) están diseñadas para trabajar con este ordenamiento.</p>
+<h1 id="long-vs.-wide-format.">Long vs. Wide format.</h1>
+<p>En general existen dos formas de desglosar los datos, a traves del formato <strong>Long</strong> y el formato <strong>Wide</strong>, diversas paqueterias funcionan de mejor manera con cada uno.</p>
+<h2 id="wide">Wide</h2>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>Participante <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"P1"</span>, <span class='st'>"P2"</span><span class='op'>)</span>, ev1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, ev2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>, ev3 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  Participante ev1 ev2 ev3
+1           P1   1   2   2
+2           P2   2   2   1</code></pre>
+</div>
+<h2 id="long">Long</h2>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>Participante <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"P1"</span>, <span class='st'>"P1"</span>, <span class='st'>"P1"</span>, <span class='st'>"P2"</span>, <span class='st'>"P2"</span>, <span class='st'>"P2"</span><span class='op'>)</span>, eval123 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  Participante eval123
+1           P1       1
+2           P1       2
+3           P1       2
+4           P2       2
+5           P2       2
+6           P2       1</code></pre>
+</div>
+<h3 id="tidyr-pivot_longer-y-pivot_wider">Tidyr: pivot_longer y pivot_wider</h3>
+<p>Podemos convertir de un formato a otro a partir de los comando <code>pivot_longer</code> para convertir al formato <strong>long</strong> y <code>pivot_wider</code> para convertir a formato wide.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>wide</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>participante <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"P1"</span>,<span class='st'>"P2"</span><span class='op'>)</span>, ev1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span><span class='op'>)</span>, ev2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>,<span class='fl'>2</span><span class='op'>)</span>, ev3 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>wide</span>
+</code></pre>
+</div>
+</details>
+<pre><code>  participante ev1 ev2 ev3
+1           P1   1   2   2
+2           P2   2   2   1</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span>
+<span class='va'>long</span> <span class='op'>&lt;-</span> <span class='va'>wide</span> <span class='op'><a href='https://tidyr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>participante</span><span class='op'>)</span>
+<span class='va'>long</span>
+</code></pre>
+</div>
+</details>
+<pre><code># A tibble: 6 × 3
+  participante name  value
+  &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt;
+1 P1           ev1       1
+2 P1           ev2       2
+3 P1           ev3       2
+4 P2           ev1       2
+5 P2           ev2       2
+6 P2           ev3       1</code></pre>
+</div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
