@@ -1,0 +1,86 @@
+---
+title: "Estadistica descriptiva"
+author: 
+  - name: Juan Díaz
+    affiliation: Psycoding
+date: "`r Sys.Date()`"
+output:  distill::distill_article
+---
+## Estadística descriptiva
+
+La estadística descriptiva se ocupa de métricas, herramientas y estrategias que se pueden utilizar para resumir un conjunto de datos. Estas métricas se extraen de los datos y brindan información sobre la ubicación, dispersión, indicadores de forma, etc.
+
+### Ubicación
+
+En estadística descriptiva, es útil representar un conjunto de datos completo con un solo valor que describe su ubicación o posición, esto se puede interpretar como el centro de la variable en la recta numérica . Este valor único se define como la tendencia central. La media, la mediana y la moda entran en esta categoría.
+
+#### Ejercicio 1
+
+Considerando el siguiente data.frame:
+
+```{r, results='hide'}
+Datos <- iris
+```
+
+¿Cómo calcularías la media de la variable Sepal.Length?
+
+```{r, results='hide'}
+mean(Datos$Sepal.Length)
+median(Datos$Sepal.Length)
+mode <- function(x){
+  value <- x[which.max(tabulate(x))]
+  print(value)
+}
+mode(Datos$Sepal.Length)
+```
+
+### Dispersión
+
+Después de establecer el centro de los valores de una variable, la siguiente pregunta es qué tan cerca están los datos de este centro. El patrón de los valores alrededor del centro se llama extensión, dispersión o variabilidad. Existen numerosas medidas de variabilidad: rango, varianza, desviación estándar, rango intercuartil  
+
+```{r, results='hide'}
+range(Datos$Sepal.Length)
+sd(Datos$Sepal.Length)
+var(Datos$Sepal.Length)
+IQR(Datos$Sepal.Length)
+```
+
+### Indicadores de forma
+
+La asimetría es una medida de simetría, o más precisamente, la falta de simetría. Una distribución, o conjunto de datos, es simétrico si se ve igual a la izquierda y a la derecha del punto central.
+
+La curtosis es una medida de si los datos son de cola pesada o de cola ligera en relación con una distribución normal. Es decir, los conjuntos de datos con alta curtosis tienden a tener colas pesadas o valores atípicos. Los conjuntos de datos con baja curtosis tienden a tener colas claras o falta de valores atípicos.
+
+```{r, results='hide'}
+library(moments)
+skewness(Datos$Sepal.Length)
+kurtosis(Datos$Sepal.Length)
+```
+
+#### Ejercicio 2:
+
+Guarda en un objetos llamado "Descriptivos" todos los análisis que acabamos de hacer para una sola variable, de tal forma que por cada columna haya un descriptivo diferente, ejemplo:
+
+```{r, results='hide'}
+Descriptivos <- cbind(desc1 = 1, desc2 = 2, desc3 = 3)
+print(Descriptivos)
+```
+
+### Funciones utiles
+
+Existen algunas funciones bastante útiles que facilitan en gran medida el cálculo de este tipo de estadísticos, las dos principales son:
+
+```{r, results='hide'}
+summary(Datos)
+#library(psych)
+#describe(Datos)
+```
+
+#### Ejercicio 2:
+
+Considerando los datos de la base Iris calcula la media, la mediana, la desviación estándar y la curtosis para cada planta (fila) y agrega una columna por cada estadístico. Sube tu código al slack cuando hayas terminado.
+
+
+### Conclusión
+
+Este tipo de estadística tiene diversos usos, por ejemplo identificar los valores atípicos de nuestros datos o su distribución, además de ser necesarios para realizar otro tipo de estadística.

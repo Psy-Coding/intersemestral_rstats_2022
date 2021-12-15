@@ -1,0 +1,179 @@
+---
+title: "Manejo de variables"
+author: 
+  - name: Juan Díaz
+    affiliation: Psycoding
+date: "`r Sys.Date()`"
+output:  distill::distill_article
+---
+## Manejo de variables
+
+En algunas ocasiones será necesario que manipulemos y manejemos nuestras variables, ya sea para ejecutar algún análisis estadístico, aplicar alguna función, generar algún plot, etc. Este tipo de modificaciones se puede realizar a través de r-base, sin embargo una alternativa es utilizar dplyr.
+
+### Dplyr 
+
+Una importante contribución del paquete dplyr es que proporciona una "gramática" (particularmente verbos) para la manipulación y operaciones con data frames. Con esta gramática podemos comunicar mediante nuestro código que es lo que estamos haciendo en los data frames a otras personas (asumiendo que conozcan la gramática). Esto es muy útil, ya que proporciona una abstracción que anteriormente no existía. Por último, cabe destacar que las funciones del paquete dplyr son muy rápidas, puesto que están implementadas con el lenguaje C++.
+
+Las funciones de dplyr funcionan con datos ordenados en los que cada variable es una columna y cada caso es una fila. A continuación trabajaremos con algunas de sus funciones principales y como hacer su simil en r base
+
+### Select
+
+Con la función select podemos seleccionar columnas de un data frame: 
+
+```{r, results='hide'}
+library(tidyverse)
+Data <- iris
+Data_recortada_1 <- select(Data, Petal.Length, Petal.Width)
+```
+
+#### Ejercicio 1
+
+Cómo harías lo anterior con r base? sube tu respuesta al slack
+
+#### Respuesta
+
+```{r, results='hide'}
+Data_recortada_2 <- Data[3:4]
+```
+
+### Filter
+
+La función filter nos permite filtrar filas según una condición 
+
+```{r, results='hide'}
+Data_filtrada_1 <- filter(Data_recortada_1, Petal.Length > 1.4)
+```
+
+#### Ejercicio 2
+
+Cómo harías lo anterior con r base? sube tu respuesta al slack
+
+#### Respuesta
+
+```{r, results='hide'}
+Data_filtrada_2 <- Data_recortada_2[Data_recortada_2[1]>1.4,]
+```
+
+### Arrange
+
+La función arrange() se utiliza para ordenar las filas de un data frame de acuerdo a una o varias columnas/variables. 
+
+```{r, results='hide'}
+Data_ordenada_1 <- arrange(Data_filtrada_1, Petal.Length)
+Data_ordenada_2 <- Data_filtrada_2[order(Data_filtrada_2$Petal.Length),]
+```
+
+### Rename
+
+Renombra variables
+
+```{r, results='hide'}
+Data_renombrada_1 <- rename(Data_ordenada_1, 
+                            Petalo_longitud = Petal.Length,
+                            Petalo_ancho = Petal.Width)
+Data_renombrada_2 <- Data_ordenada_2
+colnames(Data_renombrada_2) <- c(
+  "Petalo_longitud", "Petalo_ancho")
+```
+
+### Mutate
+
+A menudo, tendremos la necesidad de crear nuevas variables que se calculan a partir de variables existentes,mutate() nos proporciona una interface clara para realizar este tipo de operaciones. 
+
+```{r, results='hide'}
+Data_agregada_1 <- mutate(Data_renombrada_1, 
+                            Area = Petalo_longitud * Petalo_ancho)
+```
+
+#### Ejercicio 3
+
+Cómo harías lo anterior con r base? sube tu respuesta al slack
+
+#### Respuesta
+
+```{r, results='hide'}
+Area <- Data_renombrada_2$Petalo_longitud * Data_renombrada_2$Petalo_ancho
+Data_agregada_2 <- cbind(Data_renombrada_2, Area)
+```
+
+### Summarise
+
+La función summarise() funciona de forma análoga a la función mutate, excepto que en lugar de añadir nuevas columnas crea un nuevo data frame.
+
+```{r, results='hide'}
+Data_resumida_1 <- summarise(Data_renombrada_1, 
+                           media_longidud =     
+                             mean(Petalo_longitud),
+                           media_ancho =
+                             mean(Petalo_ancho))
+```
+
+### Group by 
+
+La función group_by() agrupa un conjunto de filas de acuerdo con los valores de una o más columnas o expresiones.
+
+```{r, results='hide'}
+Data_agrupada <- group_by(Data, Species)
+```
+
+Esta funcion resulta muy util al combinarse con otras, por ejemplo la función summarise, pero antes de eso debemos saber que es un pipe
+
+### Pipe
+
+El operador pipeline %>% es útil para concatenar múltiples dplyr operaciones. 
+
+```{r, results='hide'}
+Data_agrupada <- group_by(Data, Species) %>% 
+  summarise(mean_lenght = mean(c(Sepal.Length, Petal.Length)),
+            mean_width = mean(c(Sepal.Width, Petal.Width)))
+```
+
+## visualización de datos
+
+### Graficos en R base 
+
+R nos proporciona varias funciones que permiten generar gráficos de diferentes tipos, la siguiente tabla muestra algunas de estas funciones y el gráfico que generan cada una:
+
+| Función | Tipo de grafico |
+|---------|-----------------|
+| boxplot() | Gráfico de barras|
+| stripchart() | Gráfico de bandas |
+| barplot() | Gráfico de barras |
+| plot() | Gráfico de lineas |
+| pie() | Gráfico de pastel |
+| qqplot() | Gráfico de quantile-quantile |
+| hist() | Histogramas|
+
+Todos estos graficos pueden ser modificados a través de diferentes parametros, a continuación mostraremos algunos:
+
+```{r, results='hide'}
+Plot_1 <- qqplot(Data$Sepal.Length, Data$Sepal.Width)
+Plot_1 <- qqplot(Data$Sepal.Length, Data$Sepal.Width,
+                 main="Main title")
+Plot_2 <- qqplot(Data$Sepal.Length, Data$Sepal.Width,
+                 main="Main title",
+               xlab="X axis title")
+Plot_3 <- qqplot(Data$Sepal.Length, Data$Sepal.Width,
+                 main="Main title", 
+               xlab="X axis title", 
+               ylab="Y axis title")
+PLot_4 <- qqplot(Data$Sepal.Length, Data$Sepal.Width,
+                 main="Main title",
+               xlab="X axis title",
+               ylab="Y axis title",
+               sub="Sub-title")
+Plot_5 <- qqplot(Data$Sepal.Length, Data$Sepal.Width,
+                 main="Main title",
+               xlab="X axis title",
+               ylab="Y axis title",
+               sub="Sub-title",
+               col.main="red", col.lab="blue", col.sub="black")
+Plot_6 <- qqplot(Data$Sepal.Length, Data$Sepal.Width, 
+                 main="Main title",
+               xlab="X axis title",
+               ylab="Y axis title",
+               sub="Sub-title",
+               col.main="red", col.lab="blue", col.sub="black",
+               cex.main=2, cex.lab=1.7, cex.sub=1.2)
+```
+

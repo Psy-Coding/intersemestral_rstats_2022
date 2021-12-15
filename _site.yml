@@ -14,20 +14,26 @@ navbar:
       href: index.html
     - text: "Temas"
       menu:
-        - text: "Introducción"
+        - text: "1. Introducción"
         - text: "---"
         - text: "Introducción a la Programación"
           href: introduccion_programacion.html
         - text: "Comandos básicos"
           href: comandos_basicos.html
-        - text: "Operadores y estructura de Datos"
+        - text: "2. Operadores y estructura de Datos"
         - text: "---"
         - text: "Aritmética y operaciones lógicas"
           href: aritmetica_y_operaciones.html
         - text: "Estructura de Datos"
           href: estructura_de_datos.html
-        - text: "Analisis de Datos"
+        - text: "3. Analisis de Datos"
         - text: "---"
+        - text: "Manejo de Variables"
+          href: manejo_de_variables.html
+        - text: "Visualización de Datos"
+          href: visualizacion_de_datos.html
+        - text: "Estadística Descriptiva"
+          href: estadistica_descriptiva.html
         - text: "Paramétrica vs No-Paramétrica"
           href: parametrica.html
         - text: "Correlación y regresión lineal"

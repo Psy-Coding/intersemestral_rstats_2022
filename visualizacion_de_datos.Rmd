@@ -171,3 +171,20 @@ ggplot(data = iris, mapping = aes(x  = Species, y = Petal.Width, color = Species
 
 Como mencionaba, no hay mucho sentido en este usar otra variable en esta gráfica pero es una buena prueba de concepto.
 
+## Flexibilidad
+
+La creación de una gráfica puede tener diferentes configuraciones pero obtener el mismo resultado. En particular podemos
+tener variaciones en el lugar donde se definen los datos y/o las variables que se mapean a las propiedades del grafico,
+por ejemplo:
+
+```{r}
+
+```
+
+
+## Gráficos en Objetos
+
+
+
+## Gráficos impresindibles
+
