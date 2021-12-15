@@ -2139,7 +2139,13 @@ Temas
 <li><a href="#multiples-geometrías">Multiples geometrías</a></li>
 <li><a href="#flexibilidad">Flexibilidad</a></li>
 <li><a href="#gráficos-en-objetos">Gráficos en Objetos</a></li>
-<li><a href="#gráficos-impresindibles">Gráficos impresindibles</a></li>
+<li><a href="#gráficos-impresindibles">Gráficos impresindibles</a><ul>
+<li><a href="#boxplot">Boxplot</a></li>
+<li><a href="#graficos-de-barras">Graficos de Barras</a></li>
+<li><a href="#histograma">Histograma</a></li>
+<li><a href="#gráficos-de-línea">Gráficos de línea</a></li>
+<li><a href="#gráficos-de-dispersión">Gráficos de dispersión</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -2278,12 +2284,199 @@ Viridis es una paleta de colores que permite representar valores discretos y con
 </div>
 <p>Como mencionaba, no hay mucho sentido en este usar otra variable en esta gráfica pero es una buena prueba de concepto.</p>
 <h2 id="flexibilidad">Flexibilidad</h2>
-<p>La creación de una gráfica puede tener diferentes configuraciones pero obtener el mismo resultado. En particular podemos tener variaciones en el lugar donde se definen los datos y/o las variables que se mapean a las propiedades del grafico, por ejemplo:</p>
+<p>La creación de una gráfica puede tener diferentes configuraciones pero obtener el mismo resultado. En particular podemos tener variaciones en el lugar donde se definen los datos y/o las variables que se <em>mapean</em> a las propiedades del gráfico, por ejemplo:</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>InsectSprays</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>spray</span>, y <span class='op'>=</span> <span class='va'>count</span>, fill <span class='op'>=</span> <span class='va'>spray</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat<span class='op'>=</span><span class='st'>'summary'</span>, fun<span class='op'>=</span><span class='st'>'mean'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer</a></span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>'RdYlBu'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
 </div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+</div>
+<aside>
+Otra forma de determinar los colores es mediante las paletas de <strong>colorbrewer</strong> que se puede utilizar con las funciones <strong>scale_fill_brewer()</strong> y <strong>scale_color_brewer()</strong>. Para ver las paletas disponibles podemos visitar <a href="https://colorbrewer2.org/">colorbrewer2.org</a>
+</aside>
+<p>Este gráfico utiliza la sintaxis mas común donde los datos y las variables se definen en la primera función <code>ggplot()</code>. Esto permite <strong>heredar</strong> la información de ggplot al resto de las geometrías o funciones. En la geometría en ocasiones no se agrega nada y en otras parámetros necesarios para <strong>esa</strong> geometría. En esta caso <code>stat="summary"</code> permite mostrar en la geometría <code>geom_bar</code> un resumen usando la función <strong>mean</strong> definida en el parámetro <code>fun="mean"</code>.</p>
+<blockquote>
+<p><code>theme_classic</code> es otro tema que estamos aplicando muy parecido a <code>theme_minimal</code>.</p>
+</blockquote>
+<p>Otra forma de generar este mismo gráfico es:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>InsectSprays</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>spray</span>, y <span class='op'>=</span> <span class='va'>count</span>, fill <span class='op'>=</span> <span class='va'>spray</span><span class='op'>)</span>, stat<span class='op'>=</span><span class='st'>'summary'</span>, fun<span class='op'>=</span><span class='st'>'mean'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer</a></span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>'RdYlBu'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
+<p>En este caso podemos ver que se genera el mismo comando, sin embargo ahora las <strong>variables se mapean en la geometría</strong> y sin embargo no cambia el gráfico. Esta forma es menos usada pero permite una mayor flexibilidad al momento de mapear variables en las geometrías, es decir al proceder de esta forma podríamos mapear diferentes variables en diferentes geometrías.</p>
+<p>La última variación permite definir una fuente de datos a nivel geometría</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>InsectSprays</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>spray</span>, y <span class='op'>=</span> <span class='va'>count</span>, fill <span class='op'>=</span> <span class='va'>spray</span><span class='op'>)</span>, stat<span class='op'>=</span><span class='st'>'summary'</span>, fun<span class='op'>=</span><span class='st'>'mean'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer</a></span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>'RdYlBu'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<p>En este caso es necesario poner el nombre del parámetro para definir la fuente de datos. Los datos pueden ser usados en funciones posteriores y puede cambiar en cada una de ellas.</p>
 <h2 id="gráficos-en-objetos">Gráficos en Objetos</h2>
+<p>Con <strong>ggplot2</strong> se pueden guardar los gráficos en objetos y después estos objetos pueden ser modificados</p>
+<p>Por ejemplo en esta instrucción generamos el gráfico</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_orange</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>Orange</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>age</span>, y <span class='op'>=</span> <span class='va'>circumference</span> , color <span class='op'>=</span> <span class='va'>Tree</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<p>Y lo mostramos acá</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_orange</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+</div>
+<p>Sin embargo podemos modificarlo posteriormente a su creación:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_orange</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+</div>
+<p>Incluso podríamos agregar nuevas geometrías</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_orange</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
 <h2 id="gráficos-impresindibles">Gráficos impresindibles</h2>
+<h3 id="boxplot">Boxplot</h3>
+<p>Es un gráfico que muestra diferentes poblaciones y la dispersión de cada una de ellas</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sleep_boxplot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>sleep</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>group</span>, y <span class='op'>=</span> <span class='va'>extra</span>, color<span class='op'>=</span><span class='va'>group</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_boxplot.html'>geom_boxplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_viridis.html'>scale_color_viridis_d</a></span><span class='op'>(</span>option<span class='op'>=</span><span class='st'>'cvidis'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>sleep_boxplot</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+</div>
+<h3 id="graficos-de-barras">Graficos de Barras</h3>
+<p>Los gráficos de barras tienen dos variantes, <strong>geom_bar</strong> y <strong>geom_col</strong>. La primera puede calcular la métrica a representar la segunda espera que la métrica este calculada:</p>
+<h4 id="geom_bar">geom_bar()</h4>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>InsectSprays</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>spray</span>, y <span class='op'>=</span> <span class='va'>count</span>, fill <span class='op'>=</span> <span class='va'>spray</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat<span class='op'>=</span><span class='st'>'summary'</span>, fun<span class='op'>=</span><span class='st'>'mean'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer</a></span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>'RdYlBu'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+</div>
+<h4 id="geom_col">geom_col()</h4>
+<p>En este caso se calcula por fuera y ya que es compatible con <strong>dplyr</strong> podemos usarlo. Ademas podemos calcular otras métricas como la desviación estándar para luego calcular las barras de error.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>InsectSprays</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>spray</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>spray_mean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span>, spray_sd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>spray</span>, y<span class='op'>=</span><span class='va'>spray_mean</span>, fill <span class='op'>=</span> <span class='va'>spray</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin<span class='op'>=</span><span class='va'>spray_mean</span> <span class='op'>-</span> <span class='va'>spray_sd</span>, ymax <span class='op'>=</span> <span class='va'>spray_mean</span> <span class='op'>+</span> <span class='va'>spray_sd</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer</a></span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>'RdYlBu'</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<h3 id="histograma">Histograma</h3>
+<p>Permite ver la distribución de las poblaciones</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>txhousing</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>sales</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+</div>
+<h3 id="gráficos-de-línea">Gráficos de línea</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>Orange</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>age</span>, y <span class='op'>=</span> <span class='va'>circumference</span> , color <span class='op'>=</span> <span class='va'>Tree</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+</div>
+<h3 id="gráficos-de-dispersión">Gráficos de dispersión</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>Show code</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>trees</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Volume</span>, y <span class='op'>=</span> <span class='va'>Height</span>, size <span class='op'>=</span> <span class='va'>Girth</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>alpha <span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="visualizacion_de_datos_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
