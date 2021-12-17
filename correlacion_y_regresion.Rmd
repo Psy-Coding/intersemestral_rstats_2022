@@ -23,8 +23,6 @@ Las variables NO son variable independiente (causa) y dependiente(efecto) en la 
 ¿Por qué?
 Porque una correlación fuerte entre dos variables no significa que una de ellas sea la causa de la otra.
 
-![Meme](https://i.chzbgr.com/full/1665317632/hDA2412AB/stoopid-humin-correlation-does-not-imply-causation)
-
 
 ## Hipótesis en la correlación
 
@@ -60,7 +58,7 @@ Expresan cuantitativamente la **magnitud** y **dirección** de la relación entr
 Vamos a trabajar con los datos de [ABIDE.](http://fcon_1000.projects.nitrc.org/indi/abide/) Para esto primero vamos a leer el archivo csv y explorarlo.
 
 ```{r}
-BD_ABIDE<-read.csv("./img/Phenotypic_V1_0b.csv")
+BD_ABIDE<-read.csv("./datos/Phenotypic_V1_0b.csv")
 ```
 
 Veamos las variables que contiene:
@@ -71,11 +69,13 @@ names(BD_ABIDE)
 Seleccionemos ahora los datos con los que nos interesa trabajar, para ello usaremos funciones de dplyr:
 ```{r message=FALSE, warning=FALSE}
 library(dplyr)
-BD<-BD_ABIDE %>% select(SITE_ID,DX_GROUP,SRS_RAW_TOTAL,VIQ,AGE_AT_SCAN) %>% filter(SITE_ID=="YALE",SRS_RAW_TOTAL!=-9999) #Se eliminan valores NA codificados como -9999 en esta base de datos
+BD<-BD_ABIDE %>% 
+  select(SITE_ID,DX_GROUP,SRS_RAW_TOTAL,VIQ,AGE_AT_SCAN) %>% filter(SITE_ID=="YALE",SRS_RAW_TOTAL!=-9999) 
+#Se eliminan valores NA codificados como -9999 en esta base de datos
 ```
 Ahora veamos la estructura general de los datos con los que vamos a trabajar
 ```{r}
-str(BD_ABIDE)
+str(BD)
 ```
 
 Aquí, la variable DX_GROUP se toma como íntegro, pero realmente debería ser un factor de 2 niveles (1= Trastorno del Espectro Autista, 2= Desarrollo Típico):
@@ -149,6 +149,7 @@ cor.test(BD$SRS_RAW_TOTAL,BD$VIQ)
 Aquí, el valor de cor indica la magnitud y la dirección de la correlación. El p-value nos indica si los resultados caen dentro de la zona de rechazo o la zona de aceptación de la hipótesis nula. 
 
 ![H0](https://www.researchgate.net/publication/321629525/figure/fig1/AS:591458335723520@1518026064380/Figura-5-Regiones-de-rechazo-y-aceptacion-de-H-0-Valores-calculados-En-la-tabla-3-se.png)
+
 En general, en psicología suele asumirse un riesgo de 5% de concluir que existe un efecto cuando en realidad no lo hay (rechazar la hipótesis nula y quedarnos con la alternativa), por lo cual un p-value<0.05 implica que existe una relación estadísticamente significativa. 
 
 Una diferencia **estadísticamente significativa** solamente significa que existe evidencia estadística de que hay una relación. NO significa que la diferencia sea grande, importante o radicalmente diferente; para conocer la magnitud de la correlación recurrimos al coeficiente (cor).
@@ -250,7 +251,7 @@ Al igual que la regresión lineal permite predecir la variable dependiente a par
 
 - Regresión logística binomial: La VD toma dos valores (0 y 1) dependiendo de si el individuo tiene una característica (1) o no (0).
 
-- Regresión logística multinomial: La VD tiene más de dos categorías. 
+- [Regresión logística multinomial](https://rpubs.com/jaimeisaacp/789806#:~:text=La%20regresi%C3%B3n%20multinomial%20es%20una,una%20o%20m%C3%A1s%20variables%20independientes.): La VD tiene más de dos categorías. 
 
 # Regresión logística binomial
 
