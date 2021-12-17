@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   
   
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-12-16"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-12-16"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-12-17"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-17"/>
   <meta name="article:author" content="Emma Botello"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["3.3 Correlación y regresión lineal"]},{"type":"character","attributes":{},"value":["Revisión de los principios sobre ambos análisis y código para llevarlos a cabo. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Emma Botello"]},{"type":"character","attributes":{},"value":["Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-16"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["3.3 Correlación y regresión lineal"]},{"type":"character","attributes":{},"value":["Revisión de los principios sobre ambos análisis y código para llevarlos a cabo. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Emma Botello"]},{"type":"character","attributes":{},"value":["Psycoding"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2060,7 +2060,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"3.3 Correlación y regresión lineal","description":"Revisión de los principios sobre ambos análisis y código para llevarlos a cabo.","authors":[{"author":"Emma Botello","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-16T00:00:00.000+00:00","citationText":"Botello, 2021"}
+{"title":"3.3 Correlación y regresión lineal","description":"Revisión de los principios sobre ambos análisis y código para llevarlos a cabo.","authors":[{"author":"Emma Botello","authorURL":"#","affiliation":"Psycoding","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-17T00:00:00.000+00:00","citationText":"Botello, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2122,11 +2122,467 @@ Temas
 <div class="d-byline">
   Emma Botello  (Psycoding)
   
-<br/>2021-12-16
+<br/>2021-12-17
 </div>
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h1 id="correlación">Correlación</h1>
+<p>Su finalidad es conocer la relación o grado de asociación que existe entre dos o más conceptos, categorías o variables en una muestra o contexto particular.</p>
+<p>Las variables NO son variable independiente (causa) y dependiente(efecto) en la correlación.</p>
+<p>¿Por qué? Porque una correlación fuerte entre dos variables no significa que una de ellas sea la causa de la otra.</p>
+<h2 id="hipótesis-en-la-correlación">Hipótesis en la correlación</h2>
+<h3 id="hipótesis-estadísticas">Hipótesis estadísticas</h3>
+<p>H0: No existe una relación estadísticamente significativa entre las variables.</p>
+<p>H1: Existe una relación estadísticamente significativa entre las variables.</p>
+<h3 id="hipótesis-de-trabajo">Hipótesis de trabajo</h3>
+<p>Plantean que existe relación entre dos o más variables y puede ser que se especifique cómo están asociadas:</p>
+<ul>
+<li>Existe una relación entre el nivel socioeconómico y la calidad de vida.</li>
+<li>A mayor nivel socioeconómico, mayor calidad de vida.</li>
+<li>A mayor nivel socioeconómico, menor calidad de vida.</li>
+</ul>
+<p>Se debe tomar en cuenta que en una hipótesis de correlación NO es importante en qué orden coloquemos las variables, ya que no hay relación de causalidad.</p>
+<p>cuando X es mayor, Y es mayor = cuando Y es mayor, X es mayor cuando X es mayor, Y es menor = cuando Y es menor, X es mayor</p>
+<h2 id="pruebas-de-hipótesis-los-coeficientes-de-correlación">Pruebas de hipótesis: Los coeficientes de correlación</h2>
+<p>Expresan cuantitativamente la <strong>magnitud</strong> y <strong>dirección</strong> de la relación entre dos variables.<br />
+* Magnitud: 0-1 * Dirección: Negativa-Positiva</p>
+<figure>
+<img src="img/Interpretacion_corr.jpg" alt="" /><figcaption>Interpretacion</figcaption>
+</figure>
+<ul>
+<li>Correlación negativa perfecta: cada vez que X aumenta una unidad, Y disminuye siempre una cantidad constante</li>
+<li>Correlación positiva perfecta: cada vez que X aumenta una unidad, Y aumenta siempre una cantidad constante</li>
+</ul>
+<p>Vamos a trabajar con los datos de <a href="http://fcon_1000.projects.nitrc.org/indi/abide/">ABIDE.</a> Para esto primero vamos a leer el archivo csv y explorarlo.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>BD_ABIDE</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"./datos/Phenotypic_V1_0b.csv"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+Veamos las variables que contiene:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>BD_ABIDE</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;SITE_ID&quot;                        
+ [2] &quot;SUB_ID&quot;                         
+ [3] &quot;DX_GROUP&quot;                       
+ [4] &quot;DSM_IV_TR&quot;                      
+ [5] &quot;AGE_AT_SCAN&quot;                    
+ [6] &quot;SEX&quot;                            
+ [7] &quot;HANDEDNESS_CATEGORY&quot;            
+ [8] &quot;HANDEDNESS_SCORES&quot;              
+ [9] &quot;FIQ&quot;                            
+[10] &quot;VIQ&quot;                            
+[11] &quot;PIQ&quot;                            
+[12] &quot;FIQ_TEST_TYPE&quot;                  
+[13] &quot;VIQ_TEST_TYPE&quot;                  
+[14] &quot;PIQ_TEST_TYPE&quot;                  
+[15] &quot;ADI_R_SOCIAL_TOTAL_A&quot;           
+[16] &quot;ADI_R_VERBAL_TOTAL_BV&quot;          
+[17] &quot;ADI_RRB_TOTAL_C&quot;                
+[18] &quot;ADI_R_ONSET_TOTAL_D&quot;            
+[19] &quot;ADI_R_RSRCH_RELIABLE&quot;           
+[20] &quot;ADOS_MODULE&quot;                    
+[21] &quot;ADOS_TOTAL&quot;                     
+[22] &quot;ADOS_COMM&quot;                      
+[23] &quot;ADOS_SOCIAL&quot;                    
+[24] &quot;ADOS_STEREO_BEHAV&quot;              
+[25] &quot;ADOS_RSRCH_RELIABLE&quot;            
+[26] &quot;ADOS_GOTHAM_SOCAFFECT&quot;          
+[27] &quot;ADOS_GOTHAM_RRB&quot;                
+[28] &quot;ADOS_GOTHAM_TOTAL&quot;              
+[29] &quot;ADOS_GOTHAM_SEVERITY&quot;           
+[30] &quot;SRS_VERSION&quot;                    
+[31] &quot;SRS_RAW_TOTAL&quot;                  
+[32] &quot;SRS_AWARENESS&quot;                  
+[33] &quot;SRS_COGNITION&quot;                  
+[34] &quot;SRS_COMMUNICATION&quot;              
+[35] &quot;SRS_MOTIVATION&quot;                 
+[36] &quot;SRS_MANNERISMS&quot;                 
+[37] &quot;SCQ_TOTAL&quot;                      
+[38] &quot;AQ_TOTAL&quot;                       
+[39] &quot;COMORBIDITY&quot;                    
+[40] &quot;CURRENT_MED_STATUS&quot;             
+[41] &quot;MEDICATION_NAME&quot;                
+[42] &quot;OFF_STIMULANTS_AT_SCAN&quot;         
+[43] &quot;VINELAND_RECEPTIVE_V_SCALED&quot;    
+[44] &quot;VINELAND_EXPRESSIVE_V_SCALED&quot;   
+[45] &quot;VINELAND_WRITTEN_V_SCALED&quot;      
+[46] &quot;VINELAND_COMMUNICATION_STANDARD&quot;
+[47] &quot;VINELAND_PERSONAL_V_SCALED&quot;     
+[48] &quot;VINELAND_DOMESTIC_V_SCALED&quot;     
+[49] &quot;VINELAND_COMMUNITY_V_SCALED&quot;    
+[50] &quot;VINELAND_DAILYLVNG_STANDARD&quot;    
+[51] &quot;VINELAND_INTERPERSONAL_V_SCALED&quot;
+[52] &quot;VINELAND_PLAY_V_SCALED&quot;         
+[53] &quot;VINELAND_COPING_V_SCALED&quot;       
+[54] &quot;VINELAND_SOCIAL_STANDARD&quot;       
+[55] &quot;VINELAND_SUM_SCORES&quot;            
+[56] &quot;VINELAND_ABC_STANDARD&quot;          
+[57] &quot;VINELAND_INFORMANT&quot;             
+[58] &quot;WISC_IV_VCI&quot;                    
+[59] &quot;WISC_IV_PRI&quot;                    
+[60] &quot;WISC_IV_WMI&quot;                    
+[61] &quot;WISC_IV_PSI&quot;                    
+[62] &quot;WISC_IV_SIM_SCALED&quot;             
+[63] &quot;WISC_IV_VOCAB_SCALED&quot;           
+[64] &quot;WISC_IV_INFO_SCALED&quot;            
+[65] &quot;WISC_IV_BLK_DSN_SCALED&quot;         
+[66] &quot;WISC_IV_PIC_CON_SCALED&quot;         
+[67] &quot;WISC_IV_MATRIX_SCALED&quot;          
+[68] &quot;WISC_IV_DIGIT_SPAN_SCALED&quot;      
+[69] &quot;WISC_IV_LET_NUM_SCALED&quot;         
+[70] &quot;WISC_IV_CODING_SCALED&quot;          
+[71] &quot;WISC_IV_SYM_SCALED&quot;             
+[72] &quot;EYE_STATUS_AT_SCAN&quot;             
+[73] &quot;AGE_AT_MPRAGE&quot;                  
+[74] &quot;BMI&quot;                            </code></pre>
+</div>
+Seleccionemos ahora los datos con los que nos interesa trabajar, para ello usaremos funciones de dplyr:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<span class='va'>BD</span><span class='op'>&lt;-</span><span class='va'>BD_ABIDE</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>SITE_ID</span>,<span class='va'>DX_GROUP</span>,<span class='va'>SRS_RAW_TOTAL</span>,<span class='va'>VIQ</span>,<span class='va'>AGE_AT_SCAN</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>SITE_ID</span><span class='op'>==</span><span class='st'>"YALE"</span>,<span class='va'>SRS_RAW_TOTAL</span><span class='op'>!=</span><span class='op'>-</span><span class='fl'>9999</span><span class='op'>)</span> 
+<span class='co'>#Se eliminan valores NA codificados como -9999 en esta base de datos</span>
+</code></pre>
+</div>
+</div>
+Ahora veamos la estructura general de los datos con los que vamos a trabajar
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>BD</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>&#39;data.frame&#39;:   52 obs. of  5 variables:
+ $ SITE_ID      : chr  &quot;YALE&quot; &quot;YALE&quot; &quot;YALE&quot; &quot;YALE&quot; ...
+ $ DX_GROUP     : int  2 2 2 2 2 2 2 2 2 2 ...
+ $ SRS_RAW_TOTAL: int  4 1 12 17 10 35 28 28 2 2 ...
+ $ VIQ          : int  107 106 119 87 122 89 92 101 116 106 ...
+ $ AGE_AT_SCAN  : num  15.92 12.75 9.75 8.67 14.42 ...</code></pre>
+</div>
+<p>Aquí, la variable DX_GROUP se toma como íntegro, pero realmente debería ser un factor de 2 niveles (1= Trastorno del Espectro Autista, 2= Desarrollo Típico):</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>BD</span><span class='op'>$</span><span class='va'>DX_GROUP</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>BD</span><span class='op'>$</span><span class='va'>DX_GROUP</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1"</span>,<span class='st'>"2"</span><span class='op'>)</span>,
+                  labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"TEA"</span>,<span class='st'>"DT"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+Veamos los descriptivos de la muestra:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>BD</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>DX_GROUP</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>
+    n<span class='op'>=</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>,
+    media_edad<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>AGE_AT_SCAN</span><span class='op'>)</span>,
+    ds_edad<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>AGE_AT_SCAN</span><span class='op'>)</span>,
+    min_edad<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>AGE_AT_SCAN</span><span class='op'>)</span>,
+    max_edad<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>AGE_AT_SCAN</span><span class='op'>)</span>,
+    media_SRS<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>SRS_RAW_TOTAL</span><span class='op'>)</span>,
+    ds_SRS<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>SRS_RAW_TOTAL</span><span class='op'>)</span>,
+    min_SRS<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>SRS_RAW_TOTAL</span><span class='op'>)</span>,
+    max_SRS<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>SRS_RAW_TOTAL</span><span class='op'>)</span>,
+    media_VIQ<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>VIQ</span><span class='op'>)</span>,
+    ds_VIQ<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>VIQ</span><span class='op'>)</span>,
+    min_VIQ<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>VIQ</span><span class='op'>)</span>,
+    max_VIQ<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>VIQ</span><span class='op'>)</span>,
+    
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 2 × 14
+  DX_GROUP     n media_edad ds_edad min_edad max_edad media_SRS ds_SRS
+  &lt;fct&gt;    &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;
+1 TEA         26       13.0    2.94     7        17.8      93.4   25.3
+2 DT          26       12.6    2.81     7.66     17.8      23.3   19.7
+# … with 6 more variables: min_SRS &lt;int&gt;, max_SRS &lt;int&gt;,
+#   media_VIQ &lt;dbl&gt;, ds_VIQ &lt;dbl&gt;, min_VIQ &lt;int&gt;, max_VIQ &lt;int&gt;</code></pre>
+</div>
+<h2 id="visualización-en-scatter-plots-diagramas-de-dispersión">Visualización en Scatter plots (diagramas de dispersión)</h2>
+<p>Podemos darnos una idea de cómo es la relación entre dos variables usando los digramas de dispersión. En esta clase de visualización se grafica un punto en la coordenada donde interseccionan el valor de una variable X y el valor de una variable Y.</p>
+<p><img src="https://www.maximaformacion.es/wp-content/uploads/2019/02/img08.png" alt="Scatter_plots" /> Cuanto más cercanos son los puntos a una línea modelada, mayor es la magnitud del coeficiente de correlación.</p>
+Vamos a visualizar nuestras variables
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>BD</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>SRS_RAW_TOTAL</span>, y<span class='op'>=</span><span class='va'>VIQ</span>, color<span class='op'>=</span><span class='va'>DX_GROUP</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>
+        color <span class='op'>=</span><span class='st'>"Grupo"</span>,
+        x<span class='op'>=</span><span class='st'>"Puntaje SRS"</span>,
+        y<span class='op'>=</span><span class='st'>"VIQ"</span>
+    <span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="correlacion_y_regresion_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>BD</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>SRS_RAW_TOTAL</span>, y<span class='op'>=</span><span class='va'>VIQ</span>, color<span class='op'>=</span><span class='va'>AGE_AT_SCAN</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>
+        color <span class='op'>=</span><span class='st'>"Edad"</span>,
+        x<span class='op'>=</span><span class='st'>"Puntaje SRS"</span>,
+        y<span class='op'>=</span><span class='st'>"VIQ"</span>
+    <span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="correlacion_y_regresion_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<h2 id="calculando-los-coeficientes">Calculando los coeficientes</h2>
+<ul>
+<li>Coeficiente de correlación de Pearson (r) o coeficiente producto-momento.</li>
+</ul>
+Es una prueba paramétrica usada para analizar la relación entre dos variables medidas en un nivel de intervalos o razón (variables cuantitativas continuas).
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/cor.test.html'>cor.test</a></span><span class='op'>(</span><span class='va'>BD</span><span class='op'>$</span><span class='va'>SRS_RAW_TOTAL</span>,<span class='va'>BD</span><span class='op'>$</span><span class='va'>VIQ</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+    Pearson&#39;s product-moment correlation
+
+data:  BD$SRS_RAW_TOTAL and BD$VIQ
+t = -1.6335, df = 50, p-value = 0.1086
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.46916880  0.05094158
+sample estimates:
+       cor 
+-0.2250879 </code></pre>
+</div>
+<p>Aquí, el valor de cor indica la magnitud y la dirección de la correlación. El p-value nos indica si los resultados caen dentro de la zona de rechazo o la zona de aceptación de la hipótesis nula.</p>
+<figure>
+<img src="https://www.researchgate.net/publication/321629525/figure/fig1/AS:591458335723520@1518026064380/Figura-5-Regiones-de-rechazo-y-aceptacion-de-H-0-Valores-calculados-En-la-tabla-3-se.png" alt="" /><figcaption>H0</figcaption>
+</figure>
+<p>En general, en psicología suele asumirse un riesgo de 5% de concluir que existe un efecto cuando en realidad no lo hay (rechazar la hipótesis nula y quedarnos con la alternativa), por lo cual un p-value&lt;0.05 implica que existe una relación estadísticamente significativa.</p>
+<p>Una diferencia <strong>estadísticamente significativa</strong> solamente significa que existe evidencia estadística de que hay una relación. NO significa que la diferencia sea grande, importante o radicalmente diferente; para conocer la magnitud de la correlación recurrimos al coeficiente (cor).</p>
+<ul>
+<li>Coeficiente de correlación de Spearman (ρ), correlación de grados/rangos ordenados o Rho (ρ) de Spearman.</li>
+</ul>
+<p>Es la alternativa no paramétrica de la correlación de Pearson, sin embargo es aplicable cuando las mediciones se realizan en una escala ordinal, aprovechando la clasificación por rangos.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/cor.test.html'>cor.test</a></span><span class='op'>(</span><span class='va'>BD</span><span class='op'>$</span><span class='va'>SRS_RAW_TOTAL</span>,<span class='va'>BD</span><span class='op'>$</span><span class='va'>VIQ</span>, method <span class='op'>=</span> <span class='st'>"spearman"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+    Spearman&#39;s rank correlation rho
+
+data:  BD$SRS_RAW_TOTAL and BD$VIQ
+S = 30227, p-value = 0.03681
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+       rho 
+-0.2903192 </code></pre>
+</div>
+<h2 id="matrices-de-correlación">Matrices de correlación</h2>
+<p>Permiten identificar visualmente el valor de múltiples coeficientes de correlación y la dirección de las relaciones.</p>
+<p><img src="https://jcasasr.files.wordpress.com/2015/10/test.png" alt="Ejemplo" /> * <a href="http://www.sthda.com/english/wiki/visualize-correlation-matrix-using-correlogram">Aquí</a> un tutorial para hacer matrices de correlación con la libreria <strong>corrplot.</strong> * <a href="https://r-coder.com/grafico-correlacion-r/#Graficos_de_correlacion_en_R_con_el_paquete_psych">Aquí</a> un tutorial para hacer matrices de correlación con la libreria <strong>psych.</strong> * <a href="https://r-charts.com/correlation/">Aquí</a> hay múltiples tutoriales útiles para graficar correlaciones.</p>
+<h1 id="regresión-lineal">Regresión lineal</h1>
+<p>Es un modelo estadístico que brinda la oportunidad de predecir las puntuaciones de una variable a partir de las puntuaciones de otra (estimar el efecto de una sobre otra)</p>
+<p>Está asociado con el coeficiente de correlación de Pearson, pues a mayor magnitud del coeficiente se tiene mayor capacidad de predicción.</p>
+<p>A diferencia de la correlación, sí se considera a una variable como dependiente y la otra independiente.</p>
+<p>Trabaja con variables en nivel de medición de intervalos o razón. <img src="http://fotologs.miarroba.st/photo/5297849/11/578x326/0f5b712fe3046fbb/1318785633.jpg" alt="escalas_medicion" /> # Recta de regresión</p>
+<p>La regresión lineal consiste en modelar la ecuación de una recta que pueda resumir el diagrama de dispersión. La ecuación modelada es:</p>
+<p>Y’ = B0 + B1*x’</p>
+<p>Donde:</p>
+<ul>
+<li><strong>Y’</strong> es un valor de la variable dependiente que se desea predecir</li>
+<li><strong>B0</strong> es el intercepto (valor que toma Y cuando X vale 0)</li>
+<li><strong>B1</strong> es la pendiente o inclinación de la recta. Para interpretar la pendiente se dice que: por cada unidad adicional en x, la variable Y aumenta <strong>B1</strong> unidades.<br />
+</li>
+<li><strong>x’</strong> es el valor nuevo que se asigna a la variable independiente o predictora.</li>
+</ul>
+<p>B0 y B1 son coeficientes <strong>constantes</strong> que se obtienen al modelar la línea que mejor se ajusta a los datos. Tanto Y’ como x’ van cambiando, pues la nueva entrada da otro valor al realizar las operaciones de la ecuación.</p>
+<figure>
+<img src="https://i.ytimg.com/vi/LDc1huDUla0/maxresdefault.jpg" alt="" /><figcaption>Recta_regrresion</figcaption>
+</figure>
+<h1 id="comandos-en-r">Comandos en R</h1>
+Con el comando <strong>lm(variable dependiente~predictor1, data = mis_datos)</strong> generemos un objeto donde se almacena la información del modelo.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>modelo_simple</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>SRS_RAW_TOTAL</span> <span class='op'>~</span> <span class='va'>VIQ</span>, data <span class='op'>=</span> <span class='va'>BD</span><span class='op'>)</span>
+<span class='co'>#modelo_multiple &lt;- lm(SRS_RAW_TOTAL ~ VIQ+ AGE_AT_SCAN, data = BD)</span>
+<span class='va'>modelo_simple</span>
+</code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = SRS_RAW_TOTAL ~ VIQ, data = BD)
+
+Coefficients:
+(Intercept)          VIQ  
+   107.2495      -0.4741  </code></pre>
+</div>
+<ul>
+<li><p>Intercepto: El valor promedio del puntaje de la SRS cuando el coeficiente intelectual verbal vale 0 es de 107.2495 unidades.</p></li>
+<li><p>Pendiente (predictor disp): Por cada unidad que se incrementa en el predictor VIQ, el puntaje de la SRS disminuye en promedio 0.4741 unidades.</p></li>
+</ul>
+Para conocer el contenido del objeto:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>modelo_simple</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
+ [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
+ [9] &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;        </code></pre>
+</div>
+Para visualizar los principales parámetros del modelo:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>modelo_simple</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = SRS_RAW_TOTAL ~ VIQ, data = BD)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-55.997 -37.101  -4.937  32.953  87.633 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 107.2495    30.4789   3.519 0.000934 ***
+VIQ          -0.4741     0.2902  -1.634 0.108640    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 41.25 on 50 degrees of freedom
+Multiple R-squared:  0.05066,   Adjusted R-squared:  0.03168 
+F-statistic: 2.668 on 1 and 50 DF,  p-value: 0.1086</code></pre>
+</div>
+<p>Se observa que el p-value del estadístico F es mayor a .05 (0.108640) , lo cual indica que el predictor del modelo no está significativamente relacionado con la variable dependiente.</p>
+<p>Acorde a lo obtenido en multiple R-squared, el VIQ es capaz de explicar el 05.06% de la variabilidad observada en los puntajes totales de la SRS.</p>
+<h1 id="gráfico-de-dispersión-con-la-recta-de-regresión">Gráfico de dispersión con la recta de regresión</h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#plot(BD$VIQ,BD$SRS_RAW_TOTAL)</span>
+<span class='co'>#abline(modelo_simple, col = "red")</span>
+
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>BD</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>VIQ</span>, y <span class='op'>=</span> <span class='va'>SRS_RAW_TOTAL</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>color<span class='op'>=</span><span class='st'>'blue'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>
+    x<span class='op'>=</span><span class='st'>"Coeficiente intelectual verbal"</span>,
+    y<span class='op'>=</span><span class='st'>"Escala de sensibilidad social (Total)"</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="correlacion_y_regresion_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<h1 id="regresión-logística">Regresión logística</h1>
+<p>Al igual que la regresión lineal permite predecir la variable dependiente a partir de la independiente. Sin embargo, la variable dependiente (VD) NO es cuantitativa, es categórica.</p>
+<ul>
+<li><p>Regresión logística binomial: La VD toma dos valores (0 y 1) dependiendo de si el individuo tiene una característica (1) o no (0).</p></li>
+<li><p><a href="https://rpubs.com/jaimeisaacp/789806#:~:text=La%20regresi%C3%B3n%20multinomial%20es%20una,una%20o%20m%C3%A1s%20variables%20independientes.">Regresión logística multinomial</a>: La VD tiene más de dos categorías.</p></li>
+</ul>
+<h1 id="regresión-logística-binomial">Regresión logística binomial</h1>
+<p><strong>Es un modelo de predicción de probabilidad de ocurrencia de una variable dicotómica categórica</strong></p>
+<p>Permite responder a la pregunta ¿qué tan probable es que ocurra una categoría determinada de la variable dependiente cuando se presenta cierto valor o cierta categoría en la(s) variable(s) independiente(s)?</p>
+<p>Es decir, las variables independientes pueden ser tanto numéricas como categóricas.</p>
+<p>Una de las principales aplicaciones de la regresión logística es la de clasificación binaria, en el que las observaciones se clasifican en un grupo u otro dependiendo del valor que tome la variable empleada como predictor. Por ejemplo, clasificar a una mujer como infertil o no en función de la edad, el número de abortos inducidos y espontáneos previos, información que se encuentra disponible en la base <em>infert.</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>infert</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  education age parity induced case spontaneous stratum
+1    0-5yrs  26      6       1    1           2       1
+2    0-5yrs  42      1       1    1           0       2
+3    0-5yrs  39      6       2    1           0       3
+4    0-5yrs  34      4       2    1           0       4
+5   6-11yrs  35      3       1    1           1       5
+6   6-11yrs  36      4       2    1           1       6
+  pooled.stratum
+1              3
+2              1
+3              4
+4              2
+5             32
+6             36</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#help(infert)</span>
+</code></pre>
+</div>
+</div>
+<p>El diagrama de dispersión de dos variables categóricas no brinda mucha información, pues los datos de todas las participantes se agrupan en alguna de las 3 categorías de la variable <strong>induced</strong> y en alguno de las dos de la variable <strong>case</strong>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>infertilidad</span> <span class='op'>&lt;-</span> <span class='va'>infert</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>infertilidad</span><span class='op'>$</span><span class='va'>induced</span>, <span class='va'>infert</span><span class='op'>$</span><span class='va'>case</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="correlacion_y_regresion_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+</div>
+<h1 id="no-hay-linealidad-en-los-datos">NO hay linealidad en los datos</h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>infert</span><span class='op'>$</span><span class='va'>age</span>, <span class='va'>infert</span><span class='op'>$</span><span class='va'>case</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="correlacion_y_regresion_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+</div>
+<p>El diagrama de dispersión muestra dos líneas de datos agrupados de acuerdo con las categorías de la variable dependiente, por lo que no se cumple el supuesto de linealidad (los datos no se pueden representar con una línea recta). Esto es importante, ya que para cumplir este supuesto, internamente el modelo hace una transformación logarítmica de los datos.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>modelo_logistica</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span>
+  <span class='va'>case</span> <span class='op'>~</span> <span class='va'>age</span> <span class='op'>+</span> <span class='va'>induced</span> <span class='op'>+</span> <span class='va'>spontaneous</span>, 
+  data <span class='op'>=</span> <span class='va'>infertilidad</span>, family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>modelo_logistica</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+Call:
+glm(formula = case ~ age + induced + spontaneous, family = binomial, 
+    data = infertilidad)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.6678  -0.8201  -0.5984   0.9251   2.0236  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -2.40494    0.96380  -2.495   0.0126 *  
+age          0.02154    0.02842   0.758   0.4484    
+induced      0.43429    0.20663   2.102   0.0356 *  
+spontaneous  1.21446    0.21331   5.693 1.25e-08 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 316.17  on 247  degrees of freedom
+Residual deviance: 279.04  on 244  degrees of freedom
+AIC: 287.04
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<h1 id="interpretación-de-los-coeficientes-del-modelo">Interpretación de los coeficientes del modelo</h1>
+<p>Los coeficientes miden el impacto en el logaritmo de la probabilidad. Para quitar el logaritmo se saca el exponencial de los coeficientes.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coefficients</a></span><span class='op'>(</span><span class='va'>modelo_logistica</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>(Intercept)         age     induced spontaneous 
+ 0.09027084  1.02177801  1.54387033  3.36845833 </code></pre>
+</div>
+<p>Se interpretan sólo los predictores que fueron significativos en el summary:</p>
+<ul>
+<li><strong>Induced</strong> Por cada aborto inducido que se aumenta, la probabilidad de que la mujer sea infértil incrementa 1.54 unidades.</li>
+<li><strong>Spontaneous</strong> Por cada aborto espontáneo que se aumenta, la probabilidad de que la mujer sea infértil incrementa 3.36 unidades.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
