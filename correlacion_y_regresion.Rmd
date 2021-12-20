@@ -152,11 +152,13 @@ Aquí, el valor de cor indica la magnitud y la dirección de la correlación. El
 
 En general, en psicología suele asumirse un riesgo de 5% de concluir que existe un efecto cuando en realidad no lo hay (rechazar la hipótesis nula y quedarnos con la alternativa), por lo cual un p-value<0.05 implica que existe una relación estadísticamente significativa. 
 
-Una diferencia **estadísticamente significativa** solamente significa que existe evidencia estadística de que hay una relación. NO significa que la diferencia sea grande, importante o radicalmente diferente; para conocer la magnitud de la correlación recurrimos al coeficiente (cor).
+Una diferencia **estadísticamente significativa** solamente significa que existe evidencia estadística de que hay una relación. NO significa que la relación sea grande, importante o radicalmente diferente; para conocer la magnitud de la correlación recurrimos al coeficiente (cor).
 
 * Coeficiente de correlación de Spearman (ρ), correlación de grados/rangos ordenados o Rho (ρ) de Spearman. 
 
 Es la alternativa no paramétrica de la correlación de Pearson, sin embargo es aplicable cuando las mediciones se realizan en una escala ordinal, aprovechando la clasificación por rangos. 
+
+Da click [aquí para leer](http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S1729-519X2009000200017) sobre la correlación de Spearman y la clasificación por rangos o [aquí para ver un tutorial.](https://www.youtube.com/watch?v=jscoRayse7I)
 
 ```{r}
 cor.test(BD$SRS_RAW_TOTAL,BD$VIQ, method = "spearman")
@@ -167,6 +169,7 @@ cor.test(BD$SRS_RAW_TOTAL,BD$VIQ, method = "spearman")
 Permiten identificar visualmente el valor de múltiples coeficientes de correlación y la dirección de las relaciones.
 
 ![Ejemplo](https://jcasasr.files.wordpress.com/2015/10/test.png)
+
 * [Aquí](http://www.sthda.com/english/wiki/visualize-correlation-matrix-using-correlogram) un tutorial para hacer matrices de correlación con la libreria **corrplot.** 
 * [Aquí](https://r-coder.com/grafico-correlacion-r/#Graficos_de_correlacion_en_R_con_el_paquete_psych) un tutorial para hacer matrices de correlación con la libreria **psych.**
 * [Aquí](https://r-charts.com/correlation/) hay múltiples tutoriales útiles para graficar correlaciones. 
@@ -212,7 +215,7 @@ modelo_simple
 
 * Intercepto: El valor promedio del puntaje de la SRS cuando el coeficiente intelectual verbal vale 0 es de 107.2495 unidades. 
 
-* Pendiente (predictor disp): Por cada unidad que se incrementa en el predictor VIQ, el puntaje de la SRS disminuye en promedio 0.4741 unidades.
+* Pendiente (predictor VIQ): Por cada unidad que se incrementa en el predictor VIQ, el puntaje de la SRS disminuye en promedio 0.4741 unidades.
 
 
 Para conocer el contenido del objeto: 
